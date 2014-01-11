@@ -10,7 +10,11 @@ public class GameController {
 	private TurnController turn;
 	private Dice roll = new Dice(1, 6, 2);
 	
-	// Lav en �ndring.... og gem.
+	// Så laver jeg om på din ændring. Og jeg kan se, at den ikke bruger UTF.... ae, oe og aa bliver kneppet.
+	// Så der skal lige fikses enten entities hele vejen:
+	// &aelig; = ae | &AElig = AE
+	// &oslash; = oe; | &Oslash; = OE;
+	// &aring; = aa | &Aring; = AA;
 	
 	// FINALS
 	private final int startCash = 30000;
