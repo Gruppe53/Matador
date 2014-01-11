@@ -25,55 +25,94 @@ public class GameController {
 		// Keep playing the game 'till someone is victorious
 		do {
 			// Check if current player hasn't already lost
-			if(turn.getIndex(turn.getCurrent()) == 0) {
-				System.out.println("Spiller " + turn.getCurrent() + "'s tur");
-				
+			if(turn.getIndex(turn.getCurrent()) == 0) {				
 				int c = GUI.getUserInteger(player[turn.getCurrent()].getName() 
 						+ ", det er din tur.\n"
 						+ "0.\tKast med terning\n"
-						+ "1.\tKøb hus/hotel\n"
+						+ "1.\tByg hus/hotel\n"
 						+ "2.\tSælg hus/hotel\n"
 						+ "3.\tPantsæt grund\n"
 						+ "4.\tByt med spiller\n"
-						+ "5. ", 0,5
+						+ "5.\tEt eller andet...",
+						0,
+						5
 				);
+				
+				// Do a new roll with dice
+				roll.throwDice();
+				
+				// Assign position-values
+				int currentPosition = player[turn.getCurrent()].getPosition();
+				int newPosition = currentPosition + roll.getSum();
 				
 				switch(c) {
 					case 0:
-						roll.throwDice();
+						// Draw the roll
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
+						
+						// Move the piece smoothly
+						movePiece(turn.getCurrent(), newPosition, currentPosition);
+						break;
+					case 1:
+						GUI.getUserInteger("Hvad vil de foretage dem?\n"
+								+ "0.\tByg hus(e)\n"
+								+ "1.\tByg hoteller\n"
+								+ "2.\tVende tilbage til spilmenu",
+								0,
+								2
+						);
+						break;
+					case 2:
+						// Something...
+						break;
+					case 3:
+						// Something..
+						break;
+					case 4:
+						// Something..
+						break;
+					case 5:
+						// Something..
 						break;
 					default:
-						roll.throwDice();
+						// Draw the roll
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
+						
+						// Move the piece smoothly
+						movePiece(turn.getCurrent(), newPosition, currentPosition);
 				}
 				
-				System.out.println(player[turn.getCurrent()].getName() + " valgte " + c);
-				
+				// Next player's turn
 				turn.nextTurn();
 			}
 		} while(turn.noWinner());
 		
+		
+		// End GUI-session, when game is done.
 		GUI.close();
 	}
 	
 	// Move the cars in the GUI "smoothly"
 	private void movePiece(int i, int n, int c) {
-		if (n > 21) {
-			n -= 21;
-
+		// If we pass start
+		if (n > 40) {
+			n -= 40;
+			
+			// First move the piece the last steps before hitting START
 			for (int f = 1; f <= (21 - c); f++) {
 				GUI.removeAllCars(player[i].getName());
 				GUI.setCar((c + f), player[i].getName());
 				sleep(300); // When testing, set to 1, or get bored
 			}
-
+			
+			// Now move the piece the fields after START
 			for (int f = 1; f <= n; f++) {
 				GUI.removeAllCars(player[i].getName());
 				GUI.setCar(f, player[i].getName());
 				sleep(300); // When testing, set to 1, or get bored
 			}
 		} else {
+			// Move the piece the require fields
 			for (int f = (c + 1); f <= n; f++) {
 				GUI.removeAllCars(player[i].getName());
 				GUI.setCar(f, player[i].getName());
@@ -84,7 +123,7 @@ public class GameController {
 		player[i].setPos(n);
 	}
 
-	// Create array with length of the user input n, and add players to GUI with name provided via user input
+	// Create an array with length of the user input n, and add players to GUI with the names provided via user input
 	private void createPlayers(int n) {
 		String name;
 		player = new Player[n];
@@ -95,7 +134,7 @@ public class GameController {
 			GUI.addPlayer(name, startCash, colorSet[i]);
 			GUI.showMessage(name + " has been added.");
 
-			player[i] = new Player(name);
+			player[i] = new Player(name, startCash);
 			turn.setIndex(i, 0);
 		}
 	}
