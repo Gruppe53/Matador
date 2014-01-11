@@ -28,7 +28,15 @@ public class GameController {
 			if(turn.getIndex(turn.getCurrent()) == 0) {
 				System.out.println("Spiller " + turn.getCurrent() + "'s tur");
 				
-				int c = GUI.getUserInteger(player[turn.getCurrent()].getName() + ", det er din tur.\n0.\tKast med terning\n1.\tK�b hus/hotel\n2.\tS�lg hus/hotel\n3.\tPants�t grund\n4.\tByt med spiller\n5. ", 0,5);
+				int c = GUI.getUserInteger(player[turn.getCurrent()].getName() 
+						+ ", det er din tur.\n"
+						+ "0.\tKast med terning\n"
+						+ "1.\tKøb hus/hotel\n"
+						+ "2.\tSælg hus/hotel\n"
+						+ "3.\tPantsæt grund\n"
+						+ "4.\tByt med spiller\n"
+						+ "5. ", 0,5
+				);
 				
 				switch(c) {
 					case 0:
