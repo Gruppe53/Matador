@@ -33,7 +33,6 @@ public class TurnController {
 	}
 	
 	public boolean noWinner() {
-		System.out.println("check winner");
 		int status = index.length;
 
 		for (int i = 0; i < index.length; i++)

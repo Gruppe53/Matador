@@ -10,6 +10,8 @@ public class GameController {
 	private TurnController turn;
 	private Dice roll = new Dice(1, 6, 2);
 	
+	// Git test
+	
 	// FINALS
 	private final int startCash = 30000;
 	
@@ -26,7 +28,7 @@ public class GameController {
 			if(turn.getIndex(turn.getCurrent()) == 0) {
 				System.out.println("Spiller " + turn.getCurrent() + "'s tur");
 				
-				int c = GUI.getUserInteger(player[turn.getCurrent()].getName() + ", det er din tur.\n0.\tKast med terning\n1.\tKøb hus/hotel\n2.\tSælg hus/hotel\n3.\tPantsæt grund\n4.\tByt med spiller\n5. ", 0,5);
+				int c = GUI.getUserInteger(player[turn.getCurrent()].getName() + ", det er din tur.\n0.\tKast med terning\n1.\tKï¿½b hus/hotel\n2.\tSï¿½lg hus/hotel\n3.\tPantsï¿½t grund\n4.\tByt med spiller\n5. ", 0,5);
 				
 				switch(c) {
 					case 0:
