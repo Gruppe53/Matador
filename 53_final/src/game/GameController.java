@@ -10,7 +10,7 @@ public class GameController {
 	private TurnController turn;
 	private Dice roll = new Dice(1, 6, 2);
 	
-	// Sidste test
+	// Lav en ændring.... og gem.
 	
 	// FINALS
 	private final int startCash = 30000;
