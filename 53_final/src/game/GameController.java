@@ -11,6 +11,7 @@ public class GameController {
 	private Dice roll = new Dice(1, 6, 2);
 	
 	// Pede test
+	//HEhehehAS
 	
 	// FINALS
 	private final int startCash = 30000;
