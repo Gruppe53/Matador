@@ -5,6 +5,11 @@ import java.awt.Color;
 import boundaryToMatador.GUI;
 
 public class GameController {
+	// For at fikse ae, oe og aa midlertidigt, kan entities bruges:
+	// &aelig; er lille ae | &AElig; er stort AE
+	// &oslash; er lille OE | &Oslash; er stort OE
+	// &aring; er lille AA | &Aring; er stort AA 
+	
 	private Player[] player;
 	
 	private TurnController turn;
