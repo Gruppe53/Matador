@@ -29,10 +29,6 @@ public class Street extends Ownable {
 		this.rent[5] = rent5;
 	}
 	
-	public void landOnField(){
-		// TODO - landOnField(Street)
-	}
-	
 	/**
 	 * 
 	 * @return The amount of houses.

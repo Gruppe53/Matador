@@ -11,7 +11,6 @@ public class Brewery extends Ownable {
 	public Brewery(String name, int price, int rent){
 		super(name, price);
 		this.rent = rent;
-		this.multiplier = 0;
 	}
 	
 	public int getRent() {
