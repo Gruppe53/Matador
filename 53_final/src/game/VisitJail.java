@@ -11,6 +11,6 @@ public class VisitJail extends Field {
 	}
 	
 	public void landOnField(){
-		// TODO
+		// TODO - landOnField (VisitJail)
 	}
 }

@@ -11,7 +11,7 @@ public class Chance extends Field {
 	}
 	
 	public void landOnField() {
-		// TODO
+		// TODO - Chance landOnField method needs to be made
 	}
 
 }

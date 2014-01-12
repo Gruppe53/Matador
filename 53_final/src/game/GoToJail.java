@@ -11,7 +11,7 @@ public class GoToJail extends Field {
 	}
 	
 	public void landOnField(){
-		// TODO
+		// TODO - GoToJail landOnField method needs to be made
 	}
 
 }

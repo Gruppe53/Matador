@@ -32,7 +32,7 @@ public class Street extends Ownable {
 	}
 	
 	public void landOnField(){
-		// TODO
+		// TODO - landOnField(Street)
 	}
 
 	public int getHouses() {

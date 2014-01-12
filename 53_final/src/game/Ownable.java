@@ -16,15 +16,15 @@ public class Ownable extends Field {
 	}
 	
 	public void landOnField(){
-		// TODO
+		// TODO - landOnField (Ownable)
 	}
 
 	public boolean isOwner(Player player) {
-		// TODO Auto-generated method stub
+		// TODO - isOwner (Ownable)
 		return false;
 	}
 
 	public void resetOwner() {
-		// TODO Auto-generated method stub
+		// TODO resetOwner (Ownable)
 	}
 }
