@@ -85,7 +85,7 @@
 	type::Street;;
 	backgroundColor::102,,204,,0;;
 	foregroundColor::0,,0,,0;;
-	title::B&oslash;lowsvej;; 
+	title::B&uuml;lowsvej;; 
 	subText::Pris: 2.800;; 
 	description::<html><span style="font-family: Courier, monospace;">1 hus&nbsp;&nbsp;&nbsp;&nbsp;1.000\n2 huse&nbsp;&nbsp;&nbsp;3.000\n3 huse&nbsp;&nbsp;&nbsp;9.000\n4 huse&nbsp;&nbsp;12.500\nHotel&nbsp;&nbsp;&nbsp;15.000</span></html>;;
 	leje::Leje: 200;;
