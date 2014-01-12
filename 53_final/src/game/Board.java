@@ -6,33 +6,27 @@ public class Board {
 	private Field[] boardArray = new Field[40];
 	
 	public Board() {
-		//fieldNumber = Street(name, price, cType, rent0, rent1, rent2, rent3, rent4, rent5)
-		//fieldNumber = Fleet(name, price, rent)
-		//fieldNumber = Brewery(name, price, rent)
-		//fieldNumber = Chance(name)
-		//fieldNumber = Tax(name, type)
-		//fieldNumber = GoToJail/VistJail/Parking()
-		boardArray[0] = new Start("Start"); // Fixet
+		boardArray[0] = new Start("Start");
 		boardArray[1] = new Street("R&oslash;dovrevej", 1200, 1, 50, 250, 750, 2250, 4000, 6000);
-		boardArray[2] = new Chance("Chance"); // Bare kald dem alle "Chance"
+		boardArray[2] = new Chance("Chance");
 		boardArray[3] = new Street("Hvidovrevej", 1200, 1, 50, 250, 750, 2250, 4000, 6000);
 		boardArray[4] = new Tax("Indkomstskat", 0);
-		boardArray[5] = new Fleet("Helsing&oslash;r-Helsingborg", 4000, 500); //TODO skal færgerne fikses p&aring; anden m&aring;de?
+		boardArray[5] = new Fleet("Helsing&oslash;r-Helsingborg", 4000);
 		boardArray[6] = new Street("Roskildevej", 2000, 2, 100, 600, 1800, 5400, 8000, 11000);
 		boardArray[7] = new Chance("Chance");
 		boardArray[8] = new Street("Valby Langgade", 2000, 2, 100, 600, 1800, 5400, 8000, 11000);
 		boardArray[9] = new Street("Allegade", 2400, 2, 150, 800, 2000, 6000, 9000, 12000);
-		boardArray[10] = new VisitJail("F&aelig;ngsel"); // Fixet
+		boardArray[10] = new VisitJail("F&aelig;ngsel"); 
 		boardArray[11] = new Street("Frederiksberg Alle", 2800, 3, 200, 1000, 3000, 9000, 12500, 15000);
-		boardArray[12] = new Brewery("Tuborg", 3000, 100); //TODO rent til bryggerierne?
+		boardArray[12] = new Brewery("Tuborg", 3000, 100);
 		boardArray[13] = new Street("B&uuml;lowsvej", 2800, 3, 200, 1000, 3000, 9000, 12500, 15000);
 		boardArray[14] = new Street("Gl. Kongevej", 3200, 3, 250, 1250, 3750, 10000, 14000, 18000);
-		boardArray[15] = new Fleet("Mols-Linien", 4000, 500);
+		boardArray[15] = new Fleet("Mols-Linien", 4000);
 		boardArray[16] = new Street("Bernstorffsvej", 3600, 4, 300, 1400, 4000, 11000, 15000, 19000);
 		boardArray[17] = new Chance("Chance");
 		boardArray[18] = new Street("Hellerupvej", 3600, 4, 300, 1400, 4000, 11000, 15000, 19000);
 		boardArray[19] = new Street("Strandvejen", 4000, 4, 350, 1600, 4400, 12000, 16000, 20000);
-		boardArray[20] = new Parking("Parkering"); // Fixet
+		boardArray[20] = new Parking("Parkering");
 		boardArray[21] = new Street("Trianglen", 4400, 5, 350, 1800, 5000, 14000, 17500, 21000);
 		boardArray[22] = new Chance("Chance");
 		boardArray[23] = new Street("&Oslash;sterbrogade", 4400, 5, 350, 1800, 5000, 14000, 17500, 21000);
@@ -42,7 +36,7 @@ public class Board {
 		boardArray[27] = new Street("Kgs. Nytorv", 5200, 6, 450, 2200, 6600, 16000, 19500, 23000);
 		boardArray[28] = new Brewery("Carlsberg", 3000, 100);
 		boardArray[29] = new Street("&Oslash;stergade", 5600, 6, 500, 2400, 7200, 17000, 20500, 24000);
-		boardArray[30] = new GoToJail("Ryk i f&aelig;ngsel"); // Fixet
+		boardArray[30] = new GoToJail("Ryk i f&aelig;ngsel");
 		boardArray[31] = new Street("Amagertorv", 6800, 7, 550, 2600, 7800, 18000, 22000, 25000);
 		boardArray[32] = new Street("Vimmelskaftet", 6000, 7, 550, 2600, 7800, 18000, 22000, 25000);
 		boardArray[33] = new Chance("Chance");
@@ -59,7 +53,7 @@ public class Board {
 	}
 
 	public void goToField(int i, Player player) {
-		boardArray[i].landOnField(player);//tlf, 2sek
+		boardArray[i].landOnField(player);
 	}
 
 	public void resetField(Player player) {

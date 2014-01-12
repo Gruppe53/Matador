@@ -45,7 +45,7 @@ abstract public class Ownable extends Field {
 		}
 	}
 	
-	private boolean isOwner(Player player) {
+	public boolean isOwner(Player player) {
 		return player == owner;
 	}
 	
