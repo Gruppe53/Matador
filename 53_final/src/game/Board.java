@@ -52,8 +52,8 @@ public class Board {
 		return boardArray[i].getName();
 	}
 
-	public void landOnField(int i, Player p) {
-		boardArray[i].landOnField(p);
+	public void goToField(int i, Player player) {
+		boardArray[i].landOnField(player);
 	}
 
 	public void resetField(Player player) {

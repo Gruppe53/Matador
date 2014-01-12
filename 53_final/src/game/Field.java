@@ -1,20 +1,22 @@
 package game;
 
 abstract public class Field {
-	private String name;
+	protected String name;
 	
 	/**
 	 * Field Constructor
 	 * @param name - The name of the field
 	 */
-	public Field (String name){
+	public Field (String name) {
+		super();
 		this.name = name;
 	}
 	
 	/**
-	 * Land On Field metode
+	 * Land On Field
+	 * @param Player - The player who lands on the field
 	 */
-	public abstract void landOnField();
+	public abstract void landOnField(Player player);
 	
 	/**
 	 * getName

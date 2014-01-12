@@ -8,10 +8,8 @@ public class Street extends Ownable {
 	/**
 	 * Street Constructor
 	 * @param Name - The name of the street
-	 * @param Owner - The Player which owns the street
 	 * @param Price - The price for buying the street
 	 * @param CType - The group of streets
-	 * @param Houses - The current number of houses on the street
 	 * @param Rent0 - The rent with 0 houses on the street
 	 * @param Rent1 - The rent with 1 house on the street
 	 * @param Rent2 - The rent with 2 houses on the street
@@ -34,19 +32,35 @@ public class Street extends Ownable {
 	public void landOnField(){
 		// TODO - landOnField(Street)
 	}
-
+	
+	/**
+	 * 
+	 * @return The amount of houses.
+	 */
 	public int getHouses() {
 		return houses;
 	}
-
+	
+	/**
+	 * 
+	 * @param houses - Sets the amount of houses for the field.
+	 */
 	public void setHouses(int houses) {
 		this.houses = houses;
 	}
-
+	
+	/**
+	 * 
+	 * @return The amount of rent for the field, based on how many houses the field has.
+	 */
 	public int getRent() {
 		return rent[this.getHouses()];
 	}
-
+	
+	/**
+	 * 
+	 * @return The cluster for which the field is a part of
+	 */
 	public int getcType() {
 		return cType;
 	}

@@ -10,7 +10,7 @@ public class Parking extends Field {
 		super(Name);
 	}
 	
-	public void landOnField(){
+	public void landOnField(Player player){
 		// TODO - landOnField (Parking)
 	}
 }

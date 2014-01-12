@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+
 import boundaryToMatador.GUI;
 
 public class GameController {
@@ -103,36 +104,28 @@ public class GameController {
 	
 	// Move the cars in the GUI "smoothly"
 	private void movePiece(int i, int n, int c) {
-		int temp = 0;
-		// If we pass start
-		if (n > 40) {
-			System.out.println("over 40");
-			System.out.println(player[i].getName() + " rykker fra " + c + " til " + n);
+		if(n > 40) {
 			n -= 40;
 			
 			// First move the piece the last steps before hitting START
-			for (int f = 1; f <= (21 - c); f++, temp++) {
-				System.out.println(temp);
-				System.out.println();
+			for (int f = 1; f <= (40 - c); f++) {
 				GUI.removeAllCars(player[i].getName());
 				GUI.setCar((c + f), player[i].getName());
-				sleep(300); // When testing, set to 1, or get bored
+				sleep(100); // When testing, set to 1, or get bored
 			}
 			
 			// Now move the piece the fields after START
-			for (int f = 1; f <= n; f++, temp++) {
-				System.out.println(temp);
+			for (int f = 1; f <= n; f++) {
 				GUI.removeAllCars(player[i].getName());
 				GUI.setCar(f, player[i].getName());
-				sleep(300); // When testing, set to 1, or get bored
+				sleep(100); // When testing, set to 1, or get bored
 			}
 		} else {
 			// Move the piece the require fields
-			for (int f = (c + 1); f <= n; f++, temp++) {
-				System.out.println(temp);
+			for (int f = (c + 1); f <= n; f++) {
 				GUI.removeAllCars(player[i].getName());
 				GUI.setCar(f, player[i].getName());
-				sleep(300); // When testing, set to 1, or get bored
+				sleep(100); // When testing, set to 1, or get bored
 			}
 		}
 
@@ -180,7 +173,7 @@ public class GameController {
 	// For trickering the field mechanics for a specific field
 	private void landOnField(Player player) {
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
-		board.landOnField(player.getPosition() - 1, player);
+		board.goToField(player.getPosition() - 1, player);
 		
 		// If the player landed on a field, which he couldn't afford landing on
 		// then reset his owned fields

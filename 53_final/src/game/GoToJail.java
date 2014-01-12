@@ -10,7 +10,7 @@ public class GoToJail extends Field {
 		super(Name);
 	}
 	
-	public void landOnField(){
+	public void landOnField(Player player){
 		// TODO - GoToJail landOnField method needs to be made
 	}
 

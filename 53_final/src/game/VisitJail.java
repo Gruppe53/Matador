@@ -10,7 +10,7 @@ public class VisitJail extends Field {
 		super(name);
 	}
 	
-	public void landOnField(){
+	public void landOnField(Player player){
 		// TODO - landOnField (VisitJail)
 	}
 }

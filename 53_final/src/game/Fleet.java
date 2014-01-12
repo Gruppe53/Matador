@@ -1,24 +1,18 @@
 package game;
 
 public class Fleet extends Ownable {
-	private int rent;
+	private int[] rent = {500, 1000, 2000, 4000};
 	
 	/**
 	 * Fleet Constructor
-	 * @param Name - The name of the Fleet
-	 * @param Owner - The Player which owns the Fleet
-	 * @param Rent - The Rent of the Fleet
+	 * @param name - The name of the Fleet
+	 * @param price - The price of the Fleet
 	 */
-	public Fleet(String name, int price, int rent){
+	public Fleet(String name, int price){
 		super(name, price);
-		this.rent = rent;
-	}
-	
-	public void landOnField(){
-		// ( 2 ^ (Num_Fleet_Owned - 1) )* Rent
 	}
 	
 	public int getRent() {
-		return this.rent;
+		return rent[owner.getFleet() - 1];
 	}
 }
