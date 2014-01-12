@@ -1,23 +1,18 @@
 package game;
 
 import java.awt.Color;
+
 import boundaryToMatador.GUI;
 
 public class GameController {
 	private Player[] player;
-	private Color[] colorSet = { Color.RED, Color.BLUE, Color.BLACK, Color.GREEN, Color.YELLOW, Color.CYAN };
 	
 	private TurnController turn;
 	private Dice roll = new Dice(1, 6, 2);
 	
-	// Så laver jeg om på din ændring. Og jeg kan se, at den ikke bruger UTF.... ae, oe og aa bliver kneppet.
-	// Så der skal lige fikses enten entities hele vejen:
-	// &aelig; = ae | &AElig = AE
-	// &oslash; = oe; | &Oslash; = OE;
-	// &aring; = aa | &Aring; = AA;
-	
 	// FINALS
 	private final int startCash = 30000;
+	private Board board;
 	
 	public GameController() {
 		// Create board with proper names and descriptions
@@ -30,7 +25,7 @@ public class GameController {
 		do {
 			// Check if current player hasn't already lost
 			if(turn.getIndex(turn.getCurrent()) == 0) {				
-				int c = GUI.getUserInteger(player[turn.getCurrent()].getName() 
+				int choice = GUI.getUserInteger(player[turn.getCurrent()].getName() 
 						+ ", det er din tur.\n"
 						+ "0.\tKast med terning\n"
 						+ "1.\tByg hus/hotel\n"
@@ -49,7 +44,7 @@ public class GameController {
 				int currentPosition = player[turn.getCurrent()].getPosition();
 				int newPosition = currentPosition + roll.getSum();
 				
-				switch(c) {
+				switch(choice) {
 					case 0:
 						// Draw the roll
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
@@ -84,6 +79,10 @@ public class GameController {
 						
 						// Move the piece smoothly
 						movePiece(turn.getCurrent(), newPosition, currentPosition);
+						
+						// Make the mechanics of the field start
+						landOnField(player[turn.getCurrent()]);
+						break;
 				}
 				
 				// Next player's turn
@@ -137,6 +136,8 @@ public class GameController {
 	// Create an array with length of the user input n, and add players to GUI with the names provided via user input
 	private void createPlayers(int n) {
 		String name;
+		Color[] colorSet = { Color.RED, Color.BLUE, Color.BLACK, Color.GREEN, Color.YELLOW, Color.CYAN };
+		
 		player = new Player[n];
 		
 		for (int i = 0; i < n; i++) {
@@ -168,5 +169,15 @@ public class GameController {
 		do {
 			end = System.currentTimeMillis();
 		} while ((end - start) < (n));
+	}
+	
+	// For trickering the field mechanics for a specific field
+	private void landOnField(Player player) {
+		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
+		board.landOnField(player.getPosition() - 1, player);
+		
+		if (player.getStatus() < 0) {
+			board.resetField(player);
+		}
 	}
 }

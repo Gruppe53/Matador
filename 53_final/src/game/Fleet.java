@@ -9,8 +9,8 @@ public class Fleet extends Ownable {
 	 * @param Owner - The Player which owns the Fleet
 	 * @param Rent - The Rent of the Fleet
 	 */
-	public Fleet(String Name, Player Owner, int Price, int Rent){
-		super(Name, Owner, Price);
+	public Fleet(String Name, int Price, int Rent){
+		super(Name, Price);
 		this.Rent = Rent;
 	}
 	

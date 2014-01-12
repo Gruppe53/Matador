@@ -1,19 +1,31 @@
 package game;
 
 abstract public class Field {
-	private String Name;
+	private String name;
 	
 	/**
 	 * Field Constructor
-	 * @param Name - The name of the field
+	 * @param name - The name of the field
 	 */
-	public Field (String Name){
-		this.Name = Name;
+	public Field (String name){
+		this.name = name;
 	}
 	
 	/**
 	 * Land On Field metode
 	 */
 	public abstract void LandOnField();
+	
+	/**
+	 * getName
+	 * @param Returns the name of the field
+	 */
+	public String getName() {
+		return name;
+	}
+
+	public void landOnField(Player p) {
+		// TODO Auto-generated method stub
+	}
 
 }

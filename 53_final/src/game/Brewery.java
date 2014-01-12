@@ -1,7 +1,7 @@
 package game;
 
 public class Brewery extends Ownable {
-	private int Rent;
+	private int rent;
 	
 	/**
 	 * Brewery Constructor
@@ -10,9 +10,9 @@ public class Brewery extends Ownable {
 	 * @param Price - The price for buying the brewery
 	 * @param Rent - The rent of the brewery
 	 */
-	public Brewery(String Name, Player Owner, int Price, int Rent){
-		super(Name, Owner, Price);
-		this.Rent = Rent;
+	public Brewery(String name, int price, int rent){
+		super(name, price);
+		this.rent = rent;
 	}
 	public void LandOnField(){
 

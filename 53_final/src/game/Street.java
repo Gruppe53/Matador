@@ -1,15 +1,15 @@
 package game;
 
 public class Street extends Ownable {
-	private int CType;
-	private int Houses;
+	private int cType;
+	private int houses;
 	
-	private int Rent0;
-	private int Rent1;
-	private int Rent2;
-	private int Rent3;
-	private int Rent4;
-	private int Rent5;
+	private int rent0;
+	private int rent1;
+	private int rent2;
+	private int rent3;
+	private int rent4;
+	private int rent5;
 	
 	/**
 	 * Street Constructor
@@ -25,19 +25,19 @@ public class Street extends Ownable {
 	 * @param Rent4 - The rent with 4 houses on the street
 	 * @param Rent5 - The rent with 1 hotel on the street
 	 */
-	public Street (String Name, Player Owner, int Price, int CType, int Houses, int Rent0, int Rent1, int Rent2, int Rent3, int Rent4, int Rent5){
-		super(Name, Owner, Price);
-		this.CType = CType;
-		this.Houses = Houses;
-		this.Rent0 = Rent0;
-		this.Rent1 = Rent1;
-		this.Rent2 = Rent2;
-		this.Rent3 = Rent3;
-		this.Rent4 = Rent4;
-		this.Rent5 = Rent5;
+	public Street (String name, int price, int cType, int rent0, int rent1, int rent2, int rent3, int rent4, int rent5) {
+		super(name, price);
+		this.cType = cType;
+		this.houses = 0;
+		this.rent0 = rent0;
+		this.rent1 = rent1;
+		this.rent2 = rent2;
+		this.rent3 = rent3;
+		this.rent4 = rent4;
+		this.rent5 = rent5;
 	}
 	
 	public void LandOnField(){
-
+		// TODO
 	}
 }
