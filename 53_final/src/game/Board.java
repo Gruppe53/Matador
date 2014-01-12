@@ -5,6 +5,8 @@ import boundaryToMatador.GUI;
 public class Board {
 	private Field[] boardArray = new Field[40];
 	
+	// Test...
+	
 	public Board() {
 		boardArray[0] = new Start("Start"); // Fixet
 		boardArray[1] = new Street("Rødovrevej", 1200, 1, int rent0, int rent1, int rent2, int rent3, int rent4, int rent5);
