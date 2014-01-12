@@ -37,7 +37,7 @@ public class Board {
 		boardArray[22] = new Chance("Chance");
 		boardArray[23] = new Street("&Oslash;sterbrogade", 4400, 5, 350, 1800, 5000, 14000, 17500, 21000);
 		boardArray[24] = new Street("Gr&oslash;nningen", 4800, 5, 400, 2000, 6000, 15000, 18500, 22000);
-		boardArray[25] = new Fleet("Gedser-Rostock", 4000, 500);
+		boardArray[25] = new Fleet("Gedser-Rostock", 4000);
 		boardArray[26] = new Street("Bredgade", 5200, 6, 450, 2200, 6600, 16000, 19500, 23000);
 		boardArray[27] = new Street("Kgs. Nytorv", 5200, 6, 450, 2200, 6600, 16000, 19500, 23000);
 		boardArray[28] = new Brewery("Carlsberg", 3000, 100);
@@ -47,7 +47,7 @@ public class Board {
 		boardArray[32] = new Street("Vimmelskaftet", 6000, 7, 550, 2600, 7800, 18000, 22000, 25000);
 		boardArray[33] = new Chance("Chance");
 		boardArray[34] = new Street("Nygade", 6400, 7, 600, 3000, 9000, 20000, 24000, 28000);
-		boardArray[35] = new Fleet("R&oslash;dby-Puttgarden", 4000, 500);
+		boardArray[35] = new Fleet("R&oslash;dby-Puttgarden", 4000);
 		boardArray[36] = new Chance("Chance");
 		boardArray[37] = new Street("Frederiksberg", 7000, 8, 700, 3500, 10000, 22000, 26000, 30000);
 		boardArray[38] = new Tax("Statsskat",1);
@@ -59,7 +59,7 @@ public class Board {
 	}
 
 	public void goToField(int i, Player player) {
-		boardArray[i].landOnField(player);
+		boardArray[i].landOnField(player);//tlf, 2sek
 	}
 
 	public void resetField(Player player) {
