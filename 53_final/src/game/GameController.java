@@ -1,14 +1,15 @@
 package game;
 
 import java.awt.Color;
-
 import boundaryToMatador.GUI;
 
 public class GameController {
-	// For at fikse ae, oe og aa midlertidigt, kan entities bruges:
+	// For at fikse ae, oe og aa midlertidigt (problem vedr. GitHub), kan entities bruges:
 	// &aelig; er lille ae | &AElig; er stort AE
 	// &oslash; er lille OE | &Oslash; er stort OE
-	// &aring; er lille AA | &Aring; er stort AA 
+	// &aring; er lille AA | &Aring; er stort AA
+	// Hvis den stadig ikke udskriver entities, skal I tilføje <html> i starten af string
+	// og </html> i slutningen af string
 	
 	private Player[] player;
 	
@@ -183,8 +184,9 @@ public class GameController {
 		
 		// If the player landed on a field, which he couldn't afford landing on
 		// then reset his owned fields
-		// TODO - need to make sure that his assets is accounted for and sold (ownable fields)
-		// TODO - if these make it possible for him to stay in the game
+		// TODO - correctly losing
+		// need to make sure that the player's assets is accounted for and sold (ownable fields)
+		// if these make it possible for him to stay in the game
 		if (player.getStatus() < 0) {
 			board.resetField(player);
 		}
