@@ -15,7 +15,7 @@ public class Ownable extends Field {
 		
 	}
 	
-	public void LandOnField(){
+	public void landOnField(){
 		// TODO
 	}
 
@@ -26,6 +26,5 @@ public class Ownable extends Field {
 
 	public void resetOwner() {
 		// TODO Auto-generated method stub
-		
 	}
 }

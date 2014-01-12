@@ -10,7 +10,7 @@ public class Parking extends Field {
 		super(Name);
 	}
 	
-	public void LandOnField(){
-
+	public void landOnField(){
+		// TODO
 	}
 }

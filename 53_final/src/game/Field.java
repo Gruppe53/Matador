@@ -14,7 +14,7 @@ abstract public class Field {
 	/**
 	 * Land On Field metode
 	 */
-	public abstract void LandOnField();
+	public abstract void landOnField();
 	
 	/**
 	 * getName
@@ -23,9 +23,4 @@ abstract public class Field {
 	public String getName() {
 		return name;
 	}
-
-	public void landOnField(Player p) {
-		// TODO Auto-generated method stub
-	}
-
 }
