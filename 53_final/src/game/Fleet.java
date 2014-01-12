@@ -1,7 +1,7 @@
 package game;
 
 public class Fleet extends Ownable {
-	private int Rent;
+	private int rent;
 	
 	/**
 	 * Fleet Constructor
@@ -9,14 +9,16 @@ public class Fleet extends Ownable {
 	 * @param Owner - The Player which owns the Fleet
 	 * @param Rent - The Rent of the Fleet
 	 */
-	public Fleet(String Name, int Price, int Rent){
-		super(Name, Price);
-		this.Rent = Rent;
+	public Fleet(String name, int price, int rent){
+		super(name, price);
+		this.rent = rent;
 	}
 	
-	public void LandOnField(){
-		
+	public void landOnField(){
 		// ( 2 ^ (Num_Fleet_Owned - 1) )* Rent
-
+	}
+	
+	public int getRent() {
+		return this.rent;
 	}
 }

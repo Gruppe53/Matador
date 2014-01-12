@@ -14,9 +14,11 @@ public class Brewery extends Ownable {
 		super(name, price);
 		this.rent = rent;
 	}
-	public void LandOnField(){
-
+	public void landOnField(){
 		// ( Num_Brewery_Owned * Roll_Sum * Rent )
-		
+	}
+	
+	public int getRent() {
+		return this.rent;
 	}
 }

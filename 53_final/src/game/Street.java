@@ -3,13 +3,7 @@ package game;
 public class Street extends Ownable {
 	private int cType;
 	private int houses;
-	
-	private int rent0;
-	private int rent1;
-	private int rent2;
-	private int rent3;
-	private int rent4;
-	private int rent5;
+	private int[] rent = new int[5];
 	
 	/**
 	 * Street Constructor
@@ -29,15 +23,31 @@ public class Street extends Ownable {
 		super(name, price);
 		this.cType = cType;
 		this.houses = 0;
-		this.rent0 = rent0;
-		this.rent1 = rent1;
-		this.rent2 = rent2;
-		this.rent3 = rent3;
-		this.rent4 = rent4;
-		this.rent5 = rent5;
+		this.rent[0] = rent0;
+		this.rent[1] = rent1;
+		this.rent[2] = rent2;
+		this.rent[3] = rent3;
+		this.rent[4] = rent4;
+		this.rent[5] = rent5;
 	}
 	
-	public void LandOnField(){
+	public void landOnField(){
 		// TODO
+	}
+
+	public int getHouses() {
+		return houses;
+	}
+
+	public void setHouses(int houses) {
+		this.houses = houses;
+	}
+
+	public int getRent() {
+		return rent[this.getHouses()];
+	}
+
+	public int getcType() {
+		return cType;
 	}
 }

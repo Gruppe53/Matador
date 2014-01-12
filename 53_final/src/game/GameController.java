@@ -181,6 +181,10 @@ public class GameController {
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
 		board.landOnField(player.getPosition() - 1, player);
 		
+		// If the player landed on a field, which he couldn't afford landing on
+		// then reset his owned fields
+		// TODO - need to make sure that his assets is accounted for and sold (ownable fields)
+		// TODO - if these make it possible for him to stay in the game
 		if (player.getStatus() < 0) {
 			board.resetField(player);
 		}
