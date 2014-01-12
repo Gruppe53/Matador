@@ -9,7 +9,7 @@ public class GameController {
 	// &aelig; er lille ae | &AElig; er stort AE
 	// &oslash; er lille OE | &Oslash; er stort OE
 	// &aring; er lille AA | &Aring; er stort AA
-	// Hvis den stadig ikke udskriver entities, skal I tilføje <html> i starten af string
+	// Hvis den stadig ikke udskriver entities, skal I tilfoeje <html> i starten af string
 	// og </html> i slutningen af string
 	
 	private Player[] player;
@@ -58,6 +58,10 @@ public class GameController {
 						
 						// Move the piece smoothly
 						movePiece(turn.getCurrent(), newPosition, currentPosition);
+						
+						// Make the mechanics of the field start
+						System.out.println(player[turn.getCurrent()].getClass());
+						fieldTricker(player[turn.getCurrent()]);
 						break;
 					case 1:
 						GUI.getUserInteger("Hvad vil de foretage dem?\n"
@@ -69,7 +73,11 @@ public class GameController {
 						);
 						break;
 					case 2:
-						// Something...
+						GUI.getUserInteger("Hvilken grund vil De sælge fra?\n"
+								+ "Udskriv liste med grunde, som brugeren ejer, og som har huse/hoteller...",
+								0,
+								2
+						);
 						break;
 					case 3:
 						// Something..
@@ -88,7 +96,7 @@ public class GameController {
 						movePiece(turn.getCurrent(), newPosition, currentPosition);
 						
 						// Make the mechanics of the field start
-						landOnField(player[turn.getCurrent()]);
+						fieldTricker(player[turn.getCurrent()]);
 						break;
 				}
 				
@@ -171,9 +179,12 @@ public class GameController {
 	}
 	
 	// For trickering the field mechanics for a specific field
-	private void landOnField(Player player) {
+	// TODO - fieldTricker returnerer fejl, nullPointException??
+	private void fieldTricker(Player player) {
+		System.out.println("1");
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
-		board.goToField(player.getPosition() - 1, player);
+		board.landOnField(player.getPosition() - 1, player);
+		System.out.println("2");
 		
 		// If the player landed on a field, which he couldn't afford landing on
 		// then reset his owned fields

@@ -1,6 +1,13 @@
 package game;
 
+import java.io.File;
+
 public class Chance extends Field {
+	private ChanceCreate cards;
+	private int count;
+	
+	// FINALS
+	private final String file = "materials/chance.txt";
 	
 	/**
 	 * Chance Constructor
@@ -8,10 +15,17 @@ public class Chance extends Field {
 	 */
 	public Chance(String name){
 		super(name);
+		
+		this.cards = new ChanceCreate(new File(file));
+		this.count = 0;
 	}
 	
 	public void landOnField(Player player) {
-		// TODO - Chance landOnField method needs to be made
+		cards.getCard(count);
+		count++;
+		
+		if(count > (cards.getDeckSize() - 1)) {
+			count = 0;
+		}
 	}
-
 }

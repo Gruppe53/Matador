@@ -50,7 +50,8 @@ public class Board {
 		return boardArray[i].getName();
 	}
 
-	public void goToField(int i, Player player) {
+	public void landOnField(int i, Player player) {
+		System.out.println("3");
 		boardArray[i].landOnField(player);
 	}
 
@@ -59,6 +60,7 @@ public class Board {
 			if (boardArray[i] instanceof Ownable) {
 				if (((Ownable) boardArray[i]).isOwner(player)) {
 					((Ownable) boardArray[i]).resetOwner();
+					// TODO - GUI needs to be made aware of the fact, that the field no longer has an owner
 				}
 			}
 		}

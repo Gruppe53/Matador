@@ -17,9 +17,9 @@ abstract public class Ownable extends Field {
 		this.price = price;
 	}
 
-	// TODO - Fix GUI knowledge
 	public void landOnField(Player player) {
 		if (owner == null) {
+			// TODO - Fix GUI knowledge
 			if (GUI.getUserLeftButtonPressed("Do you want to buy " + name + " for " + price + "?", "Yes", "No")) {
 				if (player.getAccount() >= price) {
 					owner = player;
@@ -32,14 +32,17 @@ abstract public class Ownable extends Field {
 						owner.setFleet();
 					}
 					
+					// TODO - Fix GUI knowledge
 					GUI.showMessage(player.getName() + " bought and now owns " + name);
 					GUI.setOwner(player.getPosition(), player.getName());
 				} else {
+					// TODO - Fix GUI knowledge
 					GUI.showMessage("You haven't got enough money to buy the property.");
 				}
 			}
 		} else if (!isOwner(player)) {
-			this.multiplier = player.getBreweries();
+			this.multiplier = owner.getBreweries();
+			// TODO - Fix GUI knowledge
 			GUI.showMessage(player.getName() + " pays " + getRent() + " to " + owner.getName());
 			player.payRent(getRent(), owner);
 		}
