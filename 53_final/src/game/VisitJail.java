@@ -6,11 +6,11 @@ public class VisitJail extends Field {
 	 * VisitJail Constructor
 	 * @param Name - The name of the Field
 	 */
-	public VisitJail(String Name){
-		super(Name);
+	public VisitJail(String name){
+		super(name);
 	}
 	
-	public void LandOnField(){
-
+	public void landOnField(Player player){
+		// TODO - landOnField (VisitJail)
 	}
 }

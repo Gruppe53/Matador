@@ -6,12 +6,18 @@ public class Player {
 	private String name;
 	private int status;
 	private int position;
-	private int cash;
+	private int account;
+	private int assets;
+	private int fleets;
+	private int breweries;
+	private int rollSum;
 	
-	public Player(String name, int cash) {
+	public Player(String name, int account) {
 		this.name = name;
+		this.account = account;
+		this.assets = account;
 		this.position = 1;
-		this.cash = cash;
+		this.fleets = 0;
 	}
 
 	public String getName() {
@@ -34,38 +40,76 @@ public class Player {
 		this.status = status;
 	}
 	
-	public int alterCash(int amount) {
-		if ((this.cash + amount) >= 0) {
+	public void alterAccount(int amount) {
+		if ((this.account + amount) >= 0) {
 
-			this.cash += amount;
+			this.account += amount;
 		}
 
 		else {
-			this.cash = 0;
+			this.account = 0;
 			setStatus(-1);
 			
+			// TODO - Fix GUI knowledge
 			GUI.removeAllCars(this.name);
 			GUI.showMessage(this.name + ", you went bankrupt - all your properties has been sold to the bank.");
 		}
 		
-		return status;
-		// GUI.setBalance(this.name, Score);
+		// TODO - Fix GUI knowledge
+		GUI.setBalance(this.name, account);
+	}
+	
+	public int getAccount() {
+		return this.account;
+	}
+	
+	public void setAssets(int amount) {
+		alterAccount(-amount);
+		assets += amount;
+	}
+	
+	public int getAssets() {
+		return assets;
 	}
 
 	public int payRent(int rent, Player leaser) {
 		int amount;
 		
-		if (rent > this.cash) {
-			amount = this.cash;
+		if (rent > this.account) {
+			amount = this.account;
 			setStatus(-1);
 		}
 		else {
 			amount = rent;
-			alterCash(-amount);
+			alterAccount(-amount);
 		}
 		
-		leaser.alterCash(amount);
+		leaser.alterAccount(amount);
 		
 		return this.status;
+	}
+
+	public void setFleet() {
+		this.fleets += 1;
+	}
+	
+	public int getFleet() {
+		return this.fleets;
+	}
+	
+	public void setBrewery() {
+		this.breweries += 1;
+	}
+	
+	public int getBreweries() {
+		return this.breweries;
+	}
+
+	public int getRollSum() {
+		return this.rollSum;
+	}
+	
+	public void setRollSum(int rollSum) {
+		this.rollSum = rollSum;
 	}
 }

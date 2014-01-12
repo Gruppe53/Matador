@@ -10,10 +10,8 @@ public class Chance extends Field {
 		super(name);
 	}
 	
-	public void LandOnField() {
-		/**
-		 * TO-DO
-		 */
+	public void landOnField(Player player) {
+		// TODO - Chance landOnField method needs to be made
 	}
 
 }

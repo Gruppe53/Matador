@@ -4,19 +4,16 @@ public class Brewery extends Ownable {
 	private int rent;
 	
 	/**
-	 * Brewery Constructor
-	 * @param Name - The name of the brewery
-	 * @param Owner - The player which owns the brewery
-	 * @param Price - The price for buying the brewery
-	 * @param Rent - The rent of the brewery
+	 * Fleet Constructor
+	 * @param Name - The name of the Fleet
+	 * @param Rent - The Rent of the Fleet
 	 */
 	public Brewery(String name, int price, int rent){
 		super(name, price);
 		this.rent = rent;
 	}
-	public void LandOnField(){
-
-		// ( Num_Brewery_Owned * Roll_Sum * Rent )
-		
+	
+	public int getRent() {
+		return (this.rent * owner.getBreweries() * multiplier);
 	}
 }

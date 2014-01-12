@@ -6,11 +6,11 @@ public class Start extends Field {
 	 * Start Constructor
 	 * @param Name - The name of the Field
 	 */
-	public Start(String Name){
-		super(Name);
+	public Start(String name){
+		super(name);
 	}
 	
-	public void LandOnField(){
-
+	public void landOnField(Player player){
+		// TODO - landOnField (Start)
 	}
 }

@@ -3,21 +3,13 @@ package game;
 public class Street extends Ownable {
 	private int cType;
 	private int houses;
-	
-	private int rent0;
-	private int rent1;
-	private int rent2;
-	private int rent3;
-	private int rent4;
-	private int rent5;
+	private int[] rent = new int[5];
 	
 	/**
 	 * Street Constructor
 	 * @param Name - The name of the street
-	 * @param Owner - The Player which owns the street
 	 * @param Price - The price for buying the street
 	 * @param CType - The group of streets
-	 * @param Houses - The current number of houses on the street
 	 * @param Rent0 - The rent with 0 houses on the street
 	 * @param Rent1 - The rent with 1 house on the street
 	 * @param Rent2 - The rent with 2 houses on the street
@@ -29,15 +21,43 @@ public class Street extends Ownable {
 		super(name, price);
 		this.cType = cType;
 		this.houses = 0;
-		this.rent0 = rent0;
-		this.rent1 = rent1;
-		this.rent2 = rent2;
-		this.rent3 = rent3;
-		this.rent4 = rent4;
-		this.rent5 = rent5;
+		this.rent[0] = rent0;
+		this.rent[1] = rent1;
+		this.rent[2] = rent2;
+		this.rent[3] = rent3;
+		this.rent[4] = rent4;
+		this.rent[5] = rent5;
 	}
 	
-	public void LandOnField(){
-		// TODO
+	/**
+	 * 
+	 * @return The amount of houses.
+	 */
+	public int getHouses() {
+		return houses;
+	}
+	
+	/**
+	 * 
+	 * @param houses - Sets the amount of houses for the field.
+	 */
+	public void setHouses(int houses) {
+		this.houses = houses;
+	}
+	
+	/**
+	 * 
+	 * @return The amount of rent for the field, based on how many houses the field has.
+	 */
+	public int getRent() {
+		return rent[this.getHouses()];
+	}
+	
+	/**
+	 * 
+	 * @return The cluster for which the field is a part of
+	 */
+	public int getcType() {
+		return cType;
 	}
 }
