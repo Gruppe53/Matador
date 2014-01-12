@@ -5,9 +5,6 @@ import boundaryToMatador.GUI;
 public class Board {
 	private Field[] boardArray = new Field[40];
 	
-	// Og så laver jeg en ændring i den anden ende. Bemærk at ae, oe og aa bliver corrupted, når det bliver sendt.
-	// Brug entities i stedet.
-	
 	public Board() {
 		boardArray[0] = new Start("Start"); // Fixet
 		boardArray[1] = new Street("Rødovrevej", 1200, 1, int rent0, int rent1, int rent2, int rent3, int rent4, int rent5);
