@@ -1,7 +1,5 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 public class Board {
 	private Field[] boardArray = new Field[40];
 	
