@@ -16,6 +16,7 @@ public class GameController {
 	
 	private TurnController turn;
 	private Dice roll = new Dice(1, 6, 2);
+	private JailController jailControl;
 	
 	// FINALS
 	private final int startCash = 30000;
@@ -31,7 +32,7 @@ public class GameController {
 		// Keep playing the game 'till someone is victorious
 		do {
 			// Check if current player hasn't already lost
-			if(turn.getIndex(turn.getCurrent()) == 0) {				
+			if(turn.getIndex(turn.getCurrent()) == 0 && jailControl.isInJail() == false) {				
 				int choice = GUI.getUserInteger(player[turn.getCurrent()].getName() 
 						+ ", det er din tur.\n"
 						+ "0.\tKast med terning\n"
@@ -98,6 +99,10 @@ public class GameController {
 						// Make the mechanics of the field start
 						fieldTricker(player[turn.getCurrent()]);
 						break;
+						
+				}
+				else if(jailControl.isInJail() == true){
+					
 				}
 				
 				// Next player's turn
