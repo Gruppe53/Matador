@@ -1,5 +1,7 @@
 package game;
 
+import boundaryToMatador.GUI;
+
 public class GoToJail extends Field {
 	
 	/**
@@ -11,7 +13,11 @@ public class GoToJail extends Field {
 	}
 	
 	public void landOnField(Player player){
-		// TODO - GoToJail landOnField method needs to be made
+		player.setJailed(true);
+		player.setPosition(11);
+		// TODO fix GUI knowledge
+		GUI.removeAllCars(player.getName());
+		GUI.setCar(11, player.getName());
 	}
 
 }
