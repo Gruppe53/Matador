@@ -122,6 +122,9 @@ public class GameController {
 			if(!secondTurn) {
 				turn.nextTurn();
 			}
+			else {
+				secondTurn = false;
+			}
 			
 		} while(turn.noWinner());
 		
