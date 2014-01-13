@@ -126,7 +126,7 @@ public class GameController {
 			for (int f = 1; f <= n; f++) {
 				if(f == 2){
 					player[i].alterAccount(4000);
-					GUI.setBalance(player[i].getName(), player[i].alterAccount(4000));
+					GUI.setBalance(player[i].getName(), player[i].getAccount());
 				}
 				GUI.removeAllCars(player[i].getName());
 				GUI.setCar(f, player[i].getName());
