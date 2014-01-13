@@ -38,8 +38,8 @@ public class GameController {
 						+ ", det er din tur.\n"
 						+ "0.\tKast med terning\n"
 						+ "1.\tByg hus/hotel\n"
-						+ "2.\tSÃ¦lg hus/hotel\n"
-						+ "3.\tPantsÃ¦t grund\n"
+						+ "2.\tS&aelig;lg hus/hotel\n"
+						+ "3.\tPants&aelig;t grund\n"
 						+ "4.\tByt med spiller\n"
 						+ "5.\tEt eller andet...",
 						0,
@@ -75,7 +75,7 @@ public class GameController {
 							);
 					break;
 				case 2:
-					GUI.getUserInteger("Hvilken grund vil De sÃ¦lge fra?\n"
+					GUI.getUserInteger("Hvilken grund vil De s&aelig;lge fra?\n"
 							+ "Udskriv liste med grunde, som brugeren ejer, og som har huse/hoteller...",
 							0,
 							2
@@ -117,16 +117,16 @@ public class GameController {
 							GUI.setDice(roll.getValue(0), roll.getValue(1));
 
 							if(roll.isPair()) {
-								GUI.showMessage("De har slået et par! \nDe kommer nu ud af fængslet");
+								GUI.showMessage("De har sl&aring;et et par! \nDe kommer nu ud af f&aelig;ngslet");
 								player[turn.getCurrent()].setJailed(false);
 								secondTurn = true;
 								i = 3;
 							}
 							else {
 								if (i <= 2)
-									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "forsøg tilbage");
+									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "fors&oslash;g tilbage");
 								else
-									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i fængsel til det er deres tur igen");
+									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i f&aelig;ngsel til det er deres tur igen");
 							}
 						}
 
@@ -136,7 +136,7 @@ public class GameController {
 						player[turn.getCurrent()].setBailoutcards(-1);
 						player[turn.getCurrent()].setJailed(false);
 						secondTurn = true;
-						GUI.showMessage("De har benyttet dem af deres benødnings kort og kan nu trave frit rundt igen");
+						GUI.showMessage("De har benyttet dem af deres ben&aring;dnings kort og kan nu trave frit rundt igen");
 					}
 				}
 				else {
@@ -150,16 +150,16 @@ public class GameController {
 							GUI.setDice(roll.getValue(0), roll.getValue(1));
 
 							if(roll.isPair()) {
-								GUI.showMessage("De har slået et par! \nDe kommer nu ud af fængslet");
+								GUI.showMessage("De har sl&aring;et et par! \nDe kommer nu ud af f&aelig;ngslet");
 								player[turn.getCurrent()].setJailed(false);
 								secondTurn = true;
 								i = 3;
 							}
 							else{
 								if(i <= 2)
-									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "forsøg tilbage");
+									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "fors&aring;g tilbage");
 								else
-									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i fængsel til det er deres tur igen");
+									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i f&aelig;ngsel til det er deres tur igen");
 							}
 						}
 					}
