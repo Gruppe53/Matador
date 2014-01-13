@@ -3,7 +3,7 @@ package game;
 public class JailController {
 	public boolean isInJail = false;
 	
-		public boolean isInJail() {
+	public boolean isInJail() {
 		return isInJail;
 	}
 

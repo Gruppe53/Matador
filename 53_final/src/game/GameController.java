@@ -17,6 +17,7 @@ public class GameController {
 	private TurnController turn;
 	private Dice roll = new Dice(1, 6, 2);
 	private JailController jailControl;
+	private boolean secondTurn = false;
 	
 	// FINALS
 	private final int startCash = 30000;
@@ -103,20 +104,24 @@ public class GameController {
 				}
 			}
 			
-			else if(jailControl.isInJail() == true) {
-					if(GUI.getUserLeftButtonPressed("Hvordan vil du komme ud af fængslet", "Slå med terningen/bruge et løsladelseskort", "Betal 1000,-")){
+			else if(jailControl.isInJail()) {
+					if(GUI.getUserLeftButtonPressed("Hvordan vil du komme ud af f&aelig;ngslet", "Sl&aring; med terningen/bruge et l&oslash;sladelseskort", "Betal 1000,-")) {
 						//do something
 					}
-					else{
+					else {
 						player[turn.getCurrent()].alterAccount(-1000);
 						GUI.setBalance(player[turn.getCurrent()].getName(), player[turn.getCurrent()].getAccount());
 						jailControl.setInJail(false);
+						
+						secondTurn = true;
 					}
 				
 			}
 			
 			// Next player's turn
-			turn.nextTurn();
+			if(!secondTurn) {
+				turn.nextTurn();
+			}
 			
 		} while(turn.noWinner());
 		

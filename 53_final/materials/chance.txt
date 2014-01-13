@@ -1,13 +1,13 @@
-## type0: matadorlegat
-## type1: modtag penge fra bank
-## type2: modtag penge fra medspillere
-## type3: betal penge
-## type4: bev�g antal felter
-## type5: bev�g til placering
-## type6: bev�g til placering og indkasser
-## type7: bev�g til n�ste og indkasser, betal, k�b
-## type8: betal for huse/hoteller
-## type9: ben�dning
+## type0: matadorlegat ##
+## type1: modtag penge fra bank ##
+## type2: modtag penge fra medspillere ##
+## type3: betal penge ##
+## type4: bev�g antal felter ##
+## type5: bev�g til placering ##
+## type6: bev�g til placering og indkasser ##
+## type7: bev�g til n�ste og indkasser, betal, k�b ##
+## type8: betal for huse/hoteller ##
+## type9: ben�dning ##
 
 
 description::De modtager Matador-legatet for v&aelig;rdigt tr&aelig;ngende p&aring; kr. 40.000. Ved v&aelig;rdigt tr&aelig;ngende forst&aring;s, at deres formue, dvs. Deres kontante penge + sk&oslash;der + bygninger, ikke overstiger 15.000.;;
