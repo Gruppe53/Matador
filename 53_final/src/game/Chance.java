@@ -3,9 +3,7 @@ package game;
 import java.io.File;
 
 public class Chance extends Field {
-	private ChanceDeck cards;
-	private int count;
-	private boolean noDeck = true;
+	private ChanceDeck deck;
 	
 	/**
 	 * Chance Constructor
@@ -13,6 +11,10 @@ public class Chance extends Field {
 	 */
 	public Chance(String name){
 		super(name);
+		
+		if(name == "Create") {
+			deck = new ChanceDeck();
+		}
 	}
 	
 	public String getName() {
