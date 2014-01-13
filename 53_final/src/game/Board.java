@@ -3,6 +3,8 @@ package game;
 public class Board {
 	private Field[] boardArray = new Field[40];
 	
+	// Test
+	
 	public Board() {
 		boardArray[0] = new Start("Start");
 		boardArray[1] = new Street("R&oslash;dovrevej", 1200, 1, 50, 250, 750, 2250, 4000, 6000);
