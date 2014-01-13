@@ -2,36 +2,28 @@ package game;
 
 import java.io.*;
 
-public class ChanceCreate {
+public class ChanceCard {
 	private File file;
 	private String[] card;
 	private int count;
 	
-	public ChanceCreate(File file) {
+	public ChanceCard(File file) {
 		this.file = file;
 		this.count = 0;
-		
-		this.createDeck();
-		this.shuffleDeck();
-	}
-
-	private void shuffleDeck() {
-		// TODO
 	}
 	
-	private void createDeck() {
-		String str = readLines();
-		for(int i = 0; i < 3; i++) {
-			for (String field : str.split("\\|\\|")) {
-	            String[] attributes = field.split(";;");
-	            
-	            System.out.println(attributes[i]);
-			}
-		}
+	public card getCards() {
+		return card;
 	}
-
-	public String getCard(int i) {
-		return this.card[i];
+	
+	private void createCards() {
+		String str = readLines();
+		
+		for (String field : str.split("\\|\\|")) {
+            String[] attributes = field.split(";;");
+            
+            System.out.println(attributes);
+		}
 	}
 	
 	private String readLines() {
