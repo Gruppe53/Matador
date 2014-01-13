@@ -54,6 +54,7 @@ public class Board {
 		System.out.println("3");
 		boardArray[i].landOnField(player);
 	}
+	
 
 	public void resetField(Player player) {
 		for (int i = 0; i < 21; i++) {

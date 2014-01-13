@@ -12,7 +12,7 @@ public class GameController {
 	// Hvis den stadig ikke udskriver entities, skal I tilfoeje <html> i starten af string
 	// og </html> i slutningen af string
 	
-	private Player[] player;
+	public Player[] player;
 	
 	private TurnController turn;
 	private Dice roll = new Dice(1, 6, 2);
@@ -148,7 +148,7 @@ public class GameController {
 			}
 		}
 
-		player[i].setPosition(n);
+		player[turn.getCurrent()].setPosition(n);
 	}
 
 	// Create an array with length of the user input n, and add players to GUI with the names provided via user input
@@ -192,11 +192,8 @@ public class GameController {
 	// For trickering the field mechanics for a specific field
 	// TODO - fieldTricker returnerer fejl, nullPointException??
 	private void fieldTricker(Player player) {
-		System.out.println("1");
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
-		board.landOnField(player.getPosition() - 1, player);
-		System.out.println("2");
-		
+		board.landOnField((player.getPosition() - 1), player);
 		// If the player landed on a field, which he couldn't afford landing on
 		// then reset his owned fields
 		// TODO - correctly losing

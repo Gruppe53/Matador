@@ -18,6 +18,7 @@ public class Player {
 		this.assets = account;
 		this.position = 1;
 		this.fleets = 0;
+
 	}
 
 	public String getName() {
