@@ -32,7 +32,7 @@ public class GameController {
 		// Keep playing the game 'till someone is victorious
 		do {
 			// Check if current player hasn't already lost
-			if(turn.getIndex(turn.getCurrent()) == 0 && jailControl.isInJail() == false) {				
+			if((turn.getIndex(turn.getCurrent()) == 0) && (jailControl.isInJail() == false)) {				
 				int choice = GUI.getUserInteger(player[turn.getCurrent()].getName() 
 						+ ", det er din tur.\n"
 						+ "0.\tKast med terning\n"
