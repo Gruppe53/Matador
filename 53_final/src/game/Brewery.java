@@ -4,9 +4,9 @@ public class Brewery extends Ownable {
 	private int rent;
 	
 	/**
-	 * Fleet Constructor
-	 * @param Name - The name of the Fleet
-	 * @param Rent - The Rent of the Fleet
+	 * Brewery Constructor
+	 * @param Name - The name of the Brewery
+	 * @param Price - The Price of the Brewery
 	 */
 	public Brewery(String name, int price, int rent){
 		super(name, price);
