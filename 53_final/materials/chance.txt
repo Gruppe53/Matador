@@ -2,194 +2,195 @@
 ## type1: modtag penge fra bank
 ## type2: modtag penge fra medspillere
 ## type3: betal penge
-## type4: bevæg antal felter
-## type5: bevæg til placering
-## type6: bevæg til placering og indkasser
-## type7: bevæg til næste og indkasser, betal, køb
+## type4: bevï¿½g antal felter
+## type5: bevï¿½g til placering
+## type6: bevï¿½g til placering og indkasser
+## type7: bevï¿½g til nï¿½ste og indkasser, betal, kï¿½b
 ## type8: betal for huse/hoteller
-## type9: benådning
+## type9: benï¿½dning
 
 
-description::De modtager ”Matador-legatet for værdigt trængende” på kr. 40.000. Ved værdigt trængende forstås, at deres formue, dvs. Deres kontante penge + skøder+ bygninger, ikke overstiger 15.000.;;
-type::0;;
+description::De modtager Matador-legatet for v&aelig;rdigt tr&aelig;ngende p&aring; kr. 40.000. Ved v&aelig;rdigt tr&aelig;ngende forst&aring;s, at deres formue, dvs. Deres kontante penge + sk&oslash;der + bygninger, ikke overstiger 15.000.;;
+type::MATADORLEGAT;;
+action::40000;;
 count::1;;
 ||
-description::Modtag udbytte af deres aktier – 1.000. kr.;;
-type::1;;
-action::+1000;;
+description::Modtag udbytte af deres aktier - 1.000. kr.;;
+type::MODTAGPENGEBANK;;
+action::1000;;
 count::1;;
 ||
 description::De har vundet i klasselotteriet. Modtag kr. 500.;;
-type::1;;
-action::+500;;
+type::MODTAGPENGEBANK;;
+action::500;;
 count::2;;
 ||
-description::Kommunen har eftergivet et kvartals skat. Hæv i banken kr. 3.000.;;
-type::1;;
-action::+3000;;
+description::Kommunen har eftergivet et kvartals skat. H&aelig; i banken kr. 3.000.;;
+type::MODTAGPENGEBANK;;
+action::3000;;
 count::1;;
 ||
 description::De modtager deres aktieudbytte. Modtag kr. 1.000 af banken.;;
-type::1;;
-action::+1000;;
+type::MODTAGPENGEBANK;;
+action::1000;;
 count::2;;
 ||
-description::Grundet dyrtiden har De fået gageforhøjelse Modtag kr. 1.000.;;
-type::1;;
-action::+1000;;
+description::Grundet dyrtiden har De fï¿½et gageforhï¿½jelse Modtag kr. 1.000.;;
+type::MODTAGPENGEBANK;;
+action::1000;;
 count::1;;
 ||
-description::De havde en række med elleve rigtige i tipning. Modtag kr. 1.000;;
-type::1;;
-action::+1000;;
+description::De havde en rï¿½kke med elleve rigtige i tipning. Modtag kr. 1.000;;
+type::MODTAGPENGEBANK;;
+action::1000;;
 count::1;;
 ||
-description::De har solgt nogle gamle møbler på auktion modtag kr. 1.000 af banken.;;
-type::1;;
-action::+1000;;
+description::De har solgt nogle gamle mï¿½bler pï¿½ auktion modtag kr. 1.000 af banken.;;
+type::MODTAGPENGEBANK;;
+action::1000;;
 count::1;;
 ||
-description::Deres præmieobligation er udtrukket. De modtager kr. 1.000 af banken.;;
-type::1;;
-action::+1000;;
+description::Deres prï¿½mieobligation er udtrukket. De modtager kr. 1.000 af banken.;;
+type::MODTAGPENGEBANK;;
+action::1000;;
 count::2;;
 ||
-description::Værdien af egen avl fra nyttehaven udgør kr. 200, som De modtager af banken.;;
-type::1;;
-action::+200;;
+description::Vï¿½rdien af egen avl fra nyttehaven udgï¿½r kr. 200, som De modtager af banken.;;
+type::MODTAGPENGEBANK;;
+action::200;;
 count::1;;
 ||
-description::Det er Deres fødselsdag Modtag af hver medspiller kr.200;;
-type::2;;
-action::+200xp;;
+description::Det er Deres fï¿½dselsdag Modtag af hver medspiller kr.200;;
+type::MODTAGPENGESPILLER;;
+action::200;;
 count::1;;
 ||
-description::De har lagt penge ud til et sammenskudsgilde. Mærkværdigvis betaler alle straks. Modtag fra hver medspiller kr. 500.;;
-type::2;;
-action::+500xp;;
+description::De har lagt penge ud til et sammenskudsgilde. Mï¿½rkvï¿½rdigvis betaler alle straks. Modtag fra hver medspiller kr. 500.;;
+type::MODTAGPENGESPILLER;;
+action::500;;
 count::1;;
 ||
-description::De skal holde familiefest og får et tilskud fra hver medspiller på kr. 500;;
-type::2;;
+description::De skal holde familiefest og fï¿½r et tilskud fra hver medspiller pï¿½ kr. 500;;
+type::MODTAGPENGESPILLER;;
 action::+500xp;;
 count::1;;
 ||
 description::Betal kr. 3.000 for reparation af Deres vogn.;;
-type::3;;
+type::BETALPENGE;;
 action::-3000;;
 count::2;;
 ||
-description::De har modtaget Deres tandlægeregning. Betal 2.000.;;
-type::3;;
+description::De har modtaget Deres tandlï¿½geregning. Betal 2.000.;;
+type::BETALPENGE;;
 action::-2000;;
 count::1;;
 ||
-description::De har fået en parkeringsbøde betal kr. 200 i bøde.;;
-type::3;;
+description::De har fï¿½et en parkeringsbï¿½de betal kr. 200 i bï¿½de.;;
+type::BETALPENGE;;
 action::-200;;
 count::1;;
 ||
-description::Betal kr. 200 for levering af 2 kasser øl.;;
-type::3;;
+description::Betal kr. 200 for levering af 2 kasser ï¿½l.;;
+type::BETALPENGE;;
 action::-200;;
 count::1;;
 ||
-description::Betal deres bilforsikring – kr. 1.000;;
-type::3;;
+description::Betal deres bilforsikring ï¿½ kr. 1.000;;
+type::BETALPENGE;;
 action::-1000;;
 count::1;;
 ||
-description::De har været en tur i udlandet og haft for mange cigaretter med hjem. Betal told kr. 200;;
-type::3;;
+description::De har vï¿½ret en tur i udlandet og haft for mange cigaretter med hjem. Betal told kr. 200;;
+type::BETALPENGE;;
 action::-200;;
 count::1;;
 ||
-description::Betal for vognvask og smøring kr.300.;;
-type::3;;
+description::Betal for vognvask og smï¿½ring kr.300.;;
+type::BETALPENGE;;
 action::-300;;
 count::1;;
 ||
-description::De har købt 4 nye dæk til Deres vogn. Betal kr. 1.000.;;
-type::3;;
+description::De har kï¿½bt 4 nye dï¿½k til Deres vogn. Betal kr. 1.000.;;
+type::BETALPENGE;;
 action::-1000;;
 count::1;;
 ||
-description::De har kørt frem for ”Fuldt stop”. Betal kr. 1.000 i bøde.;;
-type::3;;
+description::De har kï¿½rt frem for ï¿½Fuldt stopï¿½. Betal kr. 1.000 i bï¿½de.;;
+type::BETALPENGE;;
 action::-1000;;
 count::1;;
 ||
 description::Ryk tre felter frem;;
-type::4;;
+type::BEVAEGANTALFELTER;;
 action::m+3;;
 count::1;;
 ||
 description::Ryk tre felter tilbage;;
-type::4;;
+type::BEVAEGANTALFELTER;;
 action::m-3;;
 count::2;;
 ||
-description::Gå i fængsel. Ryk direkte til fængslet. Selv om de passerer ”START”, indkasserer de ikke kr. 4.000.;;
-type::5;;
+description::G&aring; i f&aelig;ngsel. Ryk direkte til f&aelig;ngslet. Selv om de passerer START, indkasserer de ikke kr. 4.000.;;
+type::BEVAEGTILFELT;;
 action::p11;;
 count::2;;
 ||
-description::Tag ind på Rådhuspladsen;;
-type::5;;
+description::Tag ind pï¿½ Rï¿½dhuspladsen;;
+type::BEVAEGTILFELT;;
 action::p40;;
 count::1;;
 ||
-description::Ryk frem til ”START”.;;
-type::5;;
+description::Ryk frem til ï¿½STARTï¿½.;;
+type::BEVAEGTILFELT;;
 action::p1;;
 count::2;;
 ||
-description::Tag med Mols-linien. Flyt brikken frem, og hvis De passerer ”START” indkassér da kr. 4.000.;;
-type::6;;
+description::Tag med Mols-linien. Flyt brikken frem, og hvis De passerer ï¿½STARTï¿½ indkassï¿½r da kr. 4.000.;;
+type::BEVAEGTILFELTOGINDKASSER;;
 action::p16;;
 count::1;;
 ||
-description::Ryk frem til Strandvejen. Hvis de passerer ”START” indkassér da kr. 4.000.;;
-type::6;;
+description::Ryk frem til Strandvejen. Hvis de passerer ï¿½STARTï¿½ indkassï¿½r da kr. 4.000.;;
+type::BEVAEGTILFELTOGINDKASSER;;
 action::p20;;
 count::1;;
 ||
-description::Ryk frem til Grønningen. Hvis de passerer ”START” indkassér da kr. 4.000.;;
-type::6;;
+description::Ryk frem til Grï¿½nningen. Hvis de passerer ï¿½STARTï¿½ indkassï¿½r da kr. 4.000.;;
+type::BEVAEGTILFELTOGINDKASSER;;
 action::p25;;
 count::1;;
 ||
-description::Ryk frem til Vimmelskaftet. Hvis de passerer ”START” indkassér da kr. 4.000.;;
-type::6;;
+description::Ryk frem til Vimmelskaftet. Hvis de passerer ï¿½STARTï¿½ indkassï¿½r da kr. 4.000.;;
+type::BEVAEGTILFELTOGINDKASSER;;
 action::p33;;
 count::1;;
 ||
-description::Ryk frem til Frederiksberg Allé. Hvis de passerer ”START” indkassér da kr. 4.000.;;
-type::6;;
+description::Ryk frem til Frederiksberg Allï¿½. Hvis de passerer ï¿½STARTï¿½ indkassï¿½r da kr. 4.000.;;
+type::BEVAEGTILFELTOGINDKASSER;;
 action::p12;;
 count::1;;
 ||
-description::Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den leje, hvis han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De købe det af banken.;;
-type::7;;
+description::Ryk brikken frem til det nï¿½rmeste rederi og betal ejeren to gange den leje, hvis han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De kï¿½be det af banken.;;
+type::BEVAEGTILNAESTEOGINDKASSER;;
 action::red;;
 count::2;;
 ||
-description::Tag med den nærmeste færge. Flyt brikken frem, og hvis de passerer ”START” indkassér da kr. 4.000;;
-type::7;;
+description::Tag med den nï¿½rmeste fï¿½rge. Flyt brikken frem, og hvis de passerer ï¿½STARTï¿½ indkassï¿½r da kr. 4.000;;
+type::BEVAEGTILNAESTEOGINDKASSER;;
 action::red;;
 count::1;;
 ||
 description::Ejendomsskatterne er steget. Ekstraudgifterne er: kr. 800 pr. hus, kr. 2.300 pr. hotel;;
-type::8;;
+type::BETALHUS;;
 action::-800xhus -2300xhot;;
 count::1;;
 ||
 description::Oliepriserne er steget, og De skal betale: kr. 500 pr. hus kr 2.000 pr. hotel.;;
-type::8;;
+type::BETALHUS;;
 action::-500xhus -2000xhot;;
 count::1;;
 ||
-description::I anledning af kongens fødselsdag benådes De herved for fængsel. Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.;;
-type::9;;
+description::I anledning af kongens fï¿½dselsdag benï¿½des De herved for fï¿½ngsel. Dette kort kan opbevares, indtil De fï¿½r brug for det, eller De kan sï¿½lge det.;;
+type::BENAADNING;;
 count::2;;
 ||
