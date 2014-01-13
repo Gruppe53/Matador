@@ -1,4 +1,4 @@
-package test;
+package game;
 
 import java.io.*;
 
@@ -25,7 +25,7 @@ public class ChanceCreate {
 			for (String field : str.split("\\|\\|")) {
 	            String[] attributes = field.split(";;");
 	            
-	            System.out.println(attributes[i].length());
+	            System.out.println(attributes[i]);
 			}
 		}
 	}
