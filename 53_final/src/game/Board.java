@@ -6,7 +6,7 @@ public class Board {
 	public Board() {
 		boardArray[0] = new Start("Start");
 		boardArray[1] = new Street("R&oslash;dovrevej", 1200, 1, 50, 250, 750, 2250, 4000, 6000);
-		boardArray[2] = new Chance("Chance");
+		boardArray[2] = new Chance("Create");
 		boardArray[3] = new Street("Hvidovrevej", 1200, 1, 50, 250, 750, 2250, 4000, 6000);
 		boardArray[4] = new Tax("Indkomstskat", 0);
 		boardArray[5] = new Fleet("Helsing&oslash;r-Helsingborg", 4000);
