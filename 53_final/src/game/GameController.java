@@ -17,7 +17,6 @@ public class GameController {
 	private TurnController turn;
 	private Board board = new Board();
 	private Dice roll = new Dice(1, 6, 2);
-	private JailController jailControl = new JailController();
 	private boolean secondTurn = false;
 
 	// FINALSs
