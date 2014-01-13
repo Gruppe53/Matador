@@ -106,7 +106,7 @@ public class GameController {
 			
 			else if(jailControl.isInJail()) {
 					if(GUI.getUserLeftButtonPressed("Hvordan vil du komme ud af f&aelig;ngslet", "Sl&aring; med terningen/bruge et l&oslash;sladelseskort", "Betal 1000,-")) {
-						//do something
+						// TODO
 					}
 					else {
 						player[turn.getCurrent()].alterAccount(-1000);

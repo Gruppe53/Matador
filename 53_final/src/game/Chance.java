@@ -3,11 +3,9 @@ package game;
 import java.io.File;
 
 public class Chance extends Field {
-	private ChanceCreate cards;
+	private ChanceDeck cards;
 	private int count;
-	
-	// FINALS
-	private final File file = new File("materials/chance.txt");
+	private boolean noDeck = true;
 	
 	/**
 	 * Chance Constructor
@@ -15,8 +13,6 @@ public class Chance extends Field {
 	 */
 	public Chance(String name){
 		super(name);
-		
-		cards = new ChanceCreate(file);
 	}
 	
 	public String getName() {
