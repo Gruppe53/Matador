@@ -15,13 +15,13 @@ public class GameController {
 	public Player[] player;
 	
 	private TurnController turn;
+	private Board board = new Board();
 	private Dice roll = new Dice(1, 6, 2);
-	private JailController jailControl;
+	private JailController jailControl = new JailController();
 	private boolean secondTurn = false;
 	
 	// FINALS
 	private final int startCash = 30000;
-	private Board board;
 	
 	public GameController() {
 		// Create board with proper names and descriptions
@@ -62,7 +62,7 @@ public class GameController {
 						movePiece(turn.getCurrent(), newPosition, currentPosition);
 						
 						// Make the mechanics of the field start
-						System.out.println(player[turn.getCurrent()].getClass());
+						System.out.println(player[turn.getCurrent()].toString());
 						fieldTricker(player[turn.getCurrent()]);
 						break;
 					case 1:
@@ -207,9 +207,10 @@ public class GameController {
 	
 	// For trickering the field mechanics for a specific field
 	// TODO - fieldTricker returnerer fejl, nullPointException??
-	private void fieldTricker(Player player) {
+	public void fieldTricker(Player player) {
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
 		board.landOnField((player.getPosition() - 1), player);
+		
 		// If the player landed on a field, which he couldn't afford landing on
 		// then reset his owned fields
 		// TODO - correctly losing

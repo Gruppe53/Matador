@@ -20,6 +20,10 @@ public class Chance extends Field {
 		this.count = 0;
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	public void landOnField(Player player) {
 		cards.getCard(count);
 		count++;

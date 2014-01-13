@@ -1,30 +1,37 @@
-package game;
+package test;
 
 import java.io.*;
 
 public class ChanceCreate {
 	private File file;
-	private String[][][][] card;
+	private String[] card;
 	private int count;
 	
 	public ChanceCreate(File file) {
 		this.file = file;
 		this.count = 0;
 		
-		this.readLines();
+		this.createDeck();
 		this.shuffleDeck();
 	}
 
 	private void shuffleDeck() {
 		// TODO
 	}
+	
+	private void createDeck() {
+		String str = readLines();
+		for(int i = 0; i < 3; i++) {
+			for (String field : str.split("\\|\\|")) {
+	            String[] attributes = field.split(";;");
+	            
+	            System.out.println(attributes[i].length());
+			}
+		}
+	}
 
 	public String getCard(int i) {
-		return this.card[i][0][0][0];
-	}
-	
-	public int getDeckSize() {
-		return this.card.length;
+		return this.card[i];
 	}
 	
 	private String readLines() {
@@ -34,7 +41,9 @@ public class ChanceCreate {
 			BufferedReader in = new BufferedReader(new FileReader(file));
 			String line = null;
 			while ((line = in.readLine()) != null) {
-				content += line.trim() + "\n";
+				if(line.trim().indexOf("#") == 0)
+				    continue;
+				content += line.trim();
 			}
 			
 			in.close();

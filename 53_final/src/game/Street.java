@@ -3,7 +3,7 @@ package game;
 public class Street extends Ownable {
 	private int cType;
 	private int houses;
-	private int[] rent = new int[5];
+	private int[] rent = new int[6];
 	
 	/**
 	 * Street Constructor

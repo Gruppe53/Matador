@@ -49,7 +49,7 @@ public class Board {
 	public String getName(int i) {
 		return boardArray[i].getName();
 	}
-
+	
 	public void landOnField(int i, Player player) {
 		System.out.println("3");
 		boardArray[i].landOnField(player);
