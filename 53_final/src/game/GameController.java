@@ -104,6 +104,14 @@ public class GameController {
 			}
 			
 			else if(jailControl.isInJail() == true) {
+					if(GUI.getUserLeftButtonPressed("Hvordan vil du komme ud af fængslet", "Slå med terningen/bruge et løsladelseskort", "Betal 1000,-")){
+						//do something
+					}
+					else{
+						player[turn.getCurrent()].alterAccount(-1000);
+						GUI.setBalance(player[turn.getCurrent()].getName(), player[turn.getCurrent()].getAccount());
+						jailControl.setInJail(false);
+					}
 				
 			}
 			

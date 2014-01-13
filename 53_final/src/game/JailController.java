@@ -1,14 +1,9 @@
 package game;
 
 public class JailController {
-	public boolean isInJail = false;{
+	public boolean isInJail = false;
 	
-	if(isInJail == true){
-		//give choice
-		}
-	}
-
-	public boolean isInJail() {
+		public boolean isInJail() {
 		return isInJail;
 	}
 
