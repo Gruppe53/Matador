@@ -101,13 +101,15 @@ public class GameController {
 						break;
 						
 				}
-				else if(jailControl.isInJail() == true){
-					
-				}
-				
-				// Next player's turn
-				turn.nextTurn();
 			}
+			
+			else if(jailControl.isInJail() == true) {
+				
+			}
+			
+			// Next player's turn
+			turn.nextTurn();
+			
 		} while(turn.noWinner());
 		
 		
