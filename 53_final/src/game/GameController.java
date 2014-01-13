@@ -11,140 +11,185 @@ public class GameController {
 	// &aring; er lille AA | &Aring; er stort AA
 	// Hvis den stadig ikke udskriver entities, skal I tilfoeje <html> i starten af string
 	// og </html> i slutningen af string
-	
+
 	public Player[] player;
-	
+
 	private TurnController turn;
 	private Board board = new Board();
 	private Dice roll = new Dice(1, 6, 2);
 	private JailController jailControl = new JailController();
 	private boolean secondTurn = false;
-	
-	// FINALS
+
+	// FINALSs
 	private final int startCash = 30000;
-	
+
 	public GameController() {
 		// Create board with proper names and descriptions
 		GUI.create("materials/fields.txt");
-		
+
 		// First receive amount of players by input, then create an array with the amount of players and their names
 		createPlayers(countPlayers());
-		
+
 		// Keep playing the game 'till someone is victorious
 		do {
 			// Check if current player hasn't already lost
-			if((turn.getIndex(turn.getCurrent()) == 0) && (jailControl.isInJail() == false)) {				
+			if((turn.getIndex(turn.getCurrent()) == 0) && (player[turn.getCurrent()].getJailed() == false)) {				
 				int choice = GUI.getUserInteger(player[turn.getCurrent()].getName() 
 						+ ", det er din tur.\n"
 						+ "0.\tKast med terning\n"
 						+ "1.\tByg hus/hotel\n"
-						+ "2.\tSælg hus/hotel\n"
-						+ "3.\tPantsæt grund\n"
+						+ "2.\tSÃ¦lg hus/hotel\n"
+						+ "3.\tPantsÃ¦t grund\n"
 						+ "4.\tByt med spiller\n"
 						+ "5.\tEt eller andet...",
 						0,
 						5
-				);
-				
+						);
+
 				// Do a new roll with dice
 				roll.throwDice();
-				
+
 				// Assign position-values
 				int currentPosition = player[turn.getCurrent()].getPosition();
 				int newPosition = currentPosition + roll.getSum();
-				
+
 				switch(choice) {
-					case 0:
-						// Draw the roll
-						GUI.setDice(roll.getValue(0), roll.getValue(1));
-						
-						// Move the piece smoothly
-						movePiece(turn.getCurrent(), newPosition, currentPosition);
-						
-						// Make the mechanics of the field start
-						System.out.println(player[turn.getCurrent()].toString());
-						fieldTricker(player[turn.getCurrent()]);
-						break;
-					case 1:
-						GUI.getUserInteger("Hvad vil de foretage dem?\n"
-								+ "0.\tByg hus(e)\n"
-								+ "1.\tByg hoteller\n"
-								+ "2.\tVende tilbage til spilmenu",
-								0,
-								2
-						);
-						break;
-					case 2:
-						GUI.getUserInteger("Hvilken grund vil De sælge fra?\n"
-								+ "Udskriv liste med grunde, som brugeren ejer, og som har huse/hoteller...",
-								0,
-								2
-						);
-						break;
-					case 3:
-						// Something..
-						break;
-					case 4:
-						// Something..
-						break;
-					case 5:
-						// Something..
-						break;
-					default:
-						// Draw the roll
-						GUI.setDice(roll.getValue(0), roll.getValue(1));
-						
-						// Move the piece smoothly
-						movePiece(turn.getCurrent(), newPosition, currentPosition);
-						
-						// Make the mechanics of the field start
-						fieldTricker(player[turn.getCurrent()]);
-						break;
-						
+				case 0:
+					// Draw the roll
+					GUI.setDice(roll.getValue(0), roll.getValue(1));
+
+					// Move the piece smoothly
+					movePiece(turn.getCurrent(), newPosition, currentPosition);
+
+					// Make the mechanics of the field start
+					System.out.println(player[turn.getCurrent()].toString());
+					fieldTricker(player[turn.getCurrent()]);
+					break;
+				case 1:
+					GUI.getUserInteger("Hvad vil de foretage dem?\n"
+							+ "0.\tByg hus(e)\n"
+							+ "1.\tByg hoteller\n"
+							+ "2.\tVende tilbage til spilmenu",
+							0,
+							2
+							);
+					break;
+				case 2:
+					GUI.getUserInteger("Hvilken grund vil De sÃ¦lge fra?\n"
+							+ "Udskriv liste med grunde, som brugeren ejer, og som har huse/hoteller...",
+							0,
+							2
+							);
+					break;
+				case 3:
+					// Something..
+					break;
+				case 4:
+					// Something..
+					break;
+				case 5:
+					// Something..
+					break;
+				default:
+					// Draw the roll
+					GUI.setDice(roll.getValue(0), roll.getValue(1));
+
+					// Move the piece smoothly
+					movePiece(turn.getCurrent(), newPosition, currentPosition);
+
+					// Make the mechanics of the field start
+					fieldTricker(player[turn.getCurrent()]);
+					break;
+
 				}
 			}
-			
-			else if(jailControl.isInJail()) {
-					if(GUI.getUserLeftButtonPressed("Hvordan vil du komme ud af f&aelig;ngslet", "Sl&aring; med terningen/bruge et l&oslash;sladelseskort", "Betal 1000,-")) {
-						// TODO
+
+			else if(player[turn.getCurrent()].getJailed() == true) {
+				if(player[turn.getCurrent()].getBailoutcards() > 0) {
+					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af f&aelig;ngslet", "Sl&aring; med terningen", "Bruge et l&oslash;sladelseskort")) {
+						//slå med terninger for at komme ud
+						roll.throwDice();
+						
+						GUI.setDice(roll.getValue(0), roll.getValue(1));
+						
+						for(int i = 0; i < 2 ; i++) {
+							roll.throwDice();
+							GUI.setDice(roll.getValue(0), roll.getValue(1));
+
+							if(roll.isPair()) {
+								GUI.showMessage("De har slået et par! \nDe kommer nu ud af fængslet");
+								player[turn.getCurrent()].setJailed(false);
+								secondTurn = true;
+								i = 3;
+							}
+							else {
+								if (i <= 2)
+									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "forsøg tilbage");
+								else
+									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i fængsel til det er deres tur igen");
+							}
+						}
+
 					}
 					else {
-						player[turn.getCurrent()].alterAccount(-1000);
-						GUI.setBalance(player[turn.getCurrent()].getName(), player[turn.getCurrent()].getAccount());
-						jailControl.setInJail(false);
-						
+						//brug bailoutcard
+						player[turn.getCurrent()].setBailoutcards(-1);
+						player[turn.getCurrent()].setJailed(false);
 						secondTurn = true;
+						GUI.showMessage("De har benyttet dem af deres benødnings kort og kan nu trave frit rundt igen");
 					}
-				
-			}
-			
+				}
+				else {
+					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af f&aelig;ngslet", "Sl&aring; med terningen", "Betal 1000,-")) {
+						//slå med terninger for at komme ud
+						roll.throwDice();
+						GUI.setDice(roll.getValue(0), roll.getValue(1));
+						
+						for(int i = 0; i<2 ; i++) {
+							roll.throwDice();
+							GUI.setDice(roll.getValue(0), roll.getValue(1));
+
+							if(roll.isPair()) {
+								GUI.showMessage("De har slået et par! \nDe kommer nu ud af fængslet");
+								player[turn.getCurrent()].setJailed(false);
+								secondTurn = true;
+								i = 3;
+							}
+							else{
+								if(i <= 2)
+									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "forsøg tilbage");
+								else
+									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i fængsel til det er deres tur igen");
+							}
+						}
+					}
+				}
+
 			// Next player's turn
-			if(!secondTurn) {
+			if(!secondTurn)
 				turn.nextTurn();
-			}
-			else {
+			else
 				secondTurn = false;
-			}
-			
-		} while(turn.noWinner());
-		
-		
+		}
+	} while(turn.noWinner());
+
+
 		// End GUI-session, when game is done.
 		GUI.close();
 	}
-	
+
 	// Move the cars in the GUI "smoothly"
 	private void movePiece(int i, int n, int c) {
 		if(n > 40) {
 			n -= 40;
-			
+
 			// First move the piece the last steps before hitting START
 			for (int f = 1; f <= (40 - c); f++) {
 				GUI.removeAllCars(player[i].getName());
 				GUI.setCar((c + f), player[i].getName());
 				sleep(100); // When testing, set to 1, or get bored
 			}
-			
+
 			// Now move the piece the fields after START
 			for (int f = 1; f <= n; f++) {
 				if(f == 2){
@@ -171,9 +216,9 @@ public class GameController {
 	private void createPlayers(int n) {
 		String name;
 		Color[] colorSet = { Color.RED, Color.BLUE, Color.BLACK, Color.GREEN, Color.YELLOW, Color.CYAN };
-		
+
 		player = new Player[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			name = GUI.getUserString("Enter player " + (i + 1) + "'s name");
 
@@ -184,16 +229,16 @@ public class GameController {
 			turn.setIndex(i, 0);
 		}
 	}
-	
+
 	// Count amount of players by user input
 	private int countPlayers() {
 		int i = GUI.getUserInteger("Choose amount of players (minimum 2, maximum 6).", 2, 6);
-		
+
 		this.turn = new TurnController(i);
-		
+
 		return i;
 	}
-	
+
 	// Make the system wait for n-amount of milliseconds before doing anything
 	private void sleep(int n) {
 		long start, end;
@@ -204,13 +249,13 @@ public class GameController {
 			end = System.currentTimeMillis();
 		} while ((end - start) < (n));
 	}
-	
+
 	// For trickering the field mechanics for a specific field
 	// TODO - fieldTricker returnerer fejl, nullPointException??
 	public void fieldTricker(Player player) {
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
 		board.landOnField((player.getPosition() - 1), player);
-		
+
 		// If the player landed on a field, which he couldn't afford landing on
 		// then reset his owned fields
 		// TODO - correctly losing
