@@ -30,14 +30,14 @@ public class Auction {
 		if(players.length==2) 
 			for(int i = 0; i<=2; i++)
 				
-			if(GUI.getUserLeftButtonPressed("kunne de t&aelig;nke dem at købe denne grund til: " + fieldPrice, "Ja tak", "Nej tak")){
+			if(GUI.getUserLeftButtonPressed("kunne de t&aelig;nke dem at kï¿½be denne grund til: " + fieldPrice, "Ja tak", "Nej tak")){
 				
 			}
 
 
 		while(j <= players.length){
-			//			GUI.getUserButtonPressed("Noget", "Køb", "sælg", "tag tøjet af");
-			if(GUI.getUserLeftButtonPressed(players[j].getName() + ", kunne de tænke dem at byde på den pågældende grund? \nMindste bud tilladt: " + (currentMax + 50), "Ja tak", "Nej tak")){
+			//			GUI.getUserButtonPressed("Noget", "Kï¿½b", "sï¿½lg", "tag tï¿½jet af");
+			if(GUI.getUserLeftButtonPressed(players[j].getName() + ", kunne de tï¿½nke dem at byde pï¿½ den pï¿½gï¿½ldende grund? \nMindste bud tilladt: " + (currentMax + 50), "Ja tak", "Nej tak")){
 				currentMax = GUI.getUserInteger(players[j].getName() + " What would you like to bid? \nminimum bid allowed: " + (currentMax + 50), (currentMax + 50), 1000000);	
 			}
 
