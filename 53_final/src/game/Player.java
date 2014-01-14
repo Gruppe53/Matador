@@ -13,6 +13,8 @@ public class Player {
 	private int rollSum;
 	private int bailoutcards;
 	private boolean jailed;
+	private int houses;
+	private int hotels;
 	
 /**
  * Player Constructor
@@ -81,7 +83,7 @@ public class Player {
 			
 			// TODO - Fix GUI knowledge
 			GUI.removeAllCars(this.name);
-			GUI.showMessage(this.name + ", du er g&aring;et fallit - alle dine grunde er solgt til banken.");
+			GUI.showMessage(this.name + ", du er g\u00E5et fallit - alle dine grunde er solgt til banken.");
 		}
 		
 		// TODO - Fix GUI knowledge
@@ -95,6 +97,10 @@ public class Player {
 		return this.account;
 	}
 	
+	/**
+	 * set Assets
+	 * @param amount The amount that the player has bought for, adding the value to the total assets and subtracting from account. This value has to be positive.
+	 */
 	public void setAssets(int amount) {
 		alterAccount(-amount);
 		assets += amount;
@@ -174,5 +180,37 @@ public class Player {
 	 */
 	public int getBailoutcards(){
 		return this.bailoutcards;
+	}
+	
+	/**
+	 * get Houses
+	 * @return The amount of houses the player own across the board
+	 */
+	public int getHouses() {
+		return houses;
+	}
+	
+	/**
+	 * set Houses
+	 * @param houses Set the total amount of houses the player owns
+	 */
+	public void setHouses(int houses) {
+		this.houses = houses;
+	}
+	
+	/**
+	 * get Hotels
+	 * @return The amount of hotels the player own across the board
+	 */
+	public int getHotels() {
+		return hotels;
+	}
+	
+	/**
+	 * set Hotels
+	 * @param hotels Set the total amount of hotels the player owns
+	 */
+	public void setHotels(int hotels) {
+		this.hotels = hotels;
 	}
 }

@@ -1,10 +1,7 @@
 package game;
 
-import java.io.File;
-import java.util.Random;
-
-public class Chance extends Field {
-	private ChanceDeck deck;
+public class Chance extends ChanceDeck {
+	private String name;
 	
 	/**
 	 * Chance Constructor
@@ -12,17 +9,9 @@ public class Chance extends Field {
 	 */
 	public Chance(String name){
 		super(name);
-		
-		if(name == "Create") {
-			deck = new ChanceDeck();
-		}
 	}
 	
 	public String getName() {
 		return this.name;
-	}
-	
-	public void landOnField(Player player) {
-		// TODO
 	}
 }
