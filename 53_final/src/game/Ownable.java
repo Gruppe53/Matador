@@ -43,6 +43,7 @@ abstract public class Ownable extends Field {
 		} else if (!isOwner(player)) {
 			this.multiplier = owner.getBreweries();
 			// TODO - Fix GUI knowledge
+			// TODO - Hvad er multiplier ? bliver the ikke rent * antal breweries * antal breweries ?
 			GUI.showMessage(player.getName() + " betaler " + getRent() + " til " + owner.getName());
 			player.payRent(getRent(), owner);
 		}
