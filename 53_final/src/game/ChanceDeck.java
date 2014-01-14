@@ -9,18 +9,27 @@ import java.util.Random;
 import boundaryToMatador.GUI;
 
 public class ChanceDeck extends Field {
-	private ChanceCard[] deck = new ChanceCard[46];
+	private ChanceCard[] deck = new ChanceCard[37];
 	private int cardCount = 0;
 	private int pickCount = 0;
 	private String name;
+	private boolean hasDeck = false;
 	
 	// FINALS
 	private final File file = new File("materials/chance.txt");
 	
 	public ChanceDeck(String name) {
 		super(name);
-		createCards();
-		shuffleDeck(deck);
+		
+		for(int i = 0; i < deck.length; i++)
+			System.out.println(deck[i].getDescription());
+		
+		if(!hasDeck) {
+			createCards();
+			shuffleDeck(deck);
+			
+			hasDeck = true;
+		}
 	}
 	
 	public void landOnField(Player player) {
