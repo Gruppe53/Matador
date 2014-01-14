@@ -56,7 +56,7 @@ public class Player {
 			
 			// TODO - Fix GUI knowledge
 			GUI.removeAllCars(this.name);
-			GUI.showMessage(this.name + ", you went bankrupt - all your properties has been sold to the bank.");
+			GUI.showMessage(this.name + ", du er g&aring;et fallit - alle dine grunde er solgt til banken.");
 		}
 		
 		// TODO - Fix GUI knowledge
