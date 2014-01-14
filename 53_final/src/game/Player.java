@@ -14,6 +14,11 @@ public class Player {
 	private int bailoutcards;
 	private boolean jailed;
 	
+/**
+ * Player Constructor
+ * @param name - The name you would like to give the player
+ * @param account - The amount you would like to set the players account to
+ */
 	public Player(String name, int account) {
 		this.name = name;
 		this.account = account;
@@ -23,27 +28,47 @@ public class Player {
 		this.bailoutcards = 0;
 
 	}
-
+	/**
+	 * get Name
+	 * @return The name of the player
+	 */
 	public String getName() {
 		return this.name;
 	}
-
+	/**
+	 * get Status
+	 * @return The activity status of the player (0 = active , -1 = inactive)
+	 */
 	public int getStatus() {
 		return this.status;
 	}
-	
+	/**
+	 * get Position
+	 * @return The position on the board of the player
+	 */
 	public int getPosition() {
 		return position;
 	}
-	
+	/**
+	 * set Position
+	 * @param position - Set the position on the board of the player
+	 */
 	public void setPosition(int position) {
 		this.position = position; 
 	}
-	
+	/**
+	 * set Status 
+	 * @param status - Set the activity status of the player (0 = active , -1 = inactive)
+	 */
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	
+	/**
+	 * alter Account
+	 * @param amount - The amount you would like to add to the players account, if possible. 
+	 * </p>
+	 * If impossible account set to 0, and player activity status is set to inactive.
+	 */
 	public void alterAccount(int amount) {
 		if ((this.account + amount) >= 0) {
 
@@ -62,7 +87,10 @@ public class Player {
 		// TODO - Fix GUI knowledge
 		GUI.setBalance(this.name, account);
 	}
-	
+	/**
+	 * get Account
+	 * @return The amount on the players account
+	 */
 	public int getAccount() {
 		return this.account;
 	}
