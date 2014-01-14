@@ -5,12 +5,15 @@ import java.awt.Color;
 import boundaryToMatador.GUI;
 
 public class GameController {
-	// For at fikse ae, oe og aa midlertidigt (problem vedr. GitHub), kan entities bruges:
-	// &aelig; er lille ae | &AElig; er stort AE
-	// &oslash; er lille OE | &Oslash; er stort OE
-	// &aring; er lille AA | &Aring; er stort AA
-	// Hvis den stadig ikke udskriver entities, skal I tilfoeje <html> i starten af string
-	// og </html> i slutningen af string
+	// NY VERSION AF AE, OE OG AA!
+	// BRUG ESCAPETAGS I STEDET! 
+	// F.EKS.:
+	// FORKERT	String a = "Åen er lang og ællinger svømmer i den";
+	// KORREKT	String a = "\u00C5en er lang og \u00E6llinger sv\u00F8mmer i den";
+	// LISTE:
+	// AA: \u00C5 | aa: \u00E5
+	// OE: \u00D8 | oe: \u00F8
+	// AE: \u00C6 | ae: \u00E6
 
 	public Player[] player;
 
@@ -38,7 +41,7 @@ public class GameController {
 						+ "0.\tKast med terning\n"
 						+ "1.\tByg hus/hotel\n"
 						+ "2.\tS&aelig;lg hus/hotel\n"
-						+ "3.\tPants&aelig;t grund\n"
+						+ "3.\tPants\u00E6t grund\n"
 						+ "4.\tByt med spiller\n"
 						+ "5.\tEt eller andet...",
 						0,
@@ -106,7 +109,7 @@ public class GameController {
 			else if(player[turn.getCurrent()].getJailed() == true) {
 				if(player[turn.getCurrent()].getBailoutcards() > 0) {
 					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af f&aelig;ngslet", "Sl&aring; med terningen", "Bruge et l&oslash;sladelseskort")) {
-						//slå med terninger for at komme ud
+						//sl\u00E5 med terninger for at komme ud
 						roll.throwDice();
 						
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
@@ -140,7 +143,7 @@ public class GameController {
 				}
 				else {
 					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af f&aelig;ngslet", "Sl&aring; med terningen", "Betal 1000,-")) {
-						//slå med terninger for at komme ud
+						//sl\u00E5 med terninger for at komme ud
 						roll.throwDice();
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
 						
