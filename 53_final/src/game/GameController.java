@@ -36,12 +36,14 @@ public class GameController {
 		// Keep playing the game 'till someone is victorious
 		do {
 			// Check if current player hasn't already lost
-			if((turn.getIndex(turn.getCurrent()) == 0) && (player[turn.getCurrent()].getJailed() == false)) {				
+			if((turn.getIndex(turn.getCurrent()) == 0) && (player[turn.getCurrent()].getJailed() == false)) {
+				// TODO Kristin check den her metode ud til valg! den returnere en String af den knap man har trykket på
+//				String choices = GUI.getUserButtonPressed("Det er din tur", "Kast med terning", "byg hus / hotel","sælg grund" );
 				int choice = GUI.getUserInteger(player[turn.getCurrent()].getName() 
 						+ ", det er din tur.\n"
 						+ "0.\tKast med terning\n"
 						+ "1.\tByg hus/hotel\n"
-						+ "2.\tS&aelig;lg hus/hotel\n"
+						+ "2.\tS\u00E6lg hus/hotel\n"
 						+ "3.\tPants\u00E6t grund\n"
 						+ "4.\tByt med spiller\n"
 						+ "5.\tEt eller andet...",

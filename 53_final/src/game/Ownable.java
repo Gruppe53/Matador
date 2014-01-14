@@ -20,7 +20,7 @@ abstract public class Ownable extends Field {
 	public void landOnField(Player player) {
 		if (owner == null) {
 			// TODO - Fix GUI knowledge
-			if (GUI.getUserLeftButtonPressed("Do you want to buy " + name + " for " + price + "?", "Yes", "No")) {
+			if (GUI.getUserLeftButtonPressed("Vil du k&oslash;be " + name + " for " + price + "?", "Ja", "Nej")) {
 				if (player.getAccount() >= price) {
 					owner = player;
 					owner.setAssets(price);
@@ -43,7 +43,8 @@ abstract public class Ownable extends Field {
 		} else if (!isOwner(player)) {
 			this.multiplier = owner.getBreweries();
 			// TODO - Fix GUI knowledge
-			GUI.showMessage(player.getName() + " pays " + getRent() + " to " + owner.getName());
+			// TODO - Hvad er multiplier ? bliver the ikke rent * antal breweries * antal breweries ?
+			GUI.showMessage(player.getName() + " betaler " + getRent() + " til " + owner.getName());
 			player.payRent(getRent(), owner);
 		}
 	}
