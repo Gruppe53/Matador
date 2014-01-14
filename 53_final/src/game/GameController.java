@@ -14,6 +14,7 @@ public class GameController {
 	// AA: \u00C5 | aa: \u00E5
 	// OE: \u00D8 | oe: \u00F8
 	// AE: \u00C6 | ae: \u00E6
+	// DET SER IKKE UD TIL HELT AT VIRKE I CONSOLE :<
 
 	public Player[] player;
 
