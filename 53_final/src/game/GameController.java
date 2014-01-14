@@ -41,7 +41,7 @@ public class GameController {
 						+ "0.\tKast med terning\n"
 						+ "1.\tByg hus/hotel\n"
 						+ "2.\tS&aelig;lg hus/hotel\n"
-						+ "3.\tPants&aelig;t grund\n"
+						+ "3.\tPants\u00E6t grund\n"
 						+ "4.\tByt med spiller\n"
 						+ "5.\tEt eller andet...",
 						0,
@@ -109,7 +109,7 @@ public class GameController {
 			else if(player[turn.getCurrent()].getJailed() == true) {
 				if(player[turn.getCurrent()].getBailoutcards() > 0) {
 					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af f&aelig;ngslet", "Sl&aring; med terningen", "Bruge et l&oslash;sladelseskort")) {
-						//slå med terninger for at komme ud
+						//sl\u00E5 med terninger for at komme ud
 						roll.throwDice();
 						
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
@@ -143,7 +143,7 @@ public class GameController {
 				}
 				else {
 					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af f&aelig;ngslet", "Sl&aring; med terningen", "Betal 1000,-")) {
-						//slå med terninger for at komme ud
+						//sl\u00E5 med terninger for at komme ud
 						roll.throwDice();
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
 						
