@@ -192,5 +192,5 @@ count::1;;
 ||
 description::I anledning af kongens f�dselsdag ben�des De herved for f�ngsel. Dette kort kan opbevares, indtil De f�r brug for det, eller De kan s�lge det.;;
 type::BENAADNING;;
+action::out;;
 count::2;;
-||

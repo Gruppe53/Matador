@@ -5,12 +5,15 @@ import java.awt.Color;
 import boundaryToMatador.GUI;
 
 public class GameController {
-	// For at fikse ae, oe og aa midlertidigt (problem vedr. GitHub), kan entities bruges:
-	// &aelig; er lille ae | &AElig; er stort AE
-	// &oslash; er lille OE | &Oslash; er stort OE
-	// &aring; er lille AA | &Aring; er stort AA
-	// Hvis den stadig ikke udskriver entities, skal I tilfoeje <html> i starten af string
-	// og </html> i slutningen af string
+	// NY VERSION AF AE, OE OG AA!
+	// BRUG ESCAPETAGS I STEDET! 
+	// F.EKS.:
+	// FORKERT	String a = "Åen er lang og ællinger svømmer i den";
+	// KORREKT	String a = "\u00C5en er lang og \u00E6llinger sv\u00F8mmer i den";
+	// LISTE:
+	// AA: \u00C5 | aa: \u00E5
+	// OE: \u00D8 | oe: \u00F8
+	// AE: \u00C6 | ae: \u00E6
 
 	public Player[] player;
 

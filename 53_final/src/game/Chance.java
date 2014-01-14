@@ -1,6 +1,7 @@
 package game;
 
 import java.io.File;
+import java.util.Random;
 
 public class Chance extends Field {
 	private ChanceDeck deck;

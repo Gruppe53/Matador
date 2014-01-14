@@ -2,7 +2,7 @@
 	backgroundColor::255,,0,,0;;
 	foregroundColor::0,,0,,0;;
 	title::START;; 
-	subText:: ;;
+	subText::START;;
 	description::Modtag kr. 4.000,-\nn&aring;r de passerer START;;
 ||		
 	type::Street;;
