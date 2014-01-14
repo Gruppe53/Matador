@@ -47,7 +47,7 @@ public class Auction {
 			if(j > players.length) j = 0;
 		}
 
-		// TODO - Auction
+		// TODO - Auction - In Progress by Anders
 
 	}
 }
