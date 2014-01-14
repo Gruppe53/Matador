@@ -1,5 +1,7 @@
 package game;
 
+import boundaryToMatador.GUI;
+
 public class VisitJail extends Field {
 	
 	/**
@@ -11,6 +13,7 @@ public class VisitJail extends Field {
 	}
 	
 	public void landOnField(Player player){
-		// TODO - landOnField (VisitJail)
+		// TODO - fix GUI knowledge
+		GUI.showMessage("Du er p&aring; bes&oslash; i f&aelig;ngslet,\n og vinker til de indsatte, mens du k&oslash;rer forbi.");
 	}
 }

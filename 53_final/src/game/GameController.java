@@ -84,7 +84,7 @@ public class GameController {
 							);
 					break;
 				case 3:
-					// Something..
+					// TODO write the following cases
 					break;
 				case 4:
 					// Something..
@@ -253,7 +253,6 @@ public class GameController {
 	}
 
 	// For trickering the field mechanics for a specific field
-	// TODO - fieldTricker returnerer fejl, nullPointException??
 	public void fieldTricker(Player player) {
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
 		board.landOnField((player.getPosition() - 1), player);
