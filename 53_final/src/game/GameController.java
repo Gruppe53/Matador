@@ -90,7 +90,7 @@ public class GameController {
 					secondTurn = true;
 					break;
 				case 3:
-					GUI.getUserInteger("Hvilken grund vil De s&aelig;lge fra?\n"
+					GUI.getUserInteger("Hvilken grund vil De sælge fra?\n"
 							+ "Udskriv liste med grunde, som brugeren ejer, og som har huse/hoteller...",
 							0,
 							2
@@ -131,7 +131,7 @@ public class GameController {
 			else if(player[turn.getCurrent()].getJailed() == true) {
 				if(player[turn.getCurrent()].getBailoutcards() > 0) {
 					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af fængslet", "Slå med terningen", "Bruge et løsladelseskort")) {
-						//slaa med terninger for at komme ud
+						//slå med terninger for at komme ud
 						roll.throwDice();
 						
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
@@ -141,7 +141,7 @@ public class GameController {
 							GUI.setDice(roll.getValue(0), roll.getValue(1));
 							
 							if(roll.isPair()) {
-								GUI.showMessage("De har slået et par! \nDe kommer nu ud af f&aelig;ngslet");
+								GUI.showMessage("De har slået et par! \nDe kommer nu ud af fængslet");
 								player[turn.getCurrent()].setJailed(false);
 								movePiece(turn.getCurrent(), (player[turn.getCurrent()].getPosition() + roll.getSum()), player[turn.getCurrent()].getPosition());
 								secondTurn = true;
@@ -149,9 +149,9 @@ public class GameController {
 							}
 							else {
 								if (i < 2)
-									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "fors&oslash;g tilbage");
+									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "forsøg tilbage");
 								else
-									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i f&aelig;ngsel til det er deres tur igen");
+									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i fængsel til det er deres tur igen");
 							}
 						}
 						
@@ -165,7 +165,7 @@ public class GameController {
 					}
 				}
 				else {
-					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af f&aelig;ngslet", "Sl&aring; med terningen", "Betal 1000,-")) {
+					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af fængslet", "Slå med terningen", "Betal 1000,-")) {
 						//slå med terninger for at komme ud
 						roll.throwDice();
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
@@ -175,16 +175,17 @@ public class GameController {
 							GUI.setDice(roll.getValue(0), roll.getValue(1));
 
 							if(roll.isPair()) {
-								GUI.showMessage("De har sl&aring;et et par! \nDe kommer nu ud af f&aelig;ngslet");
+								GUI.showMessage("De har slået et par! \nDe kommer nu ud af fængslet");
 								player[turn.getCurrent()].setJailed(false);
+								movePiece(turn.getCurrent(), (player[turn.getCurrent()].getPosition() + roll.getSum()), player[turn.getCurrent()].getPosition());
 								secondTurn = true;
 								i = 3;
 							}
 							else {
-								if(i <= 2)
-									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "fors&aring;g tilbage");
+								if(i < 2)
+									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "forsøg tilbage");
 								else
-									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i f&aelig;ngsel til det er deres tur igen");
+									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i fængsel til det er deres tur igen");
 							}
 						}
 					}
