@@ -5,18 +5,6 @@ import java.awt.Color;
 import boundaryToMatador.GUI;
 
 public class GameController {
-	// NY VERSION AF AE, OE OG AA!
-	// BRUG ESCAPETAGS I STEDET! 
-	// F.EKS.:
-	// FORKERT	String a = "Åen er lang og ællinger svømmer i den";
-	// KORREKT	String a = "\u00C5en er lang og \u00E6llinger sv\u00F8mmer i den";
-	// LISTE:
-	// AA: \u00C5 | aa: \u00E5
-	// OE: \u00D8 | oe: \u00F8
-	// AE: \u00C6 | ae: \u00E6
-	// DET SER IKKE UD TIL HELT AT VIRKE I CONSOLE :<
-	// ... det ser ud til slet ikke at virke o_o
-
 	public Player[] player;
 
 	private TurnController turn;
