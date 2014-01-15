@@ -19,7 +19,7 @@ public class Tax extends Field {
 	 * 
 	 */
 	public void landOnField(Player player){
-
+		// TODO .... fix tax ffs
 		if (taxType == 0){
 			//10% eller 4k
 		}
