@@ -251,9 +251,9 @@
 	leje::Leje: 700;;
 ||	
 	type::Tax;;
-	title::Ekstra-\nordinær\nstatsskat;; 
-	subText::Betal 100;; 
-	description::Betal ekstraordinær\n statsskat: kr. 2.000,-;;
+	title::Kr. 2.000,-;; 
+	subText::Betal 2.000;; 
+	description::Betal ekstraordinær\n statsskat:;;
 ||	
 	type::Street;;
 	backgroundColor::150,,60,,150;;
