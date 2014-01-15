@@ -189,6 +189,11 @@ public class GameController {
 							}
 						}
 					}
+					else{
+						//Betal 1000
+						GUI.showMessage("De har betalt dem ud af fængslet");
+						secondTurn = true;
+					}
 				}
 			} // else if line 102	
 		
