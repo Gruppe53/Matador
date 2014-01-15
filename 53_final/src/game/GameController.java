@@ -23,6 +23,7 @@ public class GameController {
 	private Board board = new Board();
 	private Dice roll = new Dice(1, 6, 2);
 	private boolean secondTurn = false;
+	private int multiplePair = 0;
 
 	// FINALSs
 	private final int startCash = 30000;
@@ -44,6 +45,17 @@ public class GameController {
 				case 1:
 					// Do a new roll with dice
 					roll.throwDice();
+					if(roll.isPair()){
+						secondTurn = true;
+						multiplePair++;
+						if(multiplePair >= 3){
+							player[turn.getCurrent()].setJailed(true);
+							player[turn.getCurrent()].setPosition(11);
+							GUI.removeAllCars(player[turn.getCurrent()].getName());
+							GUI.setCar(11, player[turn.getCurrent()].getName());
+						}
+					}
+					
 
 					// Assign position-values
 					int currentPosition = player[turn.getCurrent()].getPosition();
@@ -179,8 +191,10 @@ public class GameController {
 			} // else if line 102	
 		
 			// Next player's turn
-			if(!secondTurn)
+			if(!secondTurn){
 				turn.nextTurn();
+				multiplePair = 0;
+			}
 			else
 				secondTurn = false;
 		} while(turn.noWinner());
