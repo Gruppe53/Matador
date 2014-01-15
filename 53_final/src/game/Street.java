@@ -22,9 +22,8 @@ public class Street extends Ownable {
 	 * @param Rent5 - The rent with 1 hotel on the street
 	 */
 	
-	public Street (String name, int price, int cType, int rent0, int rent1, int rent2, int rent3, int rent4, int rent5, int housePrice, int hotelPrice) {
+	public Street (String name, int price, int cType, int rent0, int rent1, int rent2, int rent3, int rent4, int rent5, int housePrice) {
 		super(name, price);
-		this.hotelPrice = hotelPrice;
 		this.housePrice = housePrice;
 		this.cType = cType;
 		this.houses = 0;
