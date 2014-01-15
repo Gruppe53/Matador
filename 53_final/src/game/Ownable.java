@@ -27,9 +27,11 @@ abstract public class Ownable extends Field {
 					
 					if(this instanceof Brewery) {
 						owner.setBrewery();
+						System.out.println(owner.getBreweries());
 					}
 					if(this instanceof Fleet) {
 						owner.setFleet();
+						System.out.println(owner.getFleet());
 					}
 					
 					// TODO - Fix GUI knowledge

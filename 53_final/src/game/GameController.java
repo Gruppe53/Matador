@@ -54,6 +54,8 @@ public class GameController {
 
 					// Move the piece smoothly
 					movePiece(turn.getCurrent(), newPosition, currentPosition);
+					
+					player[turn.getCurrent()].setRollSum(roll.getSum());
 
 					// Make the mechanics of the field start
 					System.out.println(player[turn.getCurrent()].toString());
