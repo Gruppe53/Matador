@@ -203,19 +203,19 @@ public class GameController {
 	}
 
 	// Move the cars in the GUI "smoothly"
-	private void movePiece(int i, int n, int c) {
-		if(n > 40) {
-			n -= 40;
+	private void movePiece(int i, int newPosition, int currentPosition) {
+		if(newPosition > 40) {
+			newPosition -= 40;
 
 			// First move the piece the last steps before hitting START
-			for (int f = 1; f <= (40 - c); f++) {
+			for (int f = 1; f <= (40 - currentPosition); f++) {
 				GUI.removeAllCars(player[i].getName());
-				GUI.setCar((c + f), player[i].getName());
+				GUI.setCar((currentPosition + f), player[i].getName());
 				sleep(100); // When testing, set to 1, or get bored
 			}
 
 			// Now move the piece the fields after START
-			for (int f = 1; f <= n; f++) {
+			for (int f = 1; f <= newPosition; f++) {
 				if(f == 2){
 					player[i].alterAccount(4000);
 					GUI.setBalance(player[i].getName(), player[i].getAccount());
@@ -226,14 +226,14 @@ public class GameController {
 			}
 		} else {
 			// Move the piece the require fields
-			for (int f = (c + 1); f <= n; f++) {
+			for (int f = (currentPosition + 1); f <= newPosition; f++) {
 				GUI.removeAllCars(player[i].getName());
 				GUI.setCar(f, player[i].getName());
 				sleep(100); // When testing, set to 1, or get bored
 			}
 		}
 
-		player[turn.getCurrent()].setPosition(n);
+		player[turn.getCurrent()].setPosition(newPosition);
 	}
 
 	// Create an array with length of the user input n, and add players to GUI with the names provided via user input
