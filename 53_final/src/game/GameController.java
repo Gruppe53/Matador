@@ -38,7 +38,7 @@ public class GameController {
 		do {
 			// Check if current player hasn't already lost
 			if((turn.getIndex(turn.getCurrent()) == 0) && (player[turn.getCurrent()].getJailed() == false)) {
-				String str = GUI.getUserButtonPressed(player[turn.getCurrent()].getName() + ", det er din tur.\n", "1. Slaa med terning", "2. Byg hus/hotel", "3. Saelg hus/hotel", "4. Pantsaet grund");
+				String str = GUI.getUserButtonPressed(player[turn.getCurrent()].getName() + ", det er din tur.\n", "1. Slå med terning", "2. Byg hus/hotel", "3. Sælg hus/hotel", "4. Pantsæt grund");
 
 				switch(getChoice(str)) {
 				case 1:
@@ -151,11 +151,11 @@ public class GameController {
 				}
 				else {
 					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af f&aelig;ngslet", "Sl&aring; med terningen", "Betal 1000,-")) {
-						//sl\u00E5 med terninger for at komme ud
+						//slå med terninger for at komme ud
 						roll.throwDice();
 						GUI.setDice(roll.getValue(0), roll.getValue(1));
 						
-						for(int i = 0; i<2 ; i++) {
+						for(int i = 0; i<=2 ; i++) {
 							roll.throwDice();
 							GUI.setDice(roll.getValue(0), roll.getValue(1));
 
