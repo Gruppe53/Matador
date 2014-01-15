@@ -24,7 +24,7 @@ public class Player {
 	public Player(String name, int account) {
 		this.name = name;
 		this.account = account;
-		this.assets = account;
+		this.assets = 0;
 		this.position = 1;
 		this.fleets = 0;
 		this.bailoutcards = 0;

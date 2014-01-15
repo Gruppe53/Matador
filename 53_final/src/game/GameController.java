@@ -33,6 +33,7 @@ public class GameController {
 				case 1:
 					// Do a new roll with dice
 					roll.throwDice();
+					// Get an extra turn if dices are pair
 					if(roll.isPair()){
 						secondTurn = true;
 						multiplePair++;
