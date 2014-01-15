@@ -1,8 +1,12 @@
 package game;
 
+import boundaryToMatador.GUI;
+
 public class Street extends Ownable {
 	private int cType;
 	private int houses;
+	private int housePrice;
+	private int hotelPrice;
 	private int[] rent = new int[6];
 	
 	/**
@@ -17,8 +21,10 @@ public class Street extends Ownable {
 	 * @param Rent4 - The rent with 4 houses on the street
 	 * @param Rent5 - The rent with 1 hotel on the street
 	 */
-	public Street (String name, int price, int cType, int rent0, int rent1, int rent2, int rent3, int rent4, int rent5) {
+	public Street (String name, int price, int cType, int rent0, int rent1, int rent2, int rent3, int rent4, int rent5, int hotelPrice, int housePrice) {
 		super(name, price);
+		this.hotelPrice = hotelPrice;
+		this.housePrice = housePrice;
 		this.cType = cType;
 		this.houses = 0;
 		this.rent[0] = rent0;
@@ -38,11 +44,33 @@ public class Street extends Ownable {
 	}
 	
 	/**
-	 * 
+	 * set Houses
+	 * @param field - The field number for which we want to buy houses for.
 	 * @param houses - Sets the amount of houses for the field.
 	 */
-	public void setHouses(int houses) {
+	public void setHouses(int field, int houses) {
 		this.houses = houses;
+		GUI.setHouses(field, houses);
+	}
+	
+	/**
+	 * set Hotel	
+	 * @param field - The field number for which we want to buy hotel for
+	 */
+	public void setHotel(int field) {
+		this.houses = 5;
+		GUI.setHotel(field, true);
+	}
+	
+	/**
+	 * remove Hotel
+	 * @param field - The field number for which we want to remove hotel from
+	 * @param houses - The new amount of houses for the field
+	 */
+	public void removeHotel(int field, int houses) {
+		this.houses = houses;
+		GUI.setHotel(field, false);
+		GUI.setHouses(field, houses);
 	}
 	
 	/**

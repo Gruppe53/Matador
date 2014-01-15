@@ -31,7 +31,7 @@ public class Auction {
 			for(int i = 0; i<=2; i++)
 				
 			if(GUI.getUserLeftButtonPressed("kunne de t&aelig;nke dem at k�be denne grund til: " + fieldPrice, "Ja tak", "Nej tak")){
-				
+				// TODO
 			}
 
 

@@ -10,7 +10,7 @@ abstract public class Ownable extends Field {
 	/**
 	 * Ownable Constructor
 	 * @param Name - The name of the Field
-	 * @param Owner - The Owner of the field (No Owner = Null)
+	 * @param Price - The price of the field
 	 */
 	public Ownable(String name, int price){
 		super(name);
@@ -20,7 +20,7 @@ abstract public class Ownable extends Field {
 	public void landOnField(Player player) {
 		if (owner == null) {
 			// TODO - Fix GUI knowledge
-			if (GUI.getUserLeftButtonPressed("Vil du k&oslash;be " + name + " for " + price + "?", "Ja", "Nej")) {
+			if (GUI.getUserLeftButtonPressed("Vil De købe " + name + " for " + price + "?", "Ja", "Nej")) {
 				if (player.getAccount() >= price) {
 					owner = player;
 					owner.setAssets(price);
@@ -33,17 +33,16 @@ abstract public class Ownable extends Field {
 					}
 					
 					// TODO - Fix GUI knowledge
-					GUI.showMessage(player.getName() + " bought and now owns " + name);
+					GUI.showMessage(player.getName() + " købte og ejer nu " + name);
 					GUI.setOwner(player.getPosition(), player.getName());
 				} else {
 					// TODO - Fix GUI knowledge
-					GUI.showMessage("You haven't got enough money to buy the property.");
+					GUI.showMessage("De har ikke nok penge til at købe denne grund.");
 				}
 			}
 		} else if (!isOwner(player)) {
-			this.multiplier = owner.getBreweries();
+			this.multiplier = player.getRollSum();
 			// TODO - Fix GUI knowledge
-			// TODO - Hvad er multiplier ? bliver the ikke rent * antal breweries * antal breweries ?
 			GUI.showMessage(player.getName() + " betaler " + getRent() + " til " + owner.getName());
 			player.payRent(getRent(), owner);
 		}

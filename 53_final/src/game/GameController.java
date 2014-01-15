@@ -277,4 +277,8 @@ public class GameController {
 			board.resetField(player);
 		}
 	}
+	
+	public void buyHouseHotel(Player player) {
+		board.buildHouseHotel(player, board.getAvailableGrounds(player));
+	}
 }
