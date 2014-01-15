@@ -22,9 +22,6 @@ public class ChanceDeck extends Field {
 		
 		createCards();
 		shuffleDeck(deck);
-		
-		for(int i = 0; i < deck.length; i++)
-			System.out.println(deck[i].getDescription());
 		}
 	
 	public void landOnField(Player player) {
