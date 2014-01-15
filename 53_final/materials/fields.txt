@@ -252,7 +252,7 @@
 ||	
 	type::Tax;;
 	title::Kr. 2.000,-;; 
-	subText::Betal 2.000;; 
+	subText::Betal 2.000,-;; 
 	description::Betal ekstraordinær\n statsskat:;;
 ||	
 	type::Street;;
