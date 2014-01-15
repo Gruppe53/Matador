@@ -130,7 +130,7 @@ public class GameController {
 			
 			else if(player[turn.getCurrent()].getJailed() == true) {
 				if(player[turn.getCurrent()].getBailoutcards() > 0) {
-					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af f&aelig;ngslet", "Sl&aring; med terningen", "Bruge et l&oslash;sladelseskort")) {
+					if(GUI.getUserLeftButtonPressed("Hvordan vil de komme ud af fængslet", "Slå med terningen", "Bruge et løsladelseskort")) {
 						//slaa med terninger for at komme ud
 						roll.throwDice();
 						
@@ -141,13 +141,14 @@ public class GameController {
 							GUI.setDice(roll.getValue(0), roll.getValue(1));
 							
 							if(roll.isPair()) {
-								GUI.showMessage("De har sl&aring;et et par! \nDe kommer nu ud af f&aelig;ngslet");
+								GUI.showMessage("De har slået et par! \nDe kommer nu ud af f&aelig;ngslet");
 								player[turn.getCurrent()].setJailed(false);
+								movePiece(turn.getCurrent(), (player[turn.getCurrent()].getPosition() + roll.getSum()), player[turn.getCurrent()].getPosition());
 								secondTurn = true;
 								i = 3;
 							}
 							else {
-								if (i <= 2)
+								if (i < 2)
 									GUI.showMessage("De slog ikke et par, men har " + (2-i) + "fors&oslash;g tilbage");
 								else
 									GUI.showMessage("De slog stadig ingen par og skal forsat sidde i f&aelig;ngsel til det er deres tur igen");
