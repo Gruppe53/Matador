@@ -21,7 +21,6 @@ public class Tax extends Field {
 	 * @param player - The player who lands on the field
 	 */
 	public void landOnField(Player player){
-		// TODO .... fix tax ffs
 		if (taxType == 0){
 			if(GUI.getUserLeftButtonPressed(player.getName() + ", de skal betale indkomstskat: betal 10% af deres aktiver eller 4000kr,-", "10%", "4000kr,-")){
 				//10%
