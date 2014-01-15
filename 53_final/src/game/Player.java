@@ -83,7 +83,7 @@ public class Player {
 			
 			// TODO - Fix GUI knowledge
 			GUI.removeAllCars(this.name);
-			GUI.showMessage(this.name + ", du er g\u00E5et fallit - alle dine grunde er solgt til banken.");
+			GUI.showMessage(this.name + ", De er gået fallit - alle Deres grunde er solgt til banken.");
 		}
 		
 		// TODO - Fix GUI knowledge

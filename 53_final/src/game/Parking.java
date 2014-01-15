@@ -14,6 +14,6 @@ public class Parking extends Field {
 	
 	public void landOnField(Player player){
 		// TODO - Fix GUI-knowledge
-		GUI.showMessage("Du parkerer bilen, og spiser en sandwich.");
+		GUI.showMessage("De parkerer bilen, og spiser en hjemmepakket rugbrødsmad.");
 	}
 }
