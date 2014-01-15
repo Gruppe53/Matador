@@ -8,8 +8,8 @@ public class Fleet extends Ownable {
 	 * @param name - The name of the Fleet
 	 * @param price - The price of the Fleet
 	 */
-	public Fleet(String name, int price, int pawn){
-		super(name, price, pawn);
+	public Fleet(String name, int price){
+		super(name, price);
 	}
 	
 	public int getRent() {

@@ -13,10 +13,9 @@ abstract public class Ownable extends Field {
 	 * @param Name - The name of the Field
 	 * @param Price - The price of the field
 	 */
-	public Ownable(String name, int price, int pawn){
+	public Ownable(String name, int price){
 		super(name);
 		this.price = price;
-		this.pawn = pawn;
 	}
 
 	public void landOnField(Player player) {

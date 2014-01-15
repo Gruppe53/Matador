@@ -8,8 +8,8 @@ public class Brewery extends Ownable {
 	 * @param Name - The name of the Brewery
 	 * @param Price - The Price of the Brewery
 	 */
-	public Brewery(String name, int price, int rent, int pawn){
-		super(name, price, pawn);
+	public Brewery(String name, int price, int rent){
+		super(name, price);
 		this.rent = rent;
 	}
 	
