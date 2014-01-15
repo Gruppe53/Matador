@@ -3,12 +3,12 @@
 	foregroundColor::0,,0,,0;;
 	title::START;; 
 	subText::START;;
-	description::Modtag kr. 4.000,-\nn&aring;r de passerer START;;
+	description::Modtag kr. 4.000,-\nnår de passerer START;;
 ||		
 	type::Street;;
 	backgroundColor::75,,155,,225;;
 	foregroundColor::0,,0,,0;;
-	title::R&oslash;dovrevej;; 
+	title::Rødovrevej;; 
 	subText::Pris: 1.200;; 
 	description::<html><span style="font-family: Courier, monospace; font-size: 9px;">1 hus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250\n2 huse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750\n3 huse&nbsp;&nbsp;&nbsp;2.250\n4 huse&nbsp;&nbsp;&nbsp;4.000\nHotel&nbsp;&nbsp;&nbsp;&nbsp;6.000</span></html>;;
 	leje::Leje: 50;;
@@ -32,7 +32,7 @@
 	picture::Default;;
 	title::Scandlines;; 
 	subText::Pris:  4.000;; 
-	description::Helsing&oslash;r-Helsingborg;;
+	description::Helsingør-Helsingborg;;
 	leje::Leje: 500;;
 ||	
 	type::Street;;
@@ -56,21 +56,21 @@
 	type::Street;;
 	backgroundColor::255,,135,,120;;
 	foregroundColor::0,,0,,0;;
-	title::All&eacute;gade;; 
+	title::Allégade;; 
 	subText::Pris: 2.400;; 
 	description::<html><span style="font-family: Courier, monospace;">1 hus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;800\n2 huse&nbsp;&nbsp;&nbsp;2.000\n3 huse&nbsp;&nbsp;&nbsp;6.000\n4 huse&nbsp;&nbsp;&nbsp;9.000\nHotel&nbsp;&nbsp;&nbsp;12.000</span></html>;;
 	leje::Leje: 150;;
 ||	
 	type::Jail;;
 	picture::Default;;
-	title::F&aelig;ngsel;; 
-	subText::F&aelig;ngsel;; 
-	description::P&aring; bes&oslash;g i f&aelig;ngslet;;
+	title::Fængsel;; 
+	subText::Fængsel;; 
+	description::På besøg i fængslet;;
 ||	
 	type::Street;;
 	backgroundColor::102,,204,,0;;
 	foregroundColor::0,,0,,0;;
-	title::Frederiks-\nberg All&eacute;;; 
+	title::Frederiks-\nberg Allé;; 
 	subText::Pris: 2.800;; 
 	description::<html><span style="font-family: Courier, monospace;">1 hus&nbsp;&nbsp;&nbsp;&nbsp;1.000\n2 huse&nbsp;&nbsp;&nbsp;3.000\n3 huse&nbsp;&nbsp;&nbsp;9.000\n4 huse&nbsp;&nbsp;12.500\nHotel&nbsp;&nbsp;&nbsp;15.000</span></html>;;
 	leje::Leje: 200;;
@@ -80,7 +80,7 @@
 	title::Tuborg;; 
 	subText::Pris:  3.000;; 
 	description::Tuborg;;
-	leje::Leje: 100 x [Terningslag]\nHvis b&aring;de Tuborg\nog Coca-Cola  tapperi ejes, betales\n200 [Terningeslag].;;
+	leje::Leje: 100 x [Terningslag]\nHvis både Tuborg\nog Coca-Cola  tapperi ejes, betales\n200 [Terningeslag].;;
 ||	
 	type::Street;;
 	backgroundColor::102,,204,,0;;
@@ -150,7 +150,7 @@
 	type::Street;;
 	backgroundColor::255,,0,,0;;
 	foregroundColor::0,,0,,0;;
-	title::&Oslash;sterbro-\ngade;; 
+	title::Østerbro-\ngade;; 
 	subText::Pris: 4.400;; 
 	description::<html><span style="font-family: Courier, monospace;">1 hus&nbsp;&nbsp;&nbsp;&nbsp;1.800\n2 huse&nbsp;&nbsp;&nbsp;5.000\n3 huse&nbsp;&nbsp;14.000\n4 huse&nbsp;&nbsp;17.500\nHotel&nbsp;&nbsp;&nbsp;21.000</span></html>;;
 	leje::Leje: 350;;
@@ -158,7 +158,7 @@
 	type::Street;;
 	backgroundColor::255,,0,,0;;
 	foregroundColor::0,,0,,0;;
-	title::Gr&oslash;nningen;; 
+	title::Grønningen;; 
 	subText::Pris: 4.800;; 
 	description::<html><span style="font-family: Courier, monospace;">1 hus&nbsp;&nbsp;&nbsp;&nbsp;2.000\n2 huse&nbsp;&nbsp;&nbsp;6.000\n3 huse&nbsp;&nbsp;15.000\n4 huse&nbsp;&nbsp;18.500\nHotel&nbsp;&nbsp;&nbsp;22.000</span></html>;;
 	leje::Leje: 400;;
@@ -191,21 +191,21 @@
 	title::Carlsberg;; 
 	subText::Pris:  3.000;; 
 	description::Carlsberg tapperi;;
-	leje::Leje: 100 x [Terningslag]\nHvis b&aring;de Tuborg\nog Carlsberg tapperi ejes, betales\n200 [Terningeslag].;;
+	leje::Leje: 100 x [Terningslag]\nHvis både Tuborg\nog Carlsberg tapperi ejes, betales\n200 [Terningeslag].;;
 ||	
 	type::Street;;
 	backgroundColor::255,,255,,255;;
 	foregroundColor::0,,0,,0;;
-	title::&Oslash;stergade;; 
+	title::Østergade;; 
 	subText::Pris: 5.600;; 
 	description::<html><span style="font-family: Courier, monospace;">1 hus&nbsp;&nbsp;&nbsp;&nbsp;2.400\n2 huse&nbsp;&nbsp;&nbsp;7.200\n3 huse&nbsp;&nbsp;17.000\n4 huse&nbsp;&nbsp;20.500\nHotel&nbsp;&nbsp;&nbsp;24.000</span></html>;;
 	leje::Leje: 500;;
 ||	
 	type::Jail;;
 	picture::Default;;
-	title::De f&aelig;ngsles;; 
-	subText::De f&aelig;ngsles;; 
-	description::De f&aelig;ngsles\nRyk i f&aelig;ngsel.\nPasserer De start,\nmodtager de IKKE 4.000.;;
+	title::De fængsles;; 
+	subText::De fængsles;; 
+	description::De fængsles\nRyk i fængsel.\nPasserer De start,\nmodtager de IKKE 4.000.;;
 ||	
 	type::Street;;
 	backgroundColor::255,,255,,50;;
@@ -237,7 +237,7 @@
 	picture::Default;;
 	title::Scandlines;; 
 	subText::Pris:  4.000;; 
-	description::R&oslash;dby-Puttgarden;;
+	description::Rødby-Puttgarden;;
 	leje::Leje: 500;;
 ||	
 	type::Chance;;
@@ -251,14 +251,14 @@
 	leje::Leje: 700;;
 ||	
 	type::Tax;;
-	title::Ekstra-\nordin&aelig;r\nstatsskat;; 
+	title::Ekstra-\nordinær\nstatsskat;; 
 	subText::Betal 100;; 
-	description::Betal ekstraordin&aelig;r\n statsskat: kr. 2.000,-;;
+	description::Betal ekstraordinær\n statsskat: kr. 2.000,-;;
 ||	
 	type::Street;;
 	backgroundColor::150,,60,,150;;
 	foregroundColor::255,,255,,255;;
-	title::R&aring;dhus-\npladsen;; 
+	title::Rådhus-\npladsen;; 
 	subText::Pris: 8.000;; 
 	description::<html><span style="font-family: Courier, monospace;">1 hus&nbsp;&nbsp;&nbsp;&nbsp;4.000\n2 huse&nbsp;&nbsp;12.000\n3 huse&nbsp;&nbsp;28.000\n4 huse&nbsp;&nbsp;34.000\nHotel&nbsp;&nbsp;&nbsp;40.000</span></html>;;
 	leje::Leje: 1.000;;
