@@ -22,6 +22,8 @@ public class TurnController {
 		
 		if (current >= index.length)
 			current = 0;
+		
+		// TODO - Check if "next" player is active, if not, go to next player!
 	}
 	
 	public int getIndex(int i) {

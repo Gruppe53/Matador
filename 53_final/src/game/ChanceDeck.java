@@ -28,7 +28,7 @@ public class ChanceDeck extends Field {
 		}
 	
 	public void landOnField(Player player) {
-		GUI.showMessage("Tr\u00F6k et \"pr\uF008Fv lykken\"-kort");
+		GUI.showMessage("Træk et \"prøv lykken\"-kort");
 		GUI.showMessage(deck[pickCount].getDescription());
         
 		switch(Integer.parseInt(deck[pickCount].getType())) {
@@ -101,6 +101,8 @@ public class ChanceDeck extends Field {
 		default:
 				break;
 		}
+		
+		setPickCount();
 	}
 	
 	private void createCards() {
