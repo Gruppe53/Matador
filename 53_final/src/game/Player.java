@@ -99,17 +99,27 @@ public class Player {
 	
 	/**
 	 * set Assets
-	 * @param amount The amount that the player has bought for, adding the value to the total assets and subtracting from account. This value has to be positive.
+	 * @param amount - Adds the amount to the players current assets amount
 	 */
 	public void setAssets(int amount) {
-		alterAccount(-amount);
 		assets += amount;
 	}
 	
+	/**
+	 * get Assets
+	 * @return The players assets + his account
+	 */
 	public int getAssets() {
-		return assets;
+		int result = assets + account;
+		return result;
 	}
 
+	/**
+	 * pay Rent
+	 * @param rent - The amount that is being transfered 
+	 * @param leaser - The player which the given player has to pay
+	 * @return The activity status of the given player
+	 */
 	public int payRent(int rent, Player leaser) {
 		int amount;
 		
@@ -127,26 +137,52 @@ public class Player {
 		return this.status;
 	}
 
+	/**
+	 * set Fleet
+	 * </p>
+	 * add 1 to the given players fleet amount
+	 */
 	public void setFleet() {
 		this.fleets += 1;
 	}
 	
+	/**
+	 * get Fleet
+	 * @return The amount of fleets the given player has
+	 */
 	public int getFleet() {
 		return this.fleets;
 	}
 	
+	/**
+	 * set Brewery
+	 * </p>
+	 * add 1 to the given players brewery amount
+	 */
 	public void setBrewery() {
 		this.breweries += 1;
 	}
 	
+	/**
+	 * get Breweries
+	 * @return The amount of breweries the given player has
+	 */
 	public int getBreweries() {
 		return this.breweries;
 	}
 
+	/**
+	 * get Rollsum
+	 * @return The sum of the latest roll the given player has made
+	 */
 	public int getRollSum() {
 		return this.rollSum;
 	}
 	
+	/**
+	 * set Rollsum
+	 * @param rollSum - The given players latest roll
+	 */
 	public void setRollSum(int rollSum) {
 		this.rollSum = rollSum;
 	}
