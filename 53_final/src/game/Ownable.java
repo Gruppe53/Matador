@@ -6,15 +6,17 @@ abstract public class Ownable extends Field {
 	protected Player owner;
 	protected int price;
 	protected int multiplier;
+	protected int pawn;
 	
 	/**
 	 * Ownable Constructor
 	 * @param Name - The name of the Field
 	 * @param Price - The price of the field
 	 */
-	public Ownable(String name, int price){
+	public Ownable(String name, int price, int pawn){
 		super(name);
 		this.price = price;
+		this.pawn = pawn;
 	}
 
 	public void landOnField(Player player) {
@@ -52,6 +54,10 @@ abstract public class Ownable extends Field {
 	
 	public boolean isOwner(Player player) {
 		return player == owner;
+	}
+	
+	public int getPawn() {
+		return this.pawn;
 	}
 	
 	public void resetOwner() {
