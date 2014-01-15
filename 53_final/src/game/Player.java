@@ -26,8 +26,10 @@ public class Player {
 		this.account = account;
 		this.assets = 0;
 		this.position = 1;
+		this.breweries = 0;
 		this.fleets = 0;
 		this.bailoutcards = 0;
+		this.status = 0;
 
 	}
 	/**
