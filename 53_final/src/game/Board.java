@@ -69,7 +69,7 @@ public class Board {
 		}
 	}
 	
-	public Street[] getAvailableGrounds(Player player) {
+	public String[] getAvailableGrounds(Player player) {
 		int count = 0;
 		
 		for(int i = 0; i < boardArray.length; i++) {
@@ -106,10 +106,18 @@ public class Board {
 			}
 		}
 		
-		return available;
+		String[] fix = new String[2];
+		return fix;
+		
+		// TODO
+		// String[] availableGrounds;
+		// return availableGrounds;
 	}
 
-	public void buildHouseHotel(Player player, Street[] available) {
-		PropertyControl build = new PropertyControl(player, available);
+	public void buyHouseHotel(Player player, String choice) {
+		// TODO
+		// Split choice
+		// Compare choices with street values (names)
+		// Send player and choices (as Streets now) to PControl
 	}
 }
