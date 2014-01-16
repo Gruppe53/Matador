@@ -24,7 +24,7 @@ abstract public class Ownable extends Field {
 			if (GUI.getUserLeftButtonPressed("Vil De købe " + name + " for " + price + "?", "Ja", "Nej")) {
 				if (player.getAccount() >= price) {
 					owner = player;
-					owner.alterAccount(price);
+					owner.alterAccount(-price);
 					owner.setAssets((int)(price * 0.5));
 					
 					if(this instanceof Brewery) {
