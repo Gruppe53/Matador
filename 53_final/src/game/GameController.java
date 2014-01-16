@@ -77,7 +77,7 @@ public class GameController {
 						break;
 					}
 					
-					GUI.getUserSelection("Hvilken grund vil De købe hus/hotel til?", buyHouseHotel)
+					GUI.getUserSelection("Hvilken grund vil De købe hus/hotel til?", getAvailableGrounds(player[turn.getCurrent()]));
 					
 					secondTurn = true;
 					break;
@@ -293,11 +293,12 @@ public class GameController {
 		}
 	}
 	
-	private String getGrounds(Player player) {
+
+	private String[] getAvailableGrounds(Player player) {
 		return board.getAvailableGrounds(player);
 	}
 	
-	public void buyHouseHotel(Player player) {
-		board.buildHouseHotel(player, board.getAvailableGrounds(player));
+	public void buyHouseHotel(Player player, String choice) {
+		board.buyHouseHotel(player, choice);
 	}
 }
