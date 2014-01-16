@@ -10,7 +10,7 @@ public class GameController {
 	
 	private TurnController turn;
 	private Board board = new Board();
-	private Dice roll = new Dice(1, 6, 2);
+	private Dice roll = new Dice(1, 1, 1);
 	private boolean secondTurn = false;
 	private int multiplePair = 0;
 
@@ -38,12 +38,13 @@ public class GameController {
 					if(roll.isPair()){
 						secondTurn = true;
 						multiplePair++;
-						if(multiplePair >= 3){
-							player[turn.getCurrent()].setJailed(true);
-							player[turn.getCurrent()].setPosition(11);
-							GUI.removeAllCars(player[turn.getCurrent()].getName());
-							GUI.setCar(11, player[turn.getCurrent()].getName());
-						}
+//						if(multiplePair >= 3){
+//							player[turn.getCurrent()].setJailed(true);
+//							player[turn.getCurrent()].setPosition(11);
+//							GUI.removeAllCars(player[turn.getCurrent()].getName());
+//							GUI.setCar(11, player[turn.getCurrent()].getName());
+//							GUI.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
+//						}
 					}
 					
 
@@ -52,7 +53,7 @@ public class GameController {
 					int newPosition = currentPosition + roll.getSum();
 					
 					// Draw the roll
-					GUI.setDice(roll.getValue(0), roll.getValue(1));
+					GUI.setDice(roll.getValue(0), roll.getValue(0));
 
 					// Move the piece smoothly
 					movePiece(turn.getCurrent(), newPosition, currentPosition);
@@ -60,7 +61,6 @@ public class GameController {
 					player[turn.getCurrent()].setRollSum(roll.getSum());
 
 					// Make the mechanics of the field start
-					System.out.println(player[turn.getCurrent()].toString());
 					fieldTricker(player[turn.getCurrent()]);
 					break;
 				case 2:
@@ -286,7 +286,7 @@ public class GameController {
 		// If the player landed on a field, which he couldn't afford landing on
 		// then reset his owned fields
 		// TODO - correctly losing
-		// need to make sure that the player's assets is accounted for and sold (ownable fields)
+		// need to make sure that the player's assets is accounted for and sold (ownable fields are pawned before losing)
 		// if these make it possible for him to stay in the game
 		if (player.getStatus() < 0) {
 			board.resetField(player);

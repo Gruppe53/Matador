@@ -1,5 +1,9 @@
 package game;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 import boundaryToMatador.GUI;
 
 public class Board {
@@ -75,30 +79,39 @@ public class Board {
 		for(int i = 0; i < boardArray.length; i++) {
 			if(boardArray[i] instanceof Street) {
 				if(((Street) boardArray[i]).isOwner(player)) {
-					count = i;
+					System.out.println("Ejer: " + boardArray[i].getName());
+					count++;
+					System.out.println("Antal: " + count);
 				}
 			}
 		}
 		
 		Street[] available = new Street[count];
+		int[] availableTypes = new int[9];
 		
-		for(int i = 0; i < count; i++) {
+		count = 0;
+		
+		for(int i = 0; i < boardArray.length; i++) {
 			if(boardArray[i] instanceof Street) {
 				if(((Street) boardArray[i]).isOwner(player)) {
-					available[i] = (Street) boardArray[i];
+					available[count] = (Street) boardArray[i];
+					count++;
 				}
 			}
 		}
+		
+		count = 0; 
 		
 		for(int i = 0; i < available.length; i++) {
 			for(int j = 0; j < available.length; j++) {
 				if(i != j) {
 					for(int k = 0; k < available.length; k++) {
-						if(i != k) {
+						if(i != k && j != k) {
 							if((available[i].getcType() == available[j].getcType()) && (available[i].getcType() == available[k].getcType())) {
-								System.out.println(available[i].getName() + " - " + available[i].getcType());
-								System.out.println(available[j].getName() + " - " + available[j].getcType());
-								System.out.println(available[k].getName() + " - " + available[k].getcType());
+								if(!(containsSameType(availableTypes, available[i].getcType()))) {
+									availableTypes[count] = available[i].getcType();
+									count++;
+								}
 							}
 						}
 					}
@@ -106,12 +119,36 @@ public class Board {
 			}
 		}
 		
-		String[] fix = new String[2];
-		return fix;
+		String[] availableGrounds = new String[count];
 		
-		// TODO
-		// String[] availableGrounds;
-		// return availableGrounds;
+		for(int i = 0; i < availableGrounds.length; i++)
+			availableGrounds[i] = "";
+		
+		count = 0;
+		int counter = 0;
+		
+		for(int a : availableTypes) {
+			for(Field b : boardArray) {
+				if(b instanceof Street) {
+					if(a == ((Street) b).getcType())
+						if(counter == 2) {
+							availableGrounds[count] += ((Street) b).getName();
+						}
+						else {
+							availableGrounds[count] += ((Street) b).getName() + ", ";
+							counter++;
+						}
+				}
+			}
+			
+			counter = 0;
+			count++;
+		}
+		
+		for(String a : availableGrounds)
+			System.out.println(a);
+		
+		return availableGrounds;
 	}
 
 	public void buyHouseHotel(Player player, String choice) {
@@ -119,5 +156,13 @@ public class Board {
 		// Split choice
 		// Compare choices with street values (names)
 		// Send player and choices (as Streets now) to PControl
+	}
+	
+	private boolean containsSameType(int[] array, int v ) {
+	    for (int e : array )
+	        if(e == v)
+	            return true;
+
+	    return false;
 	}
 }

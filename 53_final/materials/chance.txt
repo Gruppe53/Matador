@@ -73,7 +73,7 @@ type::3;;
 action::-2000;;
 count::1;;
 ||
-description::De har f�et en parkeringsbøde betal kr. 200 i b�de.;;
+description::De har fået en parkeringsbøde betal kr. 200 i bøde.;;
 type::3;;
 action::-200;;
 count::1;;
