@@ -1,5 +1,7 @@
 package game;
 
+import java.util.ArrayList;
+
 import boundaryToMatador.GUI;
 
 public class Board {
@@ -76,9 +78,7 @@ public class Board {
 		for(int i = 0; i < boardArray.length; i++) {
 			if(boardArray[i] instanceof Street) {
 				if(((Street) boardArray[i]).isOwner(player)) {
-					System.out.println("Ejer: " + boardArray[i].getName());
 					count++;
-					System.out.println("Antal: " + count);
 				}
 			}
 		}
@@ -142,9 +142,6 @@ public class Board {
 			count++;
 		}
 		
-		for(String a : availableGrounds)
-			System.out.println(a);
-		
 		return availableGrounds;
 	}
 
@@ -153,32 +150,53 @@ public class Board {
 		// fields-array bliver ikke instantieret, hvorfor alle entries i array = null
 		// også selvom fields[x] = (Street) boardArray[y]...
 		// 
-		Street[] fields = new Street[choice.split(", ").length];
 		
-		for(int i = 0; i < fields.length; i++)
-			fields[i] = null;
+		ArrayList<Street> fieldList = new ArrayList<Street>();
+		//Street[] fields = new Street[choice.split(", ").length];
 		
-		System.out.println("Fields length: " + fields.length);
+		//int count = 0;
 		
-		int count = 0;
+//		for(String a : choice.split(", ")) {
+//			
+//			for(int i = 0; i < boardArray.length; i++) {
+//				if(boardArray[i] instanceof Street) {
+//					if(((Street) boardArray[i]).getName() == a) {
+//						fields[count] = (Street) boardArray[i];
+//						
+//						count++;
+//					}
+//				}
+//			}
+//		}
+		
+		System.out.println(choice);
 		
 		for(String a : choice.split(", ")) {
-			
 			for(int i = 0; i < boardArray.length; i++) {
 				if(boardArray[i] instanceof Street) {
-					if(((Street) boardArray[i]).getName() == a) {
-						fields[count] = (Street) boardArray[i];
-						
-						count++;
+					String b = ((Street) boardArray[i]).getName();
+					
+					System.out.println("a: " + a + " ||| b: " + b);
+					
+					if(a == b) {
+						System.out.println("Pair!");
+						fieldList.add((Street) boardArray[i]);
 					}
+					System.out.println("---------------------------");
 				}
 			}
 		}
 		
 		// Send player and choices (as Streets now) to PControl
-		System.out.println(fields[0].getName());
+		if(fieldList.size() == 0){
+		   System.out.println("ArrayList is empty");
+		}
+		else {
+			System.out.println(fieldList.get(0));
+		}
 		
-		pControl = new PropertyControl(player, fields);
+		pControl = new PropertyControl(player, fieldList);
+		pControl = null;
 	}
 	
 	private boolean containsSameType(int[] array, int v ) {

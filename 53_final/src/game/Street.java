@@ -6,7 +6,6 @@ public class Street extends Ownable {
 	private int cType;
 	private int houses;
 	private int housePrice;
-	private int hotelPrice;
 	private int[] rent = new int[6];
 	
 	/**
@@ -50,6 +49,8 @@ public class Street extends Ownable {
 	 */
 	public void setHouses(int field, int houses) {
 		this.houses = houses;
+		
+		// TODO GUI-knowledge
 		GUI.setHouses(field, houses);
 	}
 	
@@ -59,6 +60,8 @@ public class Street extends Ownable {
 	 */
 	public void setHotel(int field) {
 		this.houses = 5;
+		
+		// TODO GUI-knowledge
 		GUI.setHotel(field, true);
 	}
 	
@@ -69,6 +72,8 @@ public class Street extends Ownable {
 	 */
 	public void removeHotel(int field, int houses) {
 		this.houses = houses;
+		
+		// TODO GUI-knowledge
 		GUI.setHotel(field, false);
 		GUI.setHouses(field, houses);
 	}
@@ -86,6 +91,10 @@ public class Street extends Ownable {
 	 * @return The cluster for which the field is a part of
 	 */
 	public int getcType() {
-		return cType;
+		return this.cType;
+	}
+	
+	public int getHousePrice() {
+		return this.housePrice;
 	}
 }

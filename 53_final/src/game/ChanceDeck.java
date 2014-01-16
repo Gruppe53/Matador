@@ -183,4 +183,8 @@ public class ChanceDeck extends Field {
 		
 		return content;
 	}
+	
+	public String getName() {
+		return this.name;
+	}
 }

@@ -1,10 +1,14 @@
 package game;
 
+import java.util.ArrayList;
+
 public class PropertyControl {
 	
-	public PropertyControl(Player player, Street[] fields) {
-		for(int i = 0; i < fields.length; i++)
-			System.out.println("pControl " + (i + 1) + ": " + fields[i].getName());
+	public PropertyControl(Player player, ArrayList<Street> fields) {
+		int b = 0;
+		
+		for(Street a : fields)
+			System.out.println("pControl " + b++ + ": " + a.getName());
 		// Secure evenly built houses
 	}
 }
