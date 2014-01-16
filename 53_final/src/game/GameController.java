@@ -13,7 +13,7 @@ public class GameController {
 	private Dice roll = new Dice(1, 1, 1);
 	private boolean secondTurn = false;
 	private int multiplePair = 0;
-
+	// TODO fix "vend tilbage til hovedmenuen"
 	// FINALSs
 	private final int startCash = 30000;
 
