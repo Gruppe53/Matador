@@ -53,7 +53,6 @@ public class Board {
 	}
 	
 	public void landOnField(int i, Player player) {
-		System.out.println("3");
 		boardArray[i].landOnField(player);
 	}
 	
@@ -91,11 +90,26 @@ public class Board {
 			}
 		}
 		
-		// TODO kristin fixer
+		for(int i = 0; i < available.length; i++) {
+			for(int j = 0; j < available.length; j++) {
+				if(i != j) {
+					for(int k = 0; k < available.length; k++) {
+						if(i != k) {
+							if((available[i].getcType() == available[j].getcType()) && (available[i].getcType() == available[k].getcType())) {
+								System.out.println(available[i].getName() + " - " + available[i].getcType());
+								System.out.println(available[j].getName() + " - " + available[j].getcType());
+								System.out.println(available[k].getName() + " - " + available[k].getcType());
+							}
+						}
+					}
+				}
+			}
+		}
+		
 		return available;
 	}
 
 	public void buildHouseHotel(Player player, Street[] available) {
-		HouseHotelControl build = new HouseHotelControl(player, available);
+		PropertyControl build = new PropertyControl(player, available);
 	}
 }

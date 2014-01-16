@@ -75,6 +75,8 @@ public class GameController {
 						break;
 					}
 					
+					GUI.getUserSelection("Hvilken grund vil De købe hus/hotel til?", buyHouseHotel)
+					
 					secondTurn = true;
 					break;
 				case 3:
@@ -287,6 +289,10 @@ public class GameController {
 		if (player.getStatus() < 0) {
 			board.resetField(player);
 		}
+	}
+	
+	private String getGrounds(Player player) {
+		return board.getAvailableGrounds(player);
 	}
 	
 	public void buyHouseHotel(Player player) {
