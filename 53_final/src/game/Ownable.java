@@ -62,5 +62,9 @@ abstract public class Ownable extends Field {
 		owner = null;
 	}
 	
+	public int getPrice(){
+		return this.price;
+	}
+	
 	abstract int getRent();
 }
