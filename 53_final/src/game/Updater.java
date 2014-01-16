@@ -169,4 +169,13 @@ public class Updater {
 		return GUI.getUserString(msg);
 	}
 	
+	/**
+	 * Displays a dropdown to the user and awaits the response.
+	 * @param msg - The message which prompts the user
+	 * @param options - An array with possible options to choose between from the dropdown.
+	 * @return
+	 */
+	public String getUserSelection(String msg, String[] options) {
+		return GUI.getUserSelection(msg, options);
+	}
 }
