@@ -6,7 +6,8 @@ import boundaryToMatador.GUI;
 
 public class GameController {
 	public Player[] player;
-
+	public Updater UD = new Updater();
+	
 	private TurnController turn;
 	private Board board = new Board();
 	private Dice roll = new Dice(1, 6, 2);
@@ -27,7 +28,7 @@ public class GameController {
 		do {
 			// Check if current player hasn't already lost
 			if((turn.getIndex(turn.getCurrent()) == 0) && (player[turn.getCurrent()].getJailed() == false)) {
-				String str = GUI.getUserButtonPressed(player[turn.getCurrent()].getName() + ", det er Deres tur.\n", "1. Slå med terning", "2. Byg hus/hotel", "3. Sælg hus/hotel", "4. Pantsæt grund");
+				String str = UD.getUserButtonPressed(player[turn.getCurrent()].getName() + ", det er Deres tur.\n", "1. Slå med terning", "2. Byg hus/hotel", "3. Sælg hus/hotel", "4. Pantsæt grund");
 
 				switch(getChoice(str)) {
 				case 1:
