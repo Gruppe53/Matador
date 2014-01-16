@@ -64,20 +64,15 @@ public class GameController {
 					fieldTricker(player[turn.getCurrent()]);
 					break;
 				case 2:
-					str = GUI.getUserButtonPressed("Hvad vil De foretage dem?", "1. Byg hus(e)", "2. Byg hoteller", "3. Vend tilbage til spilmenu");
+					str = GUI.getUserButtonPressed("Hvad vil De foretage dem?", "1. Byg huse/hoteller", "2. Vend tilbage til spilmenu");
 					
 					switch(getChoice(str)) {
 					case 1:
-						GUI.showMessage("Huse...");
-						break;
-					case 2:
-						GUI.showMessage("Hoteller...");
+						buyProperty(player[turn.getCurrent()], GUI.getUserSelection("Hvilken grund vil De købe hus/hotel til?", getAvailableGrounds(player[turn.getCurrent()])));
 						break;
 					default:
 						break;
 					}
-					
-					GUI.getUserSelection("Hvilken grund vil De købe hus/hotel til?", getAvailableGrounds(player[turn.getCurrent()]));
 					
 					secondTurn = true;
 					break;
@@ -298,7 +293,7 @@ public class GameController {
 		return board.getAvailableGrounds(player);
 	}
 	
-	public void buyHouseHotel(Player player, String choice) {
-		board.buyHouseHotel(player, choice);
+	public void buyProperty(Player player, String choice) {
+		board.buyProperty(player, choice);
 	}
 }

@@ -1,13 +1,10 @@
 package game;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 import boundaryToMatador.GUI;
 
 public class Board {
 	private Field[] boardArray = new Field[40];
+	private PropertyControl pControl;
 		
 	public Board() {
 		boardArray[0] = new Start("Start");
@@ -151,11 +148,37 @@ public class Board {
 		return availableGrounds;
 	}
 
-	public void buyHouseHotel(Player player, String choice) {
+	public void buyProperty(Player player, String choice) {
 		// TODO
-		// Split choice
-		// Compare choices with street values (names)
+		// fields-array bliver ikke instantieret, hvorfor alle entries i array = null
+		// også selvom fields[x] = (Street) boardArray[y]...
+		// 
+		Street[] fields = new Street[choice.split(", ").length];
+		
+		for(int i = 0; i < fields.length; i++)
+			fields[i] = null;
+		
+		System.out.println("Fields length: " + fields.length);
+		
+		int count = 0;
+		
+		for(String a : choice.split(", ")) {
+			
+			for(int i = 0; i < boardArray.length; i++) {
+				if(boardArray[i] instanceof Street) {
+					if(((Street) boardArray[i]).getName() == a) {
+						fields[count] = (Street) boardArray[i];
+						
+						count++;
+					}
+				}
+			}
+		}
+		
 		// Send player and choices (as Streets now) to PControl
+		System.out.println(fields[0].getName());
+		
+		pControl = new PropertyControl(player, fields);
 	}
 	
 	private boolean containsSameType(int[] array, int v ) {
