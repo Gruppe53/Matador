@@ -14,6 +14,6 @@ public class VisitJail extends Field {
 	
 	public void landOnField(Player player){
 		// TODO - fix GUI knowledge
-		GUI.showMessage("Du er p&aring; bes&oslash;g i f&aelig;ngslet,\n og vinker til de indsatte, mens du k&oslash;rer forbi.");
+		GUI.showMessage("De er på besøg i fængslet,\n og vinker til de indsatte, mens De kører forbi.");
 	}
 }

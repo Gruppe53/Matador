@@ -1,5 +1,7 @@
 package game;
 
+import boundaryToMatador.GUI;
+
 public class Tax extends Field {
 	private int taxType;
 	
@@ -16,15 +18,29 @@ public class Tax extends Field {
 	/**
 	 * LandOnField 
 	 * <p>
-	 * 
+	 * @param player - The player who lands on the field
 	 */
 	public void landOnField(Player player){
-		// TODO .... fix tax ffs
 		if (taxType == 0){
-			//10% eller 4k
+			if(GUI.getUserLeftButtonPressed(player.getName() + ", de skal betale indkomstskat: betal 10% af deres aktiver eller 4000kr,-", "10%", "4000kr,-")){
+				//10%
+				GUI.showMessage("De betaler " + (int)(player.getAssets() * 0.1) + "kr,- i indkomstskat");
+				player.alterAccount(-((int)(player.getAssets() * 0.1)));
+				GUI.setBalance(player.getName(), player.getAccount());
+			}
+			else{
+				//4k
+				GUI.showMessage("De betaler 4000kr,- i indkomstskat");
+				player.alterAccount(-4000);
+				GUI.setBalance(player.getName(), player.getAccount());
+			}
+	
 		}
 		else {
 			//2k
+			GUI.showMessage("De skal betale Ekstra ordinær statsskat: Betal 2000kr,-");
+			player.alterAccount(-2000);
+			GUI.setBalance(player.getName(), player.getAccount());
 		}
 	}
 }
