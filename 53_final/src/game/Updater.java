@@ -8,6 +8,11 @@ public class Updater {
 		
 	}
 	
+	
+	public void create(){
+		GUI.create("materials/fields.txt");
+	}
+		
 	/**
 	 * balance All
 	 * @param players - The player array
@@ -167,6 +172,10 @@ public class Updater {
 	 */
 	public String getUserString(String msg){
 		return GUI.getUserString(msg);
+	}
+	
+	public void close(){
+		GUI.close();
 	}
 	
 	/**
