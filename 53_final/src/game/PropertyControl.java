@@ -29,6 +29,8 @@ public class PropertyControl {
 		
 		GUI.getUserSelection("Pris pr. hus: " + fields[0].getHousePrice(), options);
 		GUI.getUserButtonPressed("Pris pr. hus: " + fields[0].getHousePrice(), options);
+		
+		// Husk at opdatere assets
 	}
 	
 	private int highestCount(Street[] fields) {
