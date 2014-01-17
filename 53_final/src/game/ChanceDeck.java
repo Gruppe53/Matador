@@ -47,6 +47,7 @@ public class ChanceDeck extends Field {
 		case 4:
 			// Ryk brik
 			int newPosition = player.getPosition() + Integer.parseInt(deck[pickCount].getAction());
+			player.setPosition(newPosition);
 			
 			// Hvis "ryk tre felter tilbage" traekkes, og man staar paa felt 2, fikser vi lige manuelt position
 			if(newPosition == -1) {
