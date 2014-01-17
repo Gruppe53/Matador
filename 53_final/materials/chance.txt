@@ -48,21 +48,21 @@ type::1;;
 action::200;;
 count::1;;
 ||
-description::Det er Deres fødselsdag. Modtag af hver medspiller kr.200;;
-type::2;;
-action::200;;
-count::1;;
-||
-description::De har lagt penge ud til et sammenskudsgilde. Mærkværdigvis betaler alle straks. Modtag fra hver medspiller kr. 500.;;
-type::2;;
-action::500;;
-count::1;;
-||
-description::De skal holde familiefest og får et tilskud fra hver medspiller på kr. 500;;
-type::2;;
-action::+500xp;;
-count::1;;
-||
+#description::Det er Deres fødselsdag. Modtag af hver medspiller kr.200;;
+#type::2;;
+#action::200;;
+#count::1;;
+#||
+#description::De har lagt penge ud til et sammenskudsgilde. Mærkværdigvis betaler alle straks. Modtag fra hver medspiller kr. 500.;;
+#type::2;;
+#action::500;;
+#count::1;;
+#||
+#description::De skal holde familiefest og får et tilskud fra hver medspiller på kr. 500;;
+#type::2;;
+#action::+500xp;;
+#count::1;;
+#||
 description::Betal kr. 3.000 for reparation af Deres vogn.;;
 type::3;;
 action::-3000;;
