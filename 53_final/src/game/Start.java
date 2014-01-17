@@ -1,7 +1,5 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 public class Start extends Field {
 	
 	/**
@@ -12,8 +10,8 @@ public class Start extends Field {
 		super(name);
 	}
 	
-	public void landOnField(Player player){
+	public void landOnField(Player player, Updater updater){
 		// TODO - GUI knowledge
-		GUI.showMessage("De passerer START, og modtager 4.000.");
+		updater.showMessage("De passerer START, og modtager 4.000.");
 	}
 }

@@ -24,7 +24,7 @@ public class ChanceDeck extends Field {
 		shuffleDeck(deck);
 		}
 	
-	public void landOnField(Player player) {
+	public void landOnField(Player player, Updater updater) {
 		GUI.showMessage("Træk et \"prøv lykken\"-kort");
 		GUI.showMessage(deck[pickCount].getDescription());
         

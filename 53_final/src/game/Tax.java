@@ -20,13 +20,13 @@ public class Tax extends Field {
 	 * <p>
 	 * @param player - The player who lands on the field
 	 */
-	public void landOnField(Player player){
+	public void landOnField(Player player, Updater updater){
 		if (taxType == 0){
-			if(GUI.getUserLeftButtonPressed(player.getName() + ", de skal betale indkomstskat: betal 10% af deres aktiver eller 4000kr,-", "10%", "4000kr,-")){
+			if(updater.getUserLeftButtonPressed(player.getName() + ", de skal betale indkomstskat: betal 10% af deres aktiver eller 4000kr,-", "10%", "4000kr,-")){
 				//10%
-				GUI.showMessage("De betaler " + (int)(player.getAssets() * 0.1) + "kr,- i indkomstskat");
+				updater.showMessage("De betaler " + (int)(player.getAssets() * 0.1) + "kr,- i indkomstskat");
 				player.alterAccount(-((int)(player.getAssets() * 0.1)));
-				GUI.setBalance(player.getName(), player.getAccount());
+				updater.balance(player);
 			}
 			else{
 				//4k
@@ -40,7 +40,7 @@ public class Tax extends Field {
 			//2k
 			GUI.showMessage("De skal betale Ekstra ordinær statsskat: Betal 2000kr,-");
 			player.alterAccount(-2000);
-			GUI.setBalance(player.getName(), player.getAccount());
+			updater.balance(player);
 		}
 	}
 }
