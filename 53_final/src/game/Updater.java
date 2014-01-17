@@ -47,7 +47,7 @@ public class Updater {
 	/**
 	 * position 
 	 * @param player - The player which you would like to update
-	 * Updates the position on the GUi for the chosen player
+	 * Updates the position on the GUI for the chosen player
 	 */
 	public void position(Player player){
 		GUI.removeAllCars(player.getName());
