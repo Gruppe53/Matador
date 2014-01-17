@@ -2,8 +2,6 @@ package game;
 
 import java.awt.Color;
 
-import boundaryToMatador.GUI;
-
 public class GameController {
 	private Player[] player;
 	private Updater updater = new Updater();
@@ -208,7 +206,7 @@ public class GameController {
 		player = new Player[n];
 
 		for (int i = 0; i < n; i++) {
-			name = GUI.getUserString("Indtast spiller " + (i + 1) + "'s navn");
+			name = updater.getUserString("Indtast spiller " + (i + 1) + "'s navn");
 
 			updater.addPlayer(name, startCash, colorSet[i]);
 			updater.showMessage(name + " spiller nu med.");
