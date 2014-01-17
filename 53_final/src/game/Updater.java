@@ -174,6 +174,10 @@ public class Updater {
 		return GUI.getUserString(msg);
 	}
 	
+	public void close(){
+		GUI.close();
+	}
+	
 	/**
 	 * Displays a dropdown to the user and awaits the response.
 	 * @param msg - The message which prompts the user
