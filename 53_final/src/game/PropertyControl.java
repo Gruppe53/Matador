@@ -7,7 +7,7 @@ public class PropertyControl {
 	private Player player;
 	private boolean notDone = true;
 	
-	public PropertyControl(Player player, Street[] fields, int fieldNumbers) {
+	public PropertyControl(Player player, Street[] fields, int[] fieldNumbers) {
 		this.player = player;
 		this.fields = fields;
 		

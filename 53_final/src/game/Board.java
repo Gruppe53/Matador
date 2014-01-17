@@ -147,12 +147,14 @@ public class Board {
 		fields = new Street[choice.split(", ").length];
 		
 		int count = 0;
+		int[] fieldNumbers = new int[3];
 		
 		for(String a : choice.split(", ")) {
 			for(int i = 0; i < boardArray.length; i++) {
 				if(boardArray[i] instanceof Street) {
 					if(((Street) boardArray[i]).getName().hashCode() == a.hashCode()) {
 						fields[count] = (Street) boardArray[i];
+						fieldNumbers[count] = i + 1;
 						
 						count++;
 					}
@@ -161,7 +163,7 @@ public class Board {
 		}
 		
 		@SuppressWarnings("unused")
-		PropertyControl pControl = new PropertyControl(player, fields);
+		PropertyControl pControl = new PropertyControl(player, fields, fieldNumbers);
 		pControl = null;
 	}
 	
