@@ -220,7 +220,7 @@ public class GameController {
 
 	// Count amount of players by user input
 	private int countPlayers() {
-		int i = GUI.getUserInteger("Vælg antal spillere (mindst 2, maks 6).", 2, 6);
+		int i = updater.getUserInteger("Vælg antal spillere (mindst 2, maks 6).", 2, 6);
 
 		this.turn = new TurnController(i);
 
