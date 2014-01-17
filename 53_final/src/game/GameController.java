@@ -237,7 +237,7 @@ public class GameController {
 		// need to make sure that the player's assets is accounted for and sold (ownable fields are pawned before losing)
 		// if these make it possible for him to stay in the game
 		if (player.getStatus() < 0) {
-			board.resetField(player);
+			board.resetField(player, updater);
 		}
 	}
 	

@@ -25,8 +25,8 @@ public class ChanceDeck extends Field {
 		}
 	
 	public void landOnField(Player player, Updater updater) {
-		GUI.showMessage("Træk et \"prøv lykken\"-kort");
-		GUI.showMessage(deck[pickCount].getDescription());
+		updater.showMessage("Træk et \"prøv lykken\"-kort");
+		updater.showMessage(deck[pickCount].getDescription());
         
 		switch(Integer.parseInt(deck[pickCount].getType())) {
 		case 0:

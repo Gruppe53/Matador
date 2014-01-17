@@ -15,6 +15,7 @@ public class Player {
 	private boolean jailed;
 	private int houses;
 	private int hotels;
+	private Updater updater = new Updater();
 	
 /**
  * Player Constructor
@@ -85,7 +86,7 @@ public class Player {
 			
 			// TODO - Fix GUI knowledge
 			GUI.removeAllCars(this.name);
-			GUI.showMessage(this.name + ", De er gået fallit - alle Deres grunde er solgt til banken.");
+			updater.showMessage(this.name + ", De er gået fallit - alle Deres grunde er solgt til banken.");
 		}
 		
 		// TODO - Fix GUI knowledge

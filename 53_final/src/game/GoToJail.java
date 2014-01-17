@@ -13,7 +13,6 @@ public class GoToJail extends Field {
 	public void landOnField(Player player, Updater updater){
 		player.setJailed(true);
 		player.setPosition(11);
-		// TODO fix GUI knowledge
 		updater.position(player);
 		
 	}
