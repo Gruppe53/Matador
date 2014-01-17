@@ -1,12 +1,9 @@
 package game;
 
-import java.util.ArrayList;
-
 import boundaryToMatador.GUI;
 
 public class Board {
 	private Field[] boardArray = new Field[40];
-	private PropertyControl pControl;
 		
 	public Board() {
 		boardArray[0] = new Start("Start");
@@ -146,56 +143,26 @@ public class Board {
 	}
 
 	public void buyProperty(Player player, String choice) {
-		// TODO
-		// fields-array bliver ikke instantieret, hvorfor alle entries i array = null
-		// også selvom fields[x] = (Street) boardArray[y]...
-		// 
+		Street[] fields = null;
+		fields = new Street[choice.split(", ").length];
 		
-		ArrayList<Street> fieldList = new ArrayList<Street>();
-		//Street[] fields = new Street[choice.split(", ").length];
-		
-		//int count = 0;
-		
-//		for(String a : choice.split(", ")) {
-//			
-//			for(int i = 0; i < boardArray.length; i++) {
-//				if(boardArray[i] instanceof Street) {
-//					if(((Street) boardArray[i]).getName() == a) {
-//						fields[count] = (Street) boardArray[i];
-//						
-//						count++;
-//					}
-//				}
-//			}
-//		}
-		
-		System.out.println(choice);
+		int count = 0;
 		
 		for(String a : choice.split(", ")) {
+			
 			for(int i = 0; i < boardArray.length; i++) {
 				if(boardArray[i] instanceof Street) {
-					String b = ((Street) boardArray[i]).getName();
-					
-					System.out.println("a: " + a + " ||| b: " + b);
-					
-					if(a == b) {
-						System.out.println("Pair!");
-						fieldList.add((Street) boardArray[i]);
+					if(((Street) boardArray[i]).getName().hashCode() == a.hashCode()) {
+						fields[count] = (Street) boardArray[i];
+						
+						count++;
 					}
-					System.out.println("---------------------------");
 				}
 			}
 		}
 		
-		// Send player and choices (as Streets now) to PControl
-		if(fieldList.size() == 0){
-		   System.out.println("ArrayList is empty");
-		}
-		else {
-			System.out.println(fieldList.get(0));
-		}
-		
-		pControl = new PropertyControl(player, fieldList);
+		@SuppressWarnings("unused")
+		PropertyControl pControl = new PropertyControl(player, fields);
 		pControl = null;
 	}
 	
