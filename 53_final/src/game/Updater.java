@@ -1,5 +1,7 @@
 package game;
 
+import java.awt.Color;
+
 import boundaryToMatador.GUI;
 
 public class Updater {
