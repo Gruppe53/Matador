@@ -149,7 +149,6 @@ public class Board {
 		int count = 0;
 		
 		for(String a : choice.split(", ")) {
-			
 			for(int i = 0; i < boardArray.length; i++) {
 				if(boardArray[i] instanceof Street) {
 					if(((Street) boardArray[i]).getName().hashCode() == a.hashCode()) {
@@ -167,7 +166,7 @@ public class Board {
 	}
 	
 	private boolean containsSameType(int[] array, int v ) {
-	    for (int e : array )
+	    for (int e : array)
 	        if(e == v)
 	            return true;
 

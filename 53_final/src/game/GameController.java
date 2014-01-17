@@ -10,7 +10,7 @@ public class GameController {
 	
 	private TurnController turn;
 	private Board board = new Board();
-	private Dice roll = new Dice(1, 1, 1);
+	private Dice roll = new Dice(1, 6, 2);
 	private boolean secondTurn = false;
 	private int multiplePair = 0;
 	// TODO fix "vend tilbage til hovedmenuen"
@@ -38,13 +38,13 @@ public class GameController {
 					if(roll.isPair()){
 						secondTurn = true;
 						multiplePair++;
-//						if(multiplePair >= 3){
-//							player[turn.getCurrent()].setJailed(true);
-//							player[turn.getCurrent()].setPosition(11);
-//							GUI.removeAllCars(player[turn.getCurrent()].getName());
-//							GUI.setCar(11, player[turn.getCurrent()].getName());
-//							GUI.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
-//						}
+						if(multiplePair >= 3){
+							player[turn.getCurrent()].setJailed(true);
+							player[turn.getCurrent()].setPosition(11);
+							GUI.removeAllCars(player[turn.getCurrent()].getName());
+							GUI.setCar(11, player[turn.getCurrent()].getName());
+							GUI.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
+						}
 					}
 					
 
@@ -53,7 +53,7 @@ public class GameController {
 					int newPosition = currentPosition + roll.getSum();
 					
 					// Draw the roll
-					GUI.setDice(roll.getValue(0), roll.getValue(0));
+					GUI.setDice(roll.getValue(0), roll.getValue(1));
 
 					// Move the piece smoothly
 					movePiece(turn.getCurrent(), newPosition, currentPosition);
