@@ -1,7 +1,5 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 public class Board {
 	private Field[] boardArray = new Field[40];
 		
@@ -57,13 +55,13 @@ public class Board {
 	}
 	
 
-	public void resetField(Player player) {
+	public void resetField(Player player, Updater updater) {
 		for (int i = 0; i < boardArray.length; i++) {
 			if (boardArray[i] instanceof Ownable) {
 				if (((Ownable) boardArray[i]).isOwner(player)) {
 					((Ownable) boardArray[i]).resetOwner();
 
-					GUI.removeOwner((i + 1));
+					updater.removeOwner((i + 1));
 				}
 			}
 		}

@@ -32,7 +32,7 @@ public class Tax extends Field {
 				//4k
 				GUI.showMessage("De betaler 4000kr,- i indkomstskat");
 				player.alterAccount(-4000);
-				GUI.setBalance(player.getName(), player.getAccount());
+				updater.balance(player);
 			}
 	
 		}

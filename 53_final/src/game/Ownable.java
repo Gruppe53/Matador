@@ -1,7 +1,5 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 abstract public class Ownable extends Field {
 	protected Player owner;
 	protected int price;
@@ -21,7 +19,7 @@ abstract public class Ownable extends Field {
 	public void landOnField(Player player, Updater updater) {
 		if (owner == null) {
 			// TODO - Fix GUI knowledge
-			if (GUI.getUserLeftButtonPressed("Vil De købe " + name + " for " + price + "?", "Ja", "Nej")) {
+			if (updater.getUserLeftButtonPressed("Vil De købe " + name + " for " + price + "?", "Ja", "Nej")) {
 				if (player.getAccount() >= price) {
 					owner = player;
 					owner.alterAccount(-price);
@@ -35,17 +33,17 @@ abstract public class Ownable extends Field {
 					}
 					
 					// TODO - Fix GUI knowledge
-					GUI.showMessage(player.getName() + " købte og ejer nu " + name);
-					GUI.setOwner(player.getPosition(), player.getName());
+					updater.showMessage(player.getName() + " købte og ejer nu " + name);
+					updater.setOwner(player.getPosition(), player.getName());
 				} else {
 					// TODO - Fix GUI knowledge
-					GUI.showMessage("De har ikke nok penge til at købe denne grund.");
+					updater.showMessage("De har ikke nok penge til at købe denne grund.");
 				}
 			}
 		} else if (!isOwner(player)) {
 			this.multiplier = player.getRollSum();
 			// TODO - Fix GUI knowledge
-			GUI.showMessage(player.getName() + " betaler " + getRent() + " til " + owner.getName());
+			updater.showMessage(player.getName() + " betaler " + getRent() + " til " + owner.getName());
 			player.payRent(getRent(), owner);
 		}
 	}

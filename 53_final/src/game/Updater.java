@@ -14,6 +14,14 @@ public class Updater {
 		GUI.addPlayer(name, balance, color);
 	}
 	
+	public void setOwner(int fieldNumber, String name){
+		GUI.setOwner(fieldNumber, name);
+	}
+	
+	public void removeOwner(int fieldNumber){
+		GUI.removeOwner(fieldNumber);
+	}
+	
 	public void create(){
 		GUI.create("materials/fields.txt");
 	}
