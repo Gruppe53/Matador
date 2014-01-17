@@ -51,6 +51,7 @@ public class ChanceDeck extends Field {
 			// Hvis "ryk tre felter tilbage" traekkes, og man staar paa felt 2, fikser vi lige manuelt position
 			if(newPosition == -1) {
 				newPosition = 40;
+				player.setPosition(newPosition - 1);
 			}
 			
 			GUI.removeAllCars(player.getName());
@@ -69,6 +70,7 @@ public class ChanceDeck extends Field {
 			if(Integer.parseInt(deck[pickCount].getAction()) == 11) {
 				// Ryk i faengsel - kan i det mindste laves... ^_^
 				player.setJailed(true);
+				player.setPosition(11);
 			}
 			
 			GUI.removeAllCars(player.getName());
