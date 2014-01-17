@@ -54,7 +54,7 @@ public class GameController {
 					updater.setDice(roll.getValue(0), roll.getValue(1));
 
 					// Move the piece smoothly
-					movePiece(turn.getCurrent(), newPosition, currentPosition);
+					updater.movePiece(player[turn.getCurrent()], newPosition, currentPosition);
 					
 					player[turn.getCurrent()].setRollSum(roll.getSum());
 
@@ -104,7 +104,7 @@ public class GameController {
 					updater.setDice(roll.getValue(0), roll.getValue(1));
 
 					// Move the piece smoothly
-					movePiece(turn.getCurrent(), newPositionDefault, currentPositionDefault);
+					updater.movePiece(player[turn.getCurrent()], newPositionDefault, currentPositionDefault);
 
 					// Make the mechanics of the field start
 					fieldTricker(player[turn.getCurrent()]);
@@ -128,7 +128,7 @@ public class GameController {
 							if(roll.isPair()) {
 								updater.showMessage("De har slået et par! \nDe kommer nu ud af fængslet");
 								player[turn.getCurrent()].setJailed(false);
-								movePiece(turn.getCurrent(), (player[turn.getCurrent()].getPosition() + roll.getSum()), player[turn.getCurrent()].getPosition());
+								updater.movePiece(player[turn.getCurrent()], (player[turn.getCurrent()].getPosition() + roll.getSum()), player[turn.getCurrent()].getPosition());
 								secondTurn = true;
 								i = 3;
 							}
@@ -162,7 +162,7 @@ public class GameController {
 							if(roll.isPair()) {
 								updater.showMessage("De har slået et par! \nDe kommer nu ud af fængslet");
 								player[turn.getCurrent()].setJailed(false);
-								movePiece(turn.getCurrent(), (player[turn.getCurrent()].getPosition() + roll.getSum()), player[turn.getCurrent()].getPosition());
+								updater.movePiece(player[turn.getCurrent()], (player[turn.getCurrent()].getPosition() + roll.getSum()), player[turn.getCurrent()].getPosition());
 								secondTurn = true;
 								i = 3;
 							}
@@ -176,7 +176,7 @@ public class GameController {
 					}
 					else{
 						//Betal 1000
-						GUI.showMessage("De har betalt dem ud af fængslet");
+						updater.showMessage("De har betalt dem ud af fængslet");
 						secondTurn = true;
 					}
 				}
@@ -199,40 +199,7 @@ public class GameController {
 		return Integer.parseInt(str.split("\\. ")[0]);
 	}
 
-	// Move the cars in the GUI "smoothly"
-	private void movePiece(int i, int newPosition, int currentPosition) {
-		if(newPosition > 40) {
-			newPosition -= 40;
-
-			// First move the piece the last steps before hitting START
-			for (int f = 1; f <= (40 - currentPosition); f++) {
-				GUI.removeAllCars(player[i].getName());
-				GUI.setCar((currentPosition + f), player[i].getName());
-				sleep(100); // When testing, set to 1, or get bored
-			}
-
-			// Now move the piece the fields after START
-			for (int f = 1; f <= newPosition; f++) {
-				if(f == 2){
-					player[i].alterAccount(4000);
-					GUI.setBalance(player[i].getName(), player[i].getAccount());
-				}
-				GUI.removeAllCars(player[i].getName());
-				GUI.setCar(f, player[i].getName());
-				sleep(100); // When testing, set to 1, or get bored
-			}
-		} else {
-			// Move the piece the require fields
-			for (int f = (currentPosition + 1); f <= newPosition; f++) {
-				GUI.removeAllCars(player[i].getName());
-				GUI.setCar(f, player[i].getName());
-				sleep(100); // When testing, set to 1, or get bored
-			}
-		}
-
-		player[turn.getCurrent()].setPosition(newPosition);
-	}
-
+	
 	// Create an array with length of the user input n, and add players to GUI with the names provided via user input
 	private void createPlayers(int n) {
 		String name;
@@ -244,7 +211,7 @@ public class GameController {
 			name = GUI.getUserString("Indtast spiller " + (i + 1) + "'s navn");
 
 			GUI.addPlayer(name, startCash, colorSet[i]);
-			GUI.showMessage(name + " spiller nu med.");
+			updater.showMessage(name + " spiller nu med.");
 
 			player[i] = new Player(name, startCash);
 			turn.setIndex(i, 0);
@@ -260,17 +227,7 @@ public class GameController {
 		return i;
 	}
 
-	// Make the system wait for n-amount of milliseconds before doing anything
-	private void sleep(int n) {
-		long start, end;
-
-		start = System.currentTimeMillis();
-
-		do {
-			end = System.currentTimeMillis();
-		} while ((end - start) < (n));
-	}
-
+	
 	// For trickering the field mechanics for a specific field
 	public void fieldTricker(Player player) {
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)

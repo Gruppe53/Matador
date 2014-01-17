@@ -8,6 +8,9 @@ public class Updater {
 		
 	}
 	
+	public void addPlayer(String name, int balance, Color color){
+		GUI.addPlayer(name, balance, color);
+	}
 	
 	public void create(){
 		GUI.create("materials/fields.txt");
