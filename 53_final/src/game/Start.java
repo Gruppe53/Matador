@@ -11,7 +11,6 @@ public class Start extends Field {
 	}
 	
 	public void landOnField(Player player, Updater updater){
-		// TODO - GUI knowledge
 		updater.showMessage("De passerer START, og modtager 4.000.");
 	}
 }
