@@ -40,8 +40,8 @@ public class GameController {
 						if(multiplePair >= 3){
 							player[turn.getCurrent()].setJailed(true);
 							player[turn.getCurrent()].setPosition(11);
-							UD.position(player[turn.getCurrent()].getName());
-							UD.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
+							updater.position(player[turn.getCurrent()].getName());
+							updater.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
 						}
 					}
 					
