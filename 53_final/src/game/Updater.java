@@ -8,6 +8,11 @@ public class Updater {
 		
 	}
 	
+	
+	public void create(){
+		GUI.create("materials/fields.txt");
+	}
+		
 	/**
 	 * balance All
 	 * @param players - The player array

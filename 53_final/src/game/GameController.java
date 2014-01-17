@@ -19,7 +19,7 @@ public class GameController {
 
 	public GameController() {
 		// Create board with proper names and descriptions
-		GUI.create("materials/fields.txt");
+		UD.create();
 
 		// First receive amount of players by input, then create an array with the amount of players and their names
 		createPlayers(countPlayers());
@@ -41,7 +41,7 @@ public class GameController {
 						if(multiplePair >= 3){
 							player[turn.getCurrent()].setJailed(true);
 							player[turn.getCurrent()].setPosition(11);
-							UD.position(player[turn.getCurrent()].getName());
+							UD.position(player[turn.getCurrent()]);
 							UD.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
 						}
 					}
