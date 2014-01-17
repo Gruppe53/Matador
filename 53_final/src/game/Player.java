@@ -90,7 +90,7 @@ public class Player {
 		}
 		
 		// TODO - Fix GUI knowledge
-		GUI.setBalance(this.name, account);
+		updater.balance(this.player);
 	}
 	/**
 	 * get Account
