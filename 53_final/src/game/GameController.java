@@ -7,7 +7,7 @@ public class GameController {
 	private Updater updater = new Updater();
 	private TurnController turn;
 	private Board board = new Board();
-	private Dice roll = new Dice(1, 6, 2);
+	private Dice roll = new Dice(1, 1, 1);
 	private boolean secondTurn = false;
 	private int multiplePair = 0;
 	// TODO fix "vend tilbage til hovedmenuen"
@@ -35,12 +35,12 @@ public class GameController {
 					if(roll.isPair()){
 						secondTurn = true;
 						multiplePair++;
-						if(multiplePair >= 3){
-							player[turn.getCurrent()].setJailed(true);
-							player[turn.getCurrent()].setPosition(11);
-							updater.position(player[turn.getCurrent()]);
-							updater.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
-						}
+//						if(multiplePair >= 3){
+//							player[turn.getCurrent()].setJailed(true);
+//							player[turn.getCurrent()].setPosition(11);
+//							updater.position(player[turn.getCurrent()]);
+//							updater.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
+//						}
 					}
 					
 
@@ -49,7 +49,7 @@ public class GameController {
 					int newPosition = currentPosition + roll.getSum();
 					
 					// Draw the roll
-					updater.setDice(roll.getValue(0), roll.getValue(1));
+					updater.setDice(roll.getValue(0), roll.getValue(0));
 
 					// Move the piece smoothly
 					updater.movePiece(player[turn.getCurrent()], newPosition, currentPosition);

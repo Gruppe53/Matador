@@ -9,7 +9,7 @@ import java.util.Random;
 import boundaryToMatador.GUI;
 
 public class ChanceDeck extends Field {
-	private ChanceCard[] deck = new ChanceCard[37];
+	private ChanceCard[] deck = new ChanceCard[34];
 	private int cardCount = 0;
 	private int pickCount = 0;
 	private String name;
