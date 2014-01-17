@@ -16,7 +16,7 @@ abstract public class Field {
 	 * Land On Field
 	 * @param Player - The player who lands on the field
 	 */
-	public abstract void landOnField(Player player);
+	public abstract void landOnField(Player player, Updater updater);
 	
 	/**
 	 * getName

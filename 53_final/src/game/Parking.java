@@ -1,7 +1,5 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 public class Parking extends Field {
 	
 	/**
@@ -12,8 +10,8 @@ public class Parking extends Field {
 		super(name);
 	}
 	
-	public void landOnField(Player player){
+	public void landOnField(Player player, Updater updater){
 		// TODO - Fix GUI-knowledge
-		GUI.showMessage("De parkerer bilen, og spiser en hjemmepakket rugbrødsmad.");
+		updater.showMessage("De parkerer bilen, og spiser en hjemmepakket rugbrødsmad.");
 	}
 }

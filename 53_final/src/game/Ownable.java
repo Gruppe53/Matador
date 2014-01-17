@@ -18,7 +18,7 @@ abstract public class Ownable extends Field {
 		this.price = price;
 	}
 
-	public void landOnField(Player player) {
+	public void landOnField(Player player, Updater updater) {
 		if (owner == null) {
 			// TODO - Fix GUI knowledge
 			if (GUI.getUserLeftButtonPressed("Vil De købe " + name + " for " + price + "?", "Ja", "Nej")) {
