@@ -10,7 +10,7 @@ public class Start extends Field {
 		super(name);
 	}
 	
-	public void landOnField(Player player, Updater updater){
+	public void landOnField(Player player, Updater updater, boolean createAuction){
 		updater.showMessage("De passerer START, og modtager 4.000.");
 	}
 }

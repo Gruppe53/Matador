@@ -17,8 +17,9 @@ abstract public class Ownable extends Field {
 		this.price = price;
 	}
 
-	public void landOnField(Player player, Updater updater) {
+	public void landOnField(Player player, Updater updater, boolean createAuction) {
 		this.updater = updater;
+		
 		
 		if (owner == null) {
 			if (updater.getUserLeftButtonPressed("Vil De købe " + name + " for " + price + "?", "Ja", "Nej")) {
@@ -41,7 +42,7 @@ abstract public class Ownable extends Field {
 				}
 			}
 			else {
-				// set create Auction True
+				createAuction = true;
 			}
 		} else if (!isOwner(player)) {
 			this.multiplier = player.getRollSum();

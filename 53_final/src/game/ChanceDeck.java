@@ -22,7 +22,7 @@ public class ChanceDeck extends Field {
 		shuffleDeck(deck);
 		}
 	
-	public void landOnField(Player player, Updater updater) {
+	public void landOnField(Player player, Updater updater, boolean createAuction) {
 		updater.showMessage("Træk et \"prøv lykken\"-kort");
 		updater.showMessage(deck[pickCount].getDescription());
         

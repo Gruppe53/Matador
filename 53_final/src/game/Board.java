@@ -50,8 +50,8 @@ public class Board {
 		return boardArray[i].getName();
 	}
 	
-	public void landOnField(int i, Player player, Updater updater) {
-		boardArray[i].landOnField(player, updater);
+	public void landOnField(int i, Player player, Updater updater, boolean createAuction) {
+		boardArray[i].landOnField(player, updater, createAuction);
 	}
 	
 	public Ownable getField(int i) {

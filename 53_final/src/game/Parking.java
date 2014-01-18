@@ -10,7 +10,7 @@ public class Parking extends Field {
 		super(name);
 	}
 	
-	public void landOnField(Player player, Updater updater){
+	public void landOnField(Player player, Updater updater, boolean createAuction){
 		updater.showMessage("De parkerer bilen, og spiser en hjemmepakket rugbrødsmad.");
 	}
 }

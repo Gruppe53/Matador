@@ -239,7 +239,7 @@ public class GameController {
 	// For trickering the field mechanics for a specific field
 	public void fieldTricker(Player player) {
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
-		board.landOnField((player.getPosition() - 1), player, updater);
+		board.landOnField((player.getPosition() - 1), player, updater, createAuction);
 
 		// If the player landed on a field, which he couldn't afford landing on
 		// then reset his owned fields
