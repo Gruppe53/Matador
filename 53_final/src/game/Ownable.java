@@ -64,4 +64,8 @@ abstract public class Ownable extends Field {
 	}
 	
 	abstract int getRent();
+	
+	public void setOwner(Player player){
+		owner = player;
+	}
 }
