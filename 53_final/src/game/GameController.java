@@ -74,7 +74,7 @@ public class GameController {
 					
 					switch(getChoice(str)) {
 					case 1:
-						board.buyProperty(player[turn.getCurrent()], updater.getUserSelection("Hvilken grund vil De købe hus/hotel til?", board.getAvailableGrounds(player[turn.getCurrent()])));
+						board.buyProperty(player[turn.getCurrent()], updater.getUserSelection("Hvilken grund vil De købe hus/hotel til?", board.getAvailableGrounds(player[turn.getCurrent()])), updater);
 						break;
 					default:
 						break;
