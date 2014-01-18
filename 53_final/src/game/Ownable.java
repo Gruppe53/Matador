@@ -34,7 +34,7 @@ abstract public class Ownable extends Field {
 						owner.setFleet();
 					}
 					
-					updater.showMessage(player.getName() + " købte og ejer nu " + name);
+					updater.showMessage(player.getName() + " har købt og ejer nu " + name);
 					updater.setOwner(player.getPosition(), player.getName());
 				} else {
 					updater.showMessage("De har ikke nok penge til at købe denne grund.");
