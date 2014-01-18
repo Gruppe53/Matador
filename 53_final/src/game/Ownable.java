@@ -41,9 +41,7 @@ abstract public class Ownable extends Field {
 				}
 			}
 			else {
-				Auction auction = new Auction(this.updater, player, players, this);
-				auction.runAction();
-				auction = null;
+				// set create Auction True
 			}
 		} else if (!isOwner(player)) {
 			this.multiplier = player.getRollSum();
