@@ -55,7 +55,7 @@ public class Auction {
 			// Situation with more than 2 players
 			else if(currentBiders[i] == 1 && anyBids && totalbiders > 1) {
 				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ". Minimum bud: " + (currentMax + 50), "Ja" , "Nej")){
-					currentMax = updater.getUserInteger("Hvor meget kunne de tænke dem at byde? (minimum: " + (currentMax + 50) + "):", (currentMax + 50), 1000000);
+					currentMax = updater.getUserInteger("Hvor meget kunne de tænke dem at byde? (minimum: " + (currentMax + 50) + "):", (currentMax + 50), players[i].getAccount());
 					changeHighestBider(i);
 					//TODO set new currentMax and Find out how to identify person which has highest current bid ( evt. currentBiders[i] = 2)
 				}
@@ -71,6 +71,7 @@ public class Auction {
 			}
 			checkTotalBiders();
 			if(checkForWinner() == true) i = 7;
+			else if (totalbiders == 0) i = 7;
 			else if (i >= players.length) i = 0;
 			else i++;
 		}
@@ -95,7 +96,7 @@ public class Auction {
 
 		else return false;
 	}
-	
+
 	/**
 	 * check TotalBiders
 	 *  </p>
@@ -113,7 +114,7 @@ public class Auction {
 			}
 		}
 	}
-	
+
 	/**
 	 * change HigestBider
 	 * @param player - the player (int from array) which is now the highestbider (currentBiders[player] = 2)
@@ -124,10 +125,15 @@ public class Auction {
 		}
 		currentBiders[player] = 2;
 	}
-	
+
 	private void callWinner(){
-		updater.showMessage(players[actionWinner].getName() + " har vundet auktionen på " + field.getName() + " med sit bud på: " + currentMax);
-		field.setOwner(players[actionWinner]);
-		updater.setOwner(player.getPosition(), players[actionWinner].getName());
+		if(totalbiders == 1){
+			updater.showMessage(players[actionWinner].getName() + " har vundet auktionen på " + field.getName() + " med sit bud på: " + currentMax);
+			field.setOwner(players[actionWinner]);
+			updater.setOwner(player.getPosition(), players[actionWinner].getName());
+		}
+		else if(totalbiders <= 0){
+			updater.showMessage("Der var ingen bud på " + field.getName());
+		}
 	}
 }
