@@ -30,6 +30,7 @@ public class Auction {
 	}
 	/**
 	 * run Action
+	 * Runs the Action with the infomation given from the Auction Constructor
 	 */
 	public void runAction(){
 
@@ -38,6 +39,7 @@ public class Auction {
 		int i = 0;
 
 		startTotalBiders();
+		//If there is only one possible buyer from the start (normally 2 player game)
 		if (totalbiders == 1){
 			while(i < players.length){
 				if(currentBiders[i] == 1){
@@ -52,21 +54,12 @@ public class Auction {
 				i++;
 			}
 		}
+		//If there is more then one possible buyter from the start (3 or more active players left in game)
 		else{
-			// Runs the auction
 			while( i < players.length){
 
-				// Situation with only 2 players - offer second player to buy field
-				if(currentBiders[i] == 1 && !anyBids && totalbiders == 1) {
-					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at købe " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
-						anyBids = true;
-						changeHighestBider(i);
-					}
-					else currentBiders[i] = 0;
-				}
-
 				// Situation with more than 2 players - ask to bid on the already bidded field
-				else if(currentBiders[i] == 1 && anyBids && totalbiders > 1) {
+				if(currentBiders[i] == 1 && anyBids && totalbiders > 1 && players[i].getAccount() >= (currentMax + 50)) {
 					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ". Minimum bud: " + (currentMax + 50), "Ja" , "Nej")){
 						currentMax = updater.getUserInteger("Hvor meget kunne de tænke dem at byde? (minimum: " + (currentMax + 50) + "):", (currentMax + 50), players[i].getAccount());
 						changeHighestBider(i);
@@ -76,7 +69,7 @@ public class Auction {
 				}
 
 				//Situation with more than 2 players - ask to bid on the not already bidded field
-				else if(currentBiders[i] == 1 && !anyBids && totalbiders > 1) {
+				else if(currentBiders[i] == 1 && !anyBids && totalbiders > 1 && players[i].getAccount() >= (currentMax + 50)) {
 					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
 						anyBids = true;
 						changeHighestBider(i);
@@ -85,6 +78,10 @@ public class Auction {
 						currentBiders[i] = 0;
 					} 
 
+				}
+				else if(currentBiders[i] == 1 && players[i].getAccount() < (currentMax + 50)){
+					currentBiders[i] = 0;
+					updater.showMessage(players[i].getName() + ", de har desværre ikke nok penge i deres pengebeholdning til at kunne byde");
 				}
 				checkTotalBiders();
 				i++;
@@ -178,7 +175,13 @@ public class Auction {
 		}
 		currentBiders[j] = 2;
 	}
-
+	
+	/**
+	 * call Winner
+	 * announce who's the winner, set owner and removes money
+	 * </p>
+	 * If there is no Winner it will end the Auction
+	 */
 	private void callWinner(){
 		if(totalbiders == 1){
 			updater.showMessage(players[actionWinner].getName() + " har vundet auktionen på " + field.getName() + " med sit bud på: " + currentMax);

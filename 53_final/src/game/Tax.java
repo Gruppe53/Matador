@@ -20,7 +20,7 @@ public class Tax extends Field {
 	 * <p>
 	 * @param player - The player who lands on the field
 	 */
-	public void landOnField(Player player, Updater updater, boolean createAuction){
+	public void landOnField(Player player, Updater updater){
 		if (taxType == 0){
 			if(updater.getUserLeftButtonPressed(player.getName() + ", de skal betale indkomstskat: betal 10% af deres aktiver eller 4000kr,-", "10%", "4000kr,-")){
 				//10%

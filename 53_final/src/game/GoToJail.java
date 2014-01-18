@@ -10,7 +10,7 @@ public class GoToJail extends Field {
 		super(name);
 	}
 	
-	public void landOnField(Player player, Updater updater, boolean createAuction){
+	public void landOnField(Player player, Updater updater){
 		player.setJailed(true);
 		player.setPosition(11);
 		updater.position(player.getPosition() ,player.getName());
