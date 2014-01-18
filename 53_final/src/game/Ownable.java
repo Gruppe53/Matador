@@ -6,6 +6,7 @@ abstract public class Ownable extends Field {
 	protected int multiplier;
 	protected int pawn;
 	protected Updater updater;
+	protected boolean isPawned = false;
 	
 	/**
 	 * Ownable Constructor
