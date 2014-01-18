@@ -27,9 +27,19 @@ public class PropertyControl {
 		switch(getChoice(choice)) {
 		case 1:
 			if(player.getAccount() - fields[0].getHousePrice() >= 0)
-				if(fields[0].getHouses() <= 4 && canBuyHouse(0, fields)) {
-					fields[0].setHouses(fieldNumbers[0], (fields[0].getHouses() + 1));
-					player.alterAccount(-fields[0].getHousePrice());
+				if(fields[0].getHouses() <= 4) {
+					if(canBuyHouse(0, fields)) {
+						if(fields[0].getHouses() == 4) {
+							fields[0].setHotel(fieldNumbers[0]);
+						}
+						else {
+							fields[0].setHouses(fieldNumbers[0], (fields[0].getHouses() + 1));
+						}
+						
+						player.alterAccount(-fields[0].getHousePrice());
+					}
+					else
+						GUI.showMessage("De skal bygge jævnt på grundene.");
 				}
 				else
 					GUI.showMessage("De kan ikke købe flere huse til "+ fields[0].getName() + ", da der allerede er bygget et hotel.");
@@ -38,9 +48,19 @@ public class PropertyControl {
 			break;
 		case 2:
 			if(player.getAccount() - fields[1].getHousePrice() >= 0)
-				if(fields[1].getHouses() <= 4 && canBuyHouse(1, fields)) {
-					fields[1].setHouses(fieldNumbers[1], (fields[1].getHouses() + 1));
-					player.alterAccount(-fields[1].getHousePrice());
+				if(fields[1].getHouses() <= 4) {
+					if(canBuyHouse(1, fields)) {
+						if(fields[1].getHouses() == 4) {
+							fields[1].setHotel(fieldNumbers[1]);
+						}
+						else {
+							fields[1].setHouses(fieldNumbers[1], (fields[1].getHouses() + 1));
+						}
+						
+						player.alterAccount(-fields[1].getHousePrice());
+					}
+					else
+						GUI.showMessage("De skal bygge jævnt på grundene.");
 				}
 				else
 					GUI.showMessage("De kan ikke købe flere huse til "+ fields[1].getName() + ", da der allerede er bygget et hotel.");
@@ -49,9 +69,19 @@ public class PropertyControl {
 			break;
 		case 3:
 			if(player.getAccount() - fields[2].getHousePrice() >= 0)
-				if(fields[2].getHouses() <= 4  && canBuyHouse(2, fields)) {
-					fields[2].setHouses(fieldNumbers[2], (fields[2].getHouses() + 1));
-					player.alterAccount(-fields[2].getHousePrice());
+				if(fields[2].getHouses() <= 4) {
+					if(canBuyHouse(2, fields)) {
+						if(fields[2].getHouses() == 4) {
+							fields[2].setHotel(fieldNumbers[2]);
+						}
+						else {
+							fields[2].setHouses(fieldNumbers[2], (fields[2].getHouses() + 1));
+						}
+						
+						player.alterAccount(-fields[2].getHousePrice());
+					}
+					else
+						GUI.showMessage("De skal bygge jævnt på grundene.");
 				}
 				else
 					GUI.showMessage("De kan ikke købe flere huse til "+ fields[2].getName() + ", da der allerede er bygget et hotel.");
