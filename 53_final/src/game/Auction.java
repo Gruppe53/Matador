@@ -1,7 +1,5 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 public class Auction {
 	private int j = 0;
 	private int currentMax;
@@ -11,7 +9,7 @@ public class Auction {
 	private int[] currentBiders;
 	private Player player;
 	private Player[] players;
-	private Updater UD;
+	private Updater updater;
 	private Ownable field;
 
 	/**
@@ -20,14 +18,14 @@ public class Auction {
 	 * @param player - The player which denied the purchase, and isn't allowed to make a bid
 	 * @param players - The whole player Array
 	 */
-	public Auction(Updater UD, Player player, Player[] players, Ownable field) {
+	public Auction(Updater updater, Player player, Player[] players, Ownable field) {
 
 		this.field = field;
 		this.currentMax = field.getPrice();
 		this.currentBiders = new int[players.length];
 		this.player = player;
 		this.players = players;
-		this.UD = UD;
+		this.updater = updater;
 
 	}
 	/**
@@ -36,7 +34,7 @@ public class Auction {
 	 */
 	public void runAction(){
 
-		UD.showMessage("En auktion afholdes for: " + field.getName());
+		updater.showMessage("En auktion afholdes for: " + field.getName());
 
 		int i = 0;
 
@@ -54,7 +52,7 @@ public class Auction {
 
 			// Situation with a Active Player 
 			if(currentBiders[i] == 1 && !anyBids){
-				if(UD.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
+				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
 					anyBids = true;
 				} 
 				else {
@@ -98,14 +96,14 @@ public class Auction {
 			}
 		}
 
-		if(UD.getUserLeftButtonPressed("kunne de tænke dem at købe denne grund til: " + field.getPrice(), "Ja tak", "Nej tak")){
+		if(updater.getUserLeftButtonPressed("kunne de tænke dem at købe denne grund til: " + field.getPrice(), "Ja tak", "Nej tak")){
 			// TODO
 		}
 
 
 		while(j <= players.length){
-			if(UD.getUserLeftButtonPressed(players[j].getName() + ", kunne de tænke dem at byde på den pågældende grund? \nMindste bud tilladt: " + (currentMax + 50), "Ja tak", "Nej tak")){
-				currentMax = UD.getUserInteger(players[j].getName() + " kunne de tænke dem at byde? \nmindste bud tilladt: " + (currentMax + 50), (currentMax + 50), 1000000);	
+			if(updater.getUserLeftButtonPressed(players[j].getName() + ", kunne de tænke dem at byde på den pågældende grund? \nMindste bud tilladt: " + (currentMax + 50), "Ja tak", "Nej tak")){
+				currentMax = updater.getUserInteger(players[j].getName() + " kunne de tænke dem at byde? \nmindste bud tilladt: " + (currentMax + 50), (currentMax + 50), 1000000);	
 			}
 
 
