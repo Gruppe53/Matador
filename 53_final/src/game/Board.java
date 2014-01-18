@@ -167,7 +167,7 @@ public class Board {
 		int count = 0;
 		
 		for(int i = 0; i < boardArray.length; i++) {
-			if(boardArray[i] instanceof Street) {
+			if(boardArray[i] instanceof Ownable) {
 				if(((Street) boardArray[i]).isOwner(player)) {
 					count++;
 				}
@@ -179,9 +179,9 @@ public class Board {
 		count = 0;
 		
 		for(int i = 0; i < boardArray.length; i++) {
-			if(boardArray[i] instanceof Street) {
-				if(((Street) boardArray[i]).isOwner(player)) {
-					available[count] = ((Street) boardArray[i]).getName();
+			if(boardArray[i] instanceof Ownable) {
+				if(((Ownable) boardArray[i]).isOwner(player)) {
+					available[count] = ((Ownable) boardArray[i]).getName();
 					count++;
 				}
 			}

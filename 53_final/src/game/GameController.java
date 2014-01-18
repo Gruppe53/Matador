@@ -94,6 +94,15 @@ public class GameController {
 				case 4:
 					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Pantsæt grunde", "2. Vend tilbage til spilmenu");
 					
+					switch(getChoice(str)) {
+					case 1:
+						board.pawnProperty(player[turn.getCurrent()], updater.getUserSelection("Hvilken grund vil De pantsætte", board.getAvailablePawns(player[turn.getCurrent()])));
+						break;
+					default:
+						break;
+					}
+					
+					
 					break;
 				default:
 					// Do a new roll with dice
