@@ -37,46 +37,61 @@ public class Auction {
 
 		int i = 0;
 
-		checkTotalBiders();
-
-		// Runs the auction
-		while( i < players.length){
-
-			// Situation with only 2 players - offer second player to buy field
-			if(currentBiders[i] == 1 && !anyBids && totalbiders == 1) {
-				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at købe " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
-					anyBids = true;
-					changeHighestBider(i);
-					//TODO give currentBiders[i] owner and buy for currentMax
+		startTotalBiders();
+		if (totalbiders == 1){
+			while(i < players.length){
+				if(currentBiders[i] == 1){
+					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at købe " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
+						anyBids = true;
+						changeHighestBider(i);
+					}
+					else currentBiders[i] = 0;
+					checkTotalBiders();
+					checkForWinner();
 				}
-				else currentBiders[i] = 0;
+				i++;
 			}
+		}
+		else{
+			// Runs the auction
+			while( i < players.length){
 
-			// Situation with more than 2 players - ask to bid on the already bidded field
-			else if(currentBiders[i] == 1 && anyBids && totalbiders > 1) {
-				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ". Minimum bud: " + (currentMax + 50), "Ja" , "Nej")){
-					currentMax = updater.getUserInteger("Hvor meget kunne de tænke dem at byde? (minimum: " + (currentMax + 50) + "):", (currentMax + 50), players[i].getAccount());
-					changeHighestBider(i);
-					//TODO set new currentMax and Find out how to identify person which has highest current bid ( evt. currentBiders[i] = 2)
+				// Situation with only 2 players - offer second player to buy field
+				if(currentBiders[i] == 1 && !anyBids && totalbiders == 1) {
+					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at købe " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
+						anyBids = true;
+						changeHighestBider(i);
+					}
+					else currentBiders[i] = 0;
 				}
-				else currentBiders[i] = 0;
-			}
-			
-			//Situation with more than 2 players - ask to bid on the not already bidded field
-			else if(currentBiders[i] == 1 && !anyBids && totalbiders > 1) {
-				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
-					anyBids = true;
-					changeHighestBider(i);
+
+				// Situation with more than 2 players - ask to bid on the already bidded field
+				else if(currentBiders[i] == 1 && anyBids && totalbiders > 1) {
+					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ". Minimum bud: " + (currentMax + 50), "Ja" , "Nej")){
+						currentMax = updater.getUserInteger("Hvor meget kunne de tænke dem at byde? (minimum: " + (currentMax + 50) + "):", (currentMax + 50), players[i].getAccount());
+						changeHighestBider(i);
+						//TODO set new currentMax and Find out how to identify person which has highest current bid ( evt. currentBiders[i] = 2)
+					}
+					else currentBiders[i] = 0;
 				}
-			} 
-			else {
-				currentBiders[i] = 0;
+
+				//Situation with more than 2 players - ask to bid on the not already bidded field
+				else if(currentBiders[i] == 1 && !anyBids && totalbiders > 1) {
+					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
+						anyBids = true;
+						changeHighestBider(i);
+					}
+					else {
+						currentBiders[i] = 0;
+					} 
+
+				}
+				checkTotalBiders();
+				i++;
+				if (i >= players.length) i = 0;
+				if(checkForWinner() == true) i = 7;
+				else if (totalbiders == 0) i = 7;
 			}
-			checkTotalBiders();
-			if(checkForWinner() == true) i = 7;
-			else if (totalbiders == 0) i = 7;
-			else if (i >= players.length) i = 0;
-			else i++;
 		}
 		callWinner();
 	}
@@ -96,6 +111,12 @@ public class Auction {
 			}
 			return true;
 		}
+//		else if (totalbiders == 0){
+//			for(int i = 0 ; i < players.length ; i++){
+//				currentBiders[i] = 0;
+//			}
+//			return true;
+//		}
 
 		else return false;
 	}
@@ -103,10 +124,33 @@ public class Auction {
 	/**
 	 * check TotalBiders
 	 *  </p>
-	 *  Set totalbiders to the amount of people bidding
+	 *  Set totalbiders to the amount of people bidding, used while the auction is in progress
 	 */
 	private void checkTotalBiders(){
 		// Check how many players are allowed to bid (active players, and not the player that could've bought the place)
+		this.totalbiders = 0;
+		for(int i = 0; i<players.length;i++){
+			if(!players[i].equals(player)){
+				if(players[i].getStatus() >= 0 && currentBiders[i] == 1){
+					this.currentBiders[i] = 1;
+					this.totalbiders++;
+				}
+				if(players[i].equals(player)){
+					this.currentBiders[i] = 0;
+				}
+				if(players[i].getStatus() >= 0 && currentBiders[i] == 2){
+					this.totalbiders++;
+				}
+			}
+		}
+	}
+
+	/**
+	 * start TotalBiders
+	 * </p>
+	 * Set totalbiders to the amount of people bidding, used before the auction starts 
+	 */
+	private void startTotalBiders(){
 		this.totalbiders = 0;
 		for(int i = 0; i<players.length;i++){
 			if(!players[i].equals(player)){
@@ -140,6 +184,11 @@ public class Auction {
 			updater.showMessage(players[actionWinner].getName() + " har vundet auktionen på " + field.getName() + " med sit bud på: " + currentMax);
 			field.setOwner(players[actionWinner]);
 			updater.setOwner(player.getPosition(), players[actionWinner].getName());
+			players[actionWinner].alterAccount(-currentMax);
+			players[actionWinner].setAssets((int)(field.getPrice() * 0.5));
+			updater.balance(players[actionWinner].getName(), players[actionWinner].getAccount());
+
+
 		}
 		else if(totalbiders <= 0){
 			updater.showMessage("Der var ingen bud på " + field.getName());
