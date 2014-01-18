@@ -181,7 +181,7 @@ public class Board {
 		for(int i = 0; i < boardArray.length; i++) {
 			if(boardArray[i] instanceof Street) {
 				if(((Street) boardArray[i]).isOwner(player)) {
-					available[count] = boardArray[i].getName();
+					available[count] = ((Street) boardArray[i]).getName();
 					count++;
 				}
 			}
