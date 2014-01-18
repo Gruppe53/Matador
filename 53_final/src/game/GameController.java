@@ -10,7 +10,7 @@ public class GameController {
 	private Dice roll = new Dice(1, 6, 2);
 	private boolean secondTurn = false;
 	private int multiplePair = 0;
-	private boolean createAuction = false;
+	private boolean createAuction = true;
 	// TODO fix "vend tilbage til hovedmenuen"
 	// FINALSs
 	private final int startCash = 30000;
@@ -92,12 +92,7 @@ public class GameController {
 					secondTurn = true;
 					break;
 				case 4:
-					updater.getUserInteger("Vaelg en grund De gerne vil pantsaette.\n"
-							+ "Udskriv liste med grunde, som brugeren ejer, og som IKKE er pantsat i forvejen\n"
-							+ "NB: Husk at grunde, hvor der er huse paa, skal foerst have fjernet huse.",
-							0,
-							2
-					);
+					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Byg huse/hoteller", "2. Vend tilbage til spilmenu");
 					
 					break;
 				default:
