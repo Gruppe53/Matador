@@ -10,21 +10,7 @@ public class Updater {
 		
 	}
 	
-	public void addPlayer(String name, int balance, Color color){
-		GUI.addPlayer(name, balance, color);
-	}
-	
-	public void setOwner(int fieldNumber, String name){
-		GUI.setOwner(fieldNumber, name);
-	}
-	
-	public void removeOwner(int fieldNumber){
-		GUI.removeOwner(fieldNumber);
-	}
-	
-	public void create(){
-		GUI.create("materials/fields.txt");
-	}
+
 		
 	/**
 	 * balance All
@@ -58,8 +44,8 @@ public class Updater {
 	 * </p>
 	 * Updates the balance on the GUI for the chosen player
 	 */
-	public void balance(Player player){
-		GUI.setBalance(player.getName(), player.getAccount());
+	public void balance(String name, int account){
+		GUI.setBalance(name, account);
 	}
 	
 	/**
@@ -67,9 +53,9 @@ public class Updater {
 	 * @param player - The player which you would like to update
 	 * Updates the position on the GUI for the chosen player
 	 */
-	public void position(Player player){
-		GUI.removeAllCars(player.getName());
-		GUI.setCar(player.getPosition(), player.getName());
+	public void position(int fieldNumber, String name){
+		GUI.removeAllCars(name);
+		GUI.setCar(fieldNumber, name);
 	}
 	
 	/**
@@ -128,6 +114,31 @@ public class Updater {
 	//*************************************************************************************************************************
 	// Everything after this point is direct GUI commands
 	//*************************************************************************************************************************
+	
+	public void create(){
+		GUI.create("materials/fields.txt");
+	}
+	
+	public void addPlayer(String name, int balance, Color color){
+		GUI.addPlayer(name, balance, color);
+	}
+	
+	public void setOwner(int fieldNumber, String name){
+		GUI.setOwner(fieldNumber, name);
+	}
+	
+	public void removeOwner(int fieldNumber){
+		GUI.removeOwner(fieldNumber);
+	}
+	
+	public void setHouses(int fieldNumber, int houseCount){
+		GUI.setHouses(fieldNumber, houseCount);
+	}
+	
+	public void setHotel(int fieldNumber, Boolean hasHotel){
+		GUI.setHotel(fieldNumber, hasHotel);
+	}
+	
 	/**
 	 * Displays a message to the user and awaits the button pressed response
 	 * @param msg - The message that promts the user

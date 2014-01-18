@@ -89,8 +89,7 @@ public class Player {
 			updater.showMessage(this.name + ", De er gået fallit - alle Deres grunde er solgt til banken.");
 		}
 		
-		// TODO - Fix GUI knowledge
-		updater.balance(this);
+		updater.balance(this.name, this.account);
 	}
 	/**
 	 * get Account
