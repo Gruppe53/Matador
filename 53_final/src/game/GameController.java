@@ -246,7 +246,7 @@ public class GameController {
 		return board.getAvailableGrounds(player);
 	}
 	
-	public void buyProperty(Player player, String choice) {
+	private void buyProperty(Player player, String choice) {
 		board.buyProperty(player, choice);
 	}
 }
