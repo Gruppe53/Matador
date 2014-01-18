@@ -16,15 +16,9 @@ public class PropertyControl {
 	
 	private void buildEvenly(Player player, Street[] fields, int[] fieldNumbers) {
 		String[] options = new String[4];
-
-		for(int i = 0; i < fields.length; i++) {
-			if(highestCount(fields) == 0)
-				options[i] = (i + 1) + ". " + fields[i].getName();
-			else if(fields[i].getHouses() < highestCount(fields))
-				options[i] = (i + 1) + ". " + fields[i].getName();
-			else
-				options[i] = null;
-		}
+		
+		for(int i = 0; i < fields.length; i++)
+			options[i] = (i + 1) + ". " + fields[i].getName();
 		
 		options[3] = "4. Færdig med køb af huse.";
 		
@@ -33,7 +27,7 @@ public class PropertyControl {
 		switch(getChoice(choice)) {
 		case 1:
 			if(player.getAccount() - fields[0].getHousePrice() >= 0)
-				if(fields[0].getHouses() <= 4) {
+				if(fields[0].getHouses() <= 4 && canBuyHouse(0, fields)) {
 					fields[0].setHouses(fieldNumbers[0], (fields[0].getHouses() + 1));
 					player.alterAccount(-fields[0].getHousePrice());
 				}
@@ -44,7 +38,7 @@ public class PropertyControl {
 			break;
 		case 2:
 			if(player.getAccount() - fields[1].getHousePrice() >= 0)
-				if(fields[1].getHouses() <= 4) {
+				if(fields[1].getHouses() <= 4 && canBuyHouse(1, fields)) {
 					fields[1].setHouses(fieldNumbers[1], (fields[1].getHouses() + 1));
 					player.alterAccount(-fields[1].getHousePrice());
 				}
@@ -55,7 +49,7 @@ public class PropertyControl {
 			break;
 		case 3:
 			if(player.getAccount() - fields[2].getHousePrice() >= 0)
-				if(fields[2].getHouses() <= 4) {
+				if(fields[2].getHouses() <= 4  && canBuyHouse(2, fields)) {
 					fields[2].setHouses(fieldNumbers[2], (fields[2].getHouses() + 1));
 					player.alterAccount(-fields[2].getHousePrice());
 				}
@@ -87,6 +81,15 @@ public class PropertyControl {
 			highestCount = 0;
 		
 		return highestCount;
+	}
+	
+	private boolean canBuyHouse(int i, Street[] fields) {
+		if(highestCount(fields) == 0)
+			return true;
+		else if(fields[i].getHouses() < highestCount(fields))
+			return true;
+		else
+			return false;
 	}
 	
 	private int getChoice(String str) {

@@ -6,7 +6,6 @@ abstract public class Ownable extends Field {
 	protected int multiplier;
 	protected int pawn;
 	protected Updater updater;
-	protected boolean createAuction;
 	
 	/**
 	 * Ownable Constructor
@@ -20,7 +19,6 @@ abstract public class Ownable extends Field {
 
 	public void landOnField(Player player, Updater updater, boolean createAuction) {
 		this.updater = updater;
-		this.createAuction = createAuction;
 		
 		if (owner == null) {
 			if (updater.getUserLeftButtonPressed("Vil De købe " + name + " for " + price + "?", "Ja", "Nej")) {
@@ -43,7 +41,7 @@ abstract public class Ownable extends Field {
 				}
 			}
 			else {
-				this.createAuction = true;
+				createAuction = true;
 			}
 		} else if (!isOwner(player)) {
 			this.multiplier = player.getRollSum();
