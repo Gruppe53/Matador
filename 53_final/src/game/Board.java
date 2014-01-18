@@ -238,7 +238,7 @@ public class Board {
 		}
 	}
 
-	public void buyProperty(Player player, String choice) {
+	public void buyProperty(Player player, String choice, Updater updater) {
 		Street[] fields = null;
 		fields = new Street[choice.split(", ").length];
 		
@@ -259,7 +259,7 @@ public class Board {
 		}
 		
 		@SuppressWarnings("unused")
-		PropertyControl pControl = new PropertyControl(player, fields, fieldNumbers);
+		PropertyControl pControl = new PropertyControl(player, fields, fieldNumbers, updater);
 		pControl = null;
 	}
 	

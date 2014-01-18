@@ -1,20 +1,18 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 public class PropertyControl {
 	private boolean notDone = true;
 	
-	public PropertyControl(Player player, Street[] fields, int[] fieldNumbers) {
+	public PropertyControl(Player player, Street[] fields, int[] fieldNumbers, Updater updater) {
 		for(int i = 0; i < fields.length; i++)
 			System.out.println("pControl " + (i + 1) + ": " + fields[i].getName());
 		// Secure evenly built houses
 		do {
-			this.buildEvenly(player, fields, fieldNumbers);
+			this.buildEvenly(player, fields, fieldNumbers, updater);
 		} while(notDone);
 	}
 	
-	private void buildEvenly(Player player, Street[] fields, int[] fieldNumbers) {
+	private void buildEvenly(Player player, Street[] fields, int[] fieldNumbers, Updater updater) {
 		String[] options = null;
 		
 		if(fields.length == 3) {
@@ -35,7 +33,7 @@ public class PropertyControl {
 			options[2] = "4. Færdig med køb af huse.";
 		}
 		
-		String choice = GUI.getUserButtonPressed("Pris pr. hus: " + fields[0].getHousePrice(), options);
+		String choice = updater.getUserButtonPressed("Pris pr. hus: " + fields[0].getHousePrice(), options);
 		
 		switch(getChoice(choice)) {
 		case 1:
@@ -53,12 +51,12 @@ public class PropertyControl {
 						player.setAssets((int) Math.floor((0.5 * fields[0].getHousePrice())));
 					}
 					else
-						GUI.showMessage("De skal bygge jævnt på grundene.");
+						updater.showMessage("De skal bygge jævnt på grundene.");
 				}
 				else
-					GUI.showMessage("De kan ikke købe flere huse til "+ fields[0].getName() + ", da der allerede er bygget et hotel.");
+					updater.showMessage("De kan ikke købe flere huse til "+ fields[0].getName() + ", da der allerede er bygget et hotel.");
 			else
-				GUI.showMessage("De har ikke råd til at købe huset.");
+				updater.showMessage("De har ikke råd til at købe huset.");
 			break;
 		case 2:
 			if(player.getAccount() - fields[1].getHousePrice() >= 0)
@@ -75,12 +73,12 @@ public class PropertyControl {
 						player.setAssets((int) Math.floor((0.5 * fields[1].getHousePrice())));
 					}
 					else
-						GUI.showMessage("De skal bygge jævnt på grundene.");
+						updater.showMessage("De skal bygge jævnt på grundene.");
 				}
 				else
-					GUI.showMessage("De kan ikke købe flere huse til "+ fields[1].getName() + ", da der allerede er bygget et hotel.");
+					updater.showMessage("De kan ikke købe flere huse til "+ fields[1].getName() + ", da der allerede er bygget et hotel.");
 			else
-				GUI.showMessage("De har ikke råd til at købe huset.");
+				updater.showMessage("De har ikke råd til at købe huset.");
 			break;
 		case 3:
 			if(player.getAccount() - fields[2].getHousePrice() >= 0)
@@ -97,12 +95,12 @@ public class PropertyControl {
 						player.setAssets((int) Math.round((0.5 * fields[2].getHousePrice())));
 					}
 					else
-						GUI.showMessage("De skal bygge jævnt på grundene.");
+						updater.showMessage("De skal bygge jævnt på grundene.");
 				}
 				else
-					GUI.showMessage("De kan ikke købe flere huse til "+ fields[2].getName() + ", da der allerede er bygget et hotel.");
+					updater.showMessage("De kan ikke købe flere huse til "+ fields[2].getName() + ", da der allerede er bygget et hotel.");
 			else
-				GUI.showMessage("De har ikke råd til at købe huset.");
+				updater.showMessage("De har ikke råd til at købe huset.");
 			break;
 		case 4:
 			notDone = false;
