@@ -64,20 +64,20 @@ public class Auction {
 				else currentBiders[i] = 0;
 			}
 
-				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
-					anyBids = true;
-					changeHighestBider(i);
-				} 
-				else {
-					currentBiders[i] = 0;
-				}
+			if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
+				anyBids = true;
+				changeHighestBider(i);
+			} 
+			else {
+				currentBiders[i] = 0;
 			}
 			checkTotalBiders();
 			if(checkForWinner() == true) i = 7;
 			else if (i >= players.length) i = 0;
 			else i++;
 		}
-	
+		callWinner();
+	}
 
 	/**
 	 * Check for Winner
@@ -86,14 +86,6 @@ public class Auction {
 	 * Check if there is only 1 totalbiders left and sets actionwinner to the number of the winner on array
 	 */
 	private boolean checkForWinner(){
-		//		if(totalbiders == 1) {
-		//			for(int i = 0; i<players.length; i++){
-		//				if(currentBiders[i] == 1){
-		//					actionWinner = i;
-		//				}
-		//			}
-		//			return true;
-		//		}
 		if (totalbiders == 1) {
 			for(int i = 0 ; i < players.length ; i++){
 				if(currentBiders[i] == 2){
@@ -105,6 +97,7 @@ public class Auction {
 
 		else return false;
 	}
+	
 	/**
 	 * check TotalBiders
 	 *  </p>
@@ -120,29 +113,9 @@ public class Auction {
 					this.totalbiders++;
 				}
 			}
-			}
 		}
-//
-//		if(updater.getUserLeftButtonPressed("kunne de tænke dem at købe denne grund til: " + field.getPrice(), "Ja tak", "Nej tak")){
-//			// TODO
-//		}
-//
-//
-//		while(j <= players.length){
-//			if(updater.getUserLeftButtonPressed(players[j].getName() + ", kunne de tænke dem at byde på den pågældende grund? \nMindste bud tilladt: " + (currentMax + 50), "Ja tak", "Nej tak")){
-//				currentMax = updater.getUserInteger(players[j].getName() + " kunne de tænke dem at byde? \nmindste bud tilladt: " + (currentMax + 50), (currentMax + 50), 1000000);	
-//			}
-//
-//
-//
-//			j++;
-//			if(j > players.length) j = 0;
-//		}
-//
-//		// TODO - Auction - In Progress by Anders
-//
+	}
 	
-
 	/**
 	 * change HigestBider
 	 * @param player - the player (int from array) which is now the highestbider (currentBiders[player] = 2)
@@ -153,5 +126,10 @@ public class Auction {
 		}
 		currentBiders[player] = 2;
 		Higestbider = player;
+	}
+	
+	private void callWinner(){
+		updater.showMessage(players[actionWinner].getName() + " har vundet auktionen på " + field.getName() + " med sit bud på: " + currentMax);
+		field.
 	}
 }
