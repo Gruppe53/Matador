@@ -162,6 +162,32 @@ public class Board {
 		
 		return availableGrounds;
 	}
+	
+	public String[] getAvailablePawns(Player player){
+		int count = 0;
+		
+		for(int i = 0; i < boardArray.length; i++) {
+			if(boardArray[i] instanceof Street) {
+				if(((Street) boardArray[i]).isOwner(player)) {
+					count++;
+				}
+			}
+		}
+	}
+		
+		Street[] available = new Street[count];
+		int[] availableTypes = new int[9];
+		
+		count = 0;
+		
+		for(int i = 0; i < boardArray.length; i++) {
+			if(boardArray[i] instanceof Street) {
+				if(((Street) boardArray[i]).isOwner(player)) {
+					available[count] = (Street) boardArray[i];
+					count++;
+				}
+			}
+	}
 
 	public void buyProperty(Player player, String choice) {
 		Street[] fields = null;

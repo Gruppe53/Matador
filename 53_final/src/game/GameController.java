@@ -92,7 +92,7 @@ public class GameController {
 					secondTurn = true;
 					break;
 				case 4:
-					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Byg huse/hoteller", "2. Vend tilbage til spilmenu");
+					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Pantsæt grunde", "2. Vend tilbage til spilmenu");
 					
 					break;
 				default:
