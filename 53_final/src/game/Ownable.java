@@ -40,6 +40,11 @@ abstract public class Ownable extends Field {
 					updater.showMessage("De har ikke nok penge til at købe denne grund.");
 				}
 			}
+			else {
+				Auction auction = new Auction(this.updater, player, players, this.field);
+				auction.runAction();
+				auction = null;
+			}
 		} else if (!isOwner(player)) {
 			this.multiplier = player.getRollSum();
 			updater.showMessage(player.getName() + " betaler " + getRent() + " til " + owner.getName());
