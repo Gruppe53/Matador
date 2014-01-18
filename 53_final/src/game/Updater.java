@@ -131,6 +131,10 @@ public class Updater {
 		GUI.removeOwner(fieldNumber);
 	}
 	
+	public void removeCar(String name){
+		GUI.removeAllCars(name);
+	}
+	
 	public void setHouses(int fieldNumber, int houseCount){
 		GUI.setHouses(fieldNumber, houseCount);
 	}
