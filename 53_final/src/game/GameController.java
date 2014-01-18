@@ -92,12 +92,7 @@ public class GameController {
 					secondTurn = true;
 					break;
 				case 4:
-					updater.getUserInteger("Vaelg en grund De gerne vil pantsaette.\n"
-							+ "Udskriv liste med grunde, som brugeren ejer, og som IKKE er pantsat i forvejen\n"
-							+ "NB: Husk at grunde, hvor der er huse paa, skal foerst have fjernet huse.",
-							0,
-							2
-					);
+					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Byg huse/hoteller", "2. Vend tilbage til spilmenu");
 					
 					break;
 				default:
