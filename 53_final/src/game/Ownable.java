@@ -5,6 +5,7 @@ abstract public class Ownable extends Field {
 	protected int price;
 	protected int multiplier;
 	protected int pawn;
+	protected Updater updater;
 	
 	/**
 	 * Ownable Constructor
@@ -17,6 +18,8 @@ abstract public class Ownable extends Field {
 	}
 
 	public void landOnField(Player player, Updater updater) {
+		this.updater = updater;
+		
 		if (owner == null) {
 			if (updater.getUserLeftButtonPressed("Vil De købe " + name + " for " + price + "?", "Ja", "Nej")) {
 				if (player.getAccount() >= price) {

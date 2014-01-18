@@ -33,19 +33,31 @@ public class PropertyControl {
 		switch(getChoice(choice)) {
 		case 1:
 			if(player.getAccount() - fields[0].getHousePrice() >= 0)
-				fields[0].setHouses(fieldNumbers[0], (fields[0].getHouses() + 1));
+				if(fields[0].getHouses() <= 5) {
+					fields[0].setHouses(fieldNumbers[0], (fields[0].getHouses() + 1));
+				}
+				else
+					GUI.showMessage("De kan ikke købe flere huse til "+ fields[0].getName() + ", da der allerede er bygget et hotel.");
 			else
 				GUI.showMessage("De har ikke råd til at købe huset.");
 			break;
 		case 2:
-			if(player.getAccount() - fields[0].getHousePrice() >= 0)
-				fields[1].setHouses(fieldNumbers[1], (fields[1].getHouses() + 1));
+			if(player.getAccount() - fields[1].getHousePrice() >= 0)
+				if(fields[1].getHouses() <= 5) {
+					fields[1].setHouses(fieldNumbers[1], (fields[1].getHouses() + 1));
+				}
+				else
+					GUI.showMessage("De kan ikke købe flere huse til "+ fields[1].getName() + ", da der allerede er bygget et hotel.");
 			else
 				GUI.showMessage("De har ikke råd til at købe huset.");
 			break;
 		case 3:
-			if(player.getAccount() - fields[0].getHousePrice() >= 0)
-				fields[2].setHouses(fieldNumbers[2], (fields[2].getHouses() + 1));
+			if(player.getAccount() - fields[2].getHousePrice() >= 0)
+				if(fields[2].getHouses() <= 5) {
+					fields[2].setHouses(fieldNumbers[2], (fields[2].getHouses() + 1));
+				}
+				else
+					GUI.showMessage("De kan ikke købe flere huse til "+ fields[2].getName() + ", da der allerede er bygget et hotel.");
 			else
 				GUI.showMessage("De har ikke råd til at købe huset.");
 			break;
