@@ -1,12 +1,10 @@
 package game;
 
 public class Auction {
-	private int j = 0;
 	private int currentMax;
 	private boolean anyBids = false;
 	private int totalbiders = 0;
 	private int actionWinner; // For array list
-	private int Higestbider;
 	private int[] currentBiders;
 	private Player player;
 	private Player[] players;
@@ -125,11 +123,11 @@ public class Auction {
 			if(currentBiders[i] == 2) currentBiders[i] = 1; 
 		}
 		currentBiders[player] = 2;
-		Higestbider = player;
 	}
 	
 	private void callWinner(){
 		updater.showMessage(players[actionWinner].getName() + " har vundet auktionen på " + field.getName() + " med sit bud på: " + currentMax);
-		field.
+		field.setOwner(players[actionWinner]);
+		updater.setOwner(player.getPosition(), players[actionWinner].getName());
 	}
 }
