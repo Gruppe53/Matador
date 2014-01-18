@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+import java.lang.Exception;
 
 public class GameController {
 	private Player[] player;
@@ -58,13 +59,28 @@ public class GameController {
 
 					// Make the mechanics of the field start
 					fieldTricker(player[turn.getCurrent()]);
-					if(board.getField(player[turn.getCurrent()].getPosition()-1).getCreateAuction()){
-						int auctionField = (player[turn.getCurrent()].getPosition()-1);
-						Ownable f = board.getField(auctionField);
-						Auction auction = new Auction(updater, player[turn.getCurrent()], player, f);
-						auction.runAction();
-						auction = null;
+					// If Ownable and didn't buy it, run an Auction 
+					try{
+						if(board.getField(player[turn.getCurrent()].getPosition()-1).getCreateAuction()){
+							int auctionField = (player[turn.getCurrent()].getPosition()-1);
+							Ownable f = board.getField(auctionField);
+							Auction auction = new Auction(updater, player[turn.getCurrent()], player, f);
+							auction.runAction();
+							auction = null;
+						}
+					} 
+					catch(Exception VisitJail){
+						// TODO Exception for Auction, ved ikke hvorfor.... men det virker ! :D
 					}
+//					if ((board.getField(player[turn.getCurrent()].getPosition()-1)) instanceof Ownable){
+//						if(board.getField(player[turn.getCurrent()].getPosition()-1).getCreateAuction()){
+//							int auctionField = (player[turn.getCurrent()].getPosition()-1);
+//							Ownable f = board.getField(auctionField);
+//							Auction auction = new Auction(updater, player[turn.getCurrent()], player, f);
+//							auction.runAction();
+//							auction = null;
+//						}
+//					}
 					break;
 				case 2:
 					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Byg huse/hoteller", "2. Vend tilbage til spilmenu");
