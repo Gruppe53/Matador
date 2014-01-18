@@ -100,12 +100,20 @@ public class Board {
 		for(int i = 0; i < available.length; i++) {
 			for(int j = 0; j < available.length; j++) {
 				if(i != j) {
-					for(int k = 0; k < available.length; k++) {
-						if(i != k && j != k) {
-							if((available[i].getcType() == available[j].getcType()) && (available[i].getcType() == available[k].getcType())) {
-								if(!(containsSameType(availableTypes, available[i].getcType()))) {
-									availableTypes[count] = available[i].getcType();
-									count++;
+					if(available[i].getName() == "Rødovrevej" || available[i].getName() == "Rådhuspladsen") {
+						if(available[i].getcType() == available[j].getcType()) {
+							availableTypes[count] = available[i].getcType();
+							count++;
+						}
+					}
+					else {
+						for(int k = 0; k < available.length; k++) {
+							if(i != k && j != k) {
+								if((available[i].getcType() == available[j].getcType()) && (available[i].getcType() == available[k].getcType())) {
+									if(!(containsSameType(availableTypes, available[i].getcType()))) {
+										availableTypes[count] = available[i].getcType();
+										count++;
+									}
 								}
 							}
 						}
@@ -125,14 +133,26 @@ public class Board {
 		for(int a : availableTypes) {
 			for(Field b : boardArray) {
 				if(b instanceof Street) {
-					if(a == ((Street) b).getcType())
-						if(counter == 2) {
-							availableGrounds[count] += ((Street) b).getName();
+					if(a == ((Street) b).getcType()) {
+						if(((Street) b).getName() == "Rødovrevej" || ((Street) b).getName() == "Rådhuspladsen") {
+							if(counter == 1) {
+								availableGrounds[count] += ((Street) b).getName();
+							}
+							else {
+								availableGrounds[count] += ((Street) b).getName() + ", ";
+								counter++;
+							}
 						}
 						else {
-							availableGrounds[count] += ((Street) b).getName() + ", ";
-							counter++;
+							if(counter == 2) {
+								availableGrounds[count] += ((Street) b).getName();
+							}
+							else {
+								availableGrounds[count] += ((Street) b).getName() + ", ";
+								counter++;
+							}
 						}
+					}
 				}
 			}
 			

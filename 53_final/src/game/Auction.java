@@ -40,11 +40,11 @@ public class Auction {
 		checkTotalBiders();
 
 		// Runs the auction
-		while( i > players.length){
+		while( i < players.length){
 
-			// Situation with only 2 players
+			// Situation with only 2 players - offer second player to buy field
 			if(currentBiders[i] == 1 && !anyBids && totalbiders == 1) {
-				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
+				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at købe " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
 					anyBids = true;
 					changeHighestBider(i);
 					//TODO give currentBiders[i] owner and buy for currentMax
@@ -52,7 +52,7 @@ public class Auction {
 				else currentBiders[i] = 0;
 			}
 
-			// Situation with more than 2 players
+			// Situation with more than 2 players - ask to bid on the already bidded field
 			else if(currentBiders[i] == 1 && anyBids && totalbiders > 1) {
 				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ". Minimum bud: " + (currentMax + 50), "Ja" , "Nej")){
 					currentMax = updater.getUserInteger("Hvor meget kunne de tænke dem at byde? (minimum: " + (currentMax + 50) + "):", (currentMax + 50), players[i].getAccount());
@@ -61,10 +61,13 @@ public class Auction {
 				}
 				else currentBiders[i] = 0;
 			}
-
-			if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
-				anyBids = true;
-				changeHighestBider(i);
+			
+			//Situation with more than 2 players - ask to bid on the not already bidded field
+			else if(currentBiders[i] == 1 && !anyBids && totalbiders > 1) {
+				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
+					anyBids = true;
+					changeHighestBider(i);
+				}
 			} 
 			else {
 				currentBiders[i] = 0;
@@ -107,8 +110,14 @@ public class Auction {
 		this.totalbiders = 0;
 		for(int i = 0; i<players.length;i++){
 			if(!players[i].equals(player)){
-				if(players[i].getStatus() >= 0){
+				if(players[i].getStatus() >= 0 && currentBiders[i]!=2){
 					this.currentBiders[i] = 1;
+					this.totalbiders++;
+				}
+				if(players[i].equals(player)){
+					this.currentBiders[i] = 0;
+				}
+				if(players[i].getStatus() >= 0 && currentBiders[i] == 2){
 					this.totalbiders++;
 				}
 			}
@@ -117,13 +126,13 @@ public class Auction {
 
 	/**
 	 * change HigestBider
-	 * @param player - the player (int from array) which is now the highestbider (currentBiders[player] = 2)
+	 * @param j - the player (int from array) which is now the highestbider (currentBiders[player] = 2)
 	 */
-	private void changeHighestBider(int player) {
-		for(int i = 0 ; i > players.length ; i++){
+	private void changeHighestBider(int j) {
+		for(int i = 0 ; i < players.length ; i++){
 			if(currentBiders[i] == 2) currentBiders[i] = 1; 
 		}
-		currentBiders[player] = 2;
+		currentBiders[j] = 2;
 	}
 
 	private void callWinner(){
