@@ -65,8 +65,13 @@ public class Auction {
 			}
 
 
+<<<<<<< HEAD
 			// Situation with a Active Player and no bids yet
 			else if(currentBiders[i] == 1 && !anyBids){
+=======
+			// Situation with a Active Player 
+			if(currentBiders[i] == 1 && !anyBids){
+>>>>>>> branch 'master' of https://github.com/Gruppe53/Matador.git
 				if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
 					anyBids = true;
 					changeHighestBider(i);
@@ -123,8 +128,21 @@ public class Auction {
 					this.totalbiders++;
 				}
 			}
+<<<<<<< HEAD
 			if(players[i].equals(player)){
 				this.currentBiders[i] = 0;
+=======
+		}
+
+		if(updater.getUserLeftButtonPressed("kunne de tænke dem at købe denne grund til: " + field.getPrice(), "Ja tak", "Nej tak")){
+			// TODO
+		}
+
+
+		while(j <= players.length){
+			if(updater.getUserLeftButtonPressed(players[j].getName() + ", kunne de tænke dem at byde på den pågældende grund? \nMindste bud tilladt: " + (currentMax + 50), "Ja tak", "Nej tak")){
+				currentMax = updater.getUserInteger(players[j].getName() + " kunne de tænke dem at byde? \nmindste bud tilladt: " + (currentMax + 50), (currentMax + 50), 1000000);	
+>>>>>>> branch 'master' of https://github.com/Gruppe53/Matador.git
 			}
 		}
 //
