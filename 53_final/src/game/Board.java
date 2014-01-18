@@ -189,6 +189,10 @@ public class Board {
 		
 		return available;
 	}
+	
+	public void pawnProperty(Player player, String choice) {
+		
+	}
 
 	public void buyProperty(Player player, String choice) {
 		Street[] fields = null;
