@@ -109,8 +109,7 @@ public class Player {
 	 * @return The players assets + his account
 	 */
 	public int getAssets() {
-		int result = assets + account;
-		return result;
+		return (assets + account);
 	}
 
 	/**

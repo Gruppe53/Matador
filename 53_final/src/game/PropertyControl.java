@@ -15,12 +15,25 @@ public class PropertyControl {
 	}
 	
 	private void buildEvenly(Player player, Street[] fields, int[] fieldNumbers) {
-		String[] options = new String[4];
+		String[] options = null;
 		
-		for(int i = 0; i < fields.length; i++)
-			options[i] = (i + 1) + ". " + fields[i].getName();
+		if(fields.length == 3) {
+			options = new String[4];
+			
+			for(int i = 0; i < fields.length; i++)
+				options[i] = (i + 1) + ". " + fields[i].getName();
+			
+			options[3] = "4. Færdig med køb af huse.";
+		}
 		
-		options[3] = "4. Færdig med køb af huse.";
+		else if(fields.length == 2) {
+			options = new String[3];
+			
+			for(int i = 0; i < fields.length; i++)
+				options[i] = (i + 1) + ". " + fields[i].getName();
+			
+			options[2] = "4. Færdig med køb af huse.";
+		}
 		
 		String choice = GUI.getUserButtonPressed("Pris pr. hus: " + fields[0].getHousePrice(), options);
 		
@@ -37,6 +50,7 @@ public class PropertyControl {
 						}
 						
 						player.alterAccount(-fields[0].getHousePrice());
+						player.setAssets((int) Math.floor((0.5 * fields[0].getHousePrice())));
 					}
 					else
 						GUI.showMessage("De skal bygge jævnt på grundene.");
@@ -58,6 +72,7 @@ public class PropertyControl {
 						}
 						
 						player.alterAccount(-fields[1].getHousePrice());
+						player.setAssets((int) Math.floor((0.5 * fields[1].getHousePrice())));
 					}
 					else
 						GUI.showMessage("De skal bygge jævnt på grundene.");
@@ -79,6 +94,7 @@ public class PropertyControl {
 						}
 						
 						player.alterAccount(-fields[2].getHousePrice());
+						player.setAssets((int) Math.round((0.5 * fields[2].getHousePrice())));
 					}
 					else
 						GUI.showMessage("De skal bygge jævnt på grundene.");
@@ -92,7 +108,6 @@ public class PropertyControl {
 			notDone = false;
 			break;
 		}
-		// Husk at opdatere assets
 	}
 	
 	private int highestCount(Street[] fields) {

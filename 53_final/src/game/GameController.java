@@ -50,7 +50,7 @@ public class GameController {
 					int newPosition = currentPosition + roll.getSum();
 					
 					// Draw the roll
-					updater.setDice(roll.getValue(0), roll.getValue(1));
+					updater.setDice(roll.getValue(0), roll.getValue(0));
 
 					// Move the piece smoothly
 					updater.movePiece(player[turn.getCurrent()], newPosition, currentPosition);
