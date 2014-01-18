@@ -60,8 +60,9 @@ public class GameController {
 					// Make the mechanics of the field start
 					fieldTricker(player[turn.getCurrent()]);
 					if(createAuction){
-						Ownable auctionField = (player[turn.getCurrent()].getPosition()-1);
-						Auction auction = new Auction(updater, player, players, this);
+						int auctionField = (player[turn.getCurrent()].getPosition()-1);
+						Ownable f = board.getField(auctionField);
+						Auction auction = new Auction(updater, player[turn.getCurrent()], player, f);
 						auction.runAction();
 						auction = null;
 						createAuction = false;
