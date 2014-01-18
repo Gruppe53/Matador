@@ -51,7 +51,7 @@ public class Street extends Ownable {
 		this.houses = houses;
 		
 		// TODO GUI-knowledge
-		GUI.setHouses(field, houses);
+		updater.setHouses(field, houses);
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class Street extends Ownable {
 		this.houses = 5;
 		
 		// TODO GUI-knowledge
-		GUI.setHotel(field, true);
+		updater.setHotel(field, true);
 	}
 	
 	/**
@@ -74,8 +74,8 @@ public class Street extends Ownable {
 		this.houses = houses;
 		
 		// TODO GUI-knowledge
-		GUI.setHotel(field, false);
-		GUI.setHouses(field, houses);
+		updater.setHotel(field, false);
+		updater.setHouses(field, houses);
 	}
 	
 	/**

@@ -1,7 +1,5 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 public class Player {
 	private String name;
 	private int status;
@@ -84,13 +82,11 @@ public class Player {
 			this.account = 0;
 			setStatus(-1);
 			
-			// TODO - Fix GUI knowledge
-			GUI.removeAllCars(this.name);
+			updater.removeCar(this.name);
 			updater.showMessage(this.name + ", De er gået fallit - alle Deres grunde er solgt til banken.");
 		}
 		
-		// TODO - Fix GUI knowledge
-		updater.balance(this);
+		updater.balance(this.name, this.account);
 	}
 	/**
 	 * get Account
