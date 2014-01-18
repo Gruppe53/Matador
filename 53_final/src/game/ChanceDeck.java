@@ -6,8 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
 
-import boundaryToMatador.GUI;
-
 public class ChanceDeck extends Field {
 	private ChanceCard[] deck = new ChanceCard[34];
 	private int cardCount = 0;
@@ -55,8 +53,7 @@ public class ChanceDeck extends Field {
 				player.setPosition(newPosition - 1);
 			}
 			
-			GUI.removeAllCars(player.getName());
-			GUI.setCar(newPosition, player.getName());
+			updater.position(newPosition, player.getName());
 			
 			break;
 		case 5:
@@ -73,9 +70,8 @@ public class ChanceDeck extends Field {
 				player.setJailed(true);
 				player.setPosition(11);
 			}
+			updater.position(Integer.parseInt(deck[pickCount].getAction()), player.getName());
 			
-			GUI.removeAllCars(player.getName());
-			GUI.setCar(Integer.parseInt(deck[pickCount].getAction()), player.getName());
 			break;
 		case 6:
 			// Ryk direkte og betal

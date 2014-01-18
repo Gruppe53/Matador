@@ -1,7 +1,5 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 public class Auction {
 	private int j = 0;
 	private int currentMax;

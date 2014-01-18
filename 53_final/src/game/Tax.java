@@ -26,13 +26,13 @@ public class Tax extends Field {
 				//10%
 				updater.showMessage("De betaler " + (int)(player.getAssets() * 0.1) + "kr,- i indkomstskat");
 				player.alterAccount(-((int)(player.getAssets() * 0.1)));
-				updater.balance(player);
+				updater.balance(player.getName(), player.getAccount());
 			}
 			else{
 				//4k
 				GUI.showMessage("De betaler 4000kr,- i indkomstskat");
 				player.alterAccount(-4000);
-				updater.balance(player);
+				updater.balance(player.getName(), player.getAccount());
 			}
 	
 		}
@@ -40,7 +40,7 @@ public class Tax extends Field {
 			//2k
 			GUI.showMessage("De skal betale Ekstra ordinær statsskat: Betal 2000kr,-");
 			player.alterAccount(-2000);
-			updater.balance(player);
+			updater.balance(player.getName(),player.getAccount());
 		}
 	}
 }
