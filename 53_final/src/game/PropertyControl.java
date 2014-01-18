@@ -16,14 +16,14 @@ public class PropertyControl {
 	
 	private void buildEvenly(Player player, Street[] fields, int[] fieldNumbers) {
 		String[] options = new String[4];
-		
-		// !!!!!!!!!Hvis alle er ens, lav exception!!!!!!!!!!!!
-		// HUSK AT MAN MAKS KAN HAVE 4 HUSE (5 FOR HOTEL)
+
 		for(int i = 0; i < fields.length; i++) {
 			if(highestCount(fields) == 0)
 				options[i] = (i + 1) + ". " + fields[i].getName();
 			else if(fields[i].getHouses() < highestCount(fields))
 				options[i] = (i + 1) + ". " + fields[i].getName();
+			else
+				options[i] = null;
 		}
 		
 		options[3] = "4. Færdig med køb af huse.";
@@ -33,8 +33,9 @@ public class PropertyControl {
 		switch(getChoice(choice)) {
 		case 1:
 			if(player.getAccount() - fields[0].getHousePrice() >= 0)
-				if(fields[0].getHouses() <= 5) {
+				if(fields[0].getHouses() <= 4) {
 					fields[0].setHouses(fieldNumbers[0], (fields[0].getHouses() + 1));
+					player.alterAccount(-fields[0].getHousePrice());
 				}
 				else
 					GUI.showMessage("De kan ikke købe flere huse til "+ fields[0].getName() + ", da der allerede er bygget et hotel.");
@@ -43,8 +44,9 @@ public class PropertyControl {
 			break;
 		case 2:
 			if(player.getAccount() - fields[1].getHousePrice() >= 0)
-				if(fields[1].getHouses() <= 5) {
+				if(fields[1].getHouses() <= 4) {
 					fields[1].setHouses(fieldNumbers[1], (fields[1].getHouses() + 1));
+					player.alterAccount(-fields[1].getHousePrice());
 				}
 				else
 					GUI.showMessage("De kan ikke købe flere huse til "+ fields[1].getName() + ", da der allerede er bygget et hotel.");
@@ -53,8 +55,9 @@ public class PropertyControl {
 			break;
 		case 3:
 			if(player.getAccount() - fields[2].getHousePrice() >= 0)
-				if(fields[2].getHouses() <= 5) {
+				if(fields[2].getHouses() <= 4) {
 					fields[2].setHouses(fieldNumbers[2], (fields[2].getHouses() + 1));
+					player.alterAccount(-fields[2].getHousePrice());
 				}
 				else
 					GUI.showMessage("De kan ikke købe flere huse til "+ fields[2].getName() + ", da der allerede er bygget et hotel.");
