@@ -163,7 +163,7 @@ public class Board {
 		return availableGrounds;
 	}
 	
-	public String[] getAvailablePawns(Player player){
+	public String[] getAvailablePawns(Player player) {
 		int count = 0;
 		
 		for(int i = 0; i < boardArray.length; i++) {
@@ -173,20 +173,21 @@ public class Board {
 				}
 			}
 		}
-	}
 		
-		Street[] available = new Street[count];
-		int[] availableTypes = new int[9];
+		String[] available = new String[count];
 		
 		count = 0;
 		
 		for(int i = 0; i < boardArray.length; i++) {
 			if(boardArray[i] instanceof Street) {
 				if(((Street) boardArray[i]).isOwner(player)) {
-					available[count] = (Street) boardArray[i];
+					available[count] = boardArray[i].getName();
 					count++;
 				}
 			}
+		}
+		
+		return available;
 	}
 
 	public void buyProperty(Player player, String choice) {
