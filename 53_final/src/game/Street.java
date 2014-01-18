@@ -1,7 +1,5 @@
 package game;
 
-import boundaryToMatador.GUI;
-
 public class Street extends Ownable {
 	private int cType;
 	private int houses;
@@ -49,8 +47,7 @@ public class Street extends Ownable {
 	 */
 	public void setHouses(int field, int houses) {
 		this.houses = houses;
-		
-		// TODO GUI-knowledge
+
 		updater.setHouses(field, houses);
 	}
 	
@@ -60,8 +57,7 @@ public class Street extends Ownable {
 	 */
 	public void setHotel(int field) {
 		this.houses = 5;
-		
-		// TODO GUI-knowledge
+
 		updater.setHotel(field, true);
 	}
 	
@@ -73,7 +69,6 @@ public class Street extends Ownable {
 	public void removeHotel(int field, int houses) {
 		this.houses = houses;
 		
-		// TODO GUI-knowledge
 		updater.setHotel(field, false);
 		updater.setHouses(field, houses);
 	}
