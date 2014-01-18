@@ -78,7 +78,10 @@ public class Street extends Ownable {
 	 * @return The amount of rent for the field, based on how many houses the field has.
 	 */
 	public int getRent() {
-		return rent[this.getHouses()];
+		if(this.isPawned)
+			return -1;
+		else
+			return rent[this.getHouses()];
 	}
 	
 	/**

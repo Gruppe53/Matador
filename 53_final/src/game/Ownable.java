@@ -46,8 +46,14 @@ abstract public class Ownable extends Field {
 			}
 		} else if (!isOwner(player)) {
 			this.multiplier = player.getRollSum();
-			updater.showMessage(player.getName() + " betaler " + getRent() + " til " + owner.getName());
-			player.payRent(getRent(), owner);
+			
+			if(this.getRent() == -1) {
+				updater.showMessage("Grunden er pantsat, og De betaler derfor ikke leje til " + owner.getName() + ".");
+			}
+			else {
+				updater.showMessage(player.getName() + " betaler " + this.getRent() + " til " + owner.getName() + ".");
+				player.payRent(getRent(), owner);
+			}
 		}
 	}
 	

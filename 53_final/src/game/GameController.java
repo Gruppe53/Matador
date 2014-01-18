@@ -7,7 +7,7 @@ public class GameController {
 	private Updater updater = new Updater();
 	private TurnController turn;
 	private Board board = new Board();
-	private Dice roll = new Dice(1, 6, 2);
+	private Dice roll = new Dice(1, 1, 1);
 	private boolean secondTurn = false;
 	private int multiplePair = 0;
 	private boolean createAuction = true;
@@ -36,12 +36,12 @@ public class GameController {
 					if(roll.isPair()){
 						secondTurn = true;
 						multiplePair++;
-						if(multiplePair >= 3){
-							player[turn.getCurrent()].setJailed(true);
-							player[turn.getCurrent()].setPosition(11);
-							updater.position(player[turn.getCurrent()].getPosition(), player[turn.getCurrent()].getName());
-							updater.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
-						}
+//						if(multiplePair >= 3){
+//							player[turn.getCurrent()].setJailed(true);
+//							player[turn.getCurrent()].setPosition(11);
+//							updater.position(player[turn.getCurrent()].getPosition(), player[turn.getCurrent()].getName());
+//							updater.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
+//						}
 					}
 					
 
@@ -92,17 +92,20 @@ public class GameController {
 					secondTurn = true;
 					break;
 				case 4:
-					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Pantsæt grunde", "2. Vend tilbage til spilmenu");
+					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Pantsæt grunde", "2. Tilbagekøb pantsat grund", "3. Vend tilbage til spilmenu");
 					
 					switch(getChoice(str)) {
 					case 1:
-						board.pawnProperty(player[turn.getCurrent()], updater.getUserSelection("Hvilken grund vil De pantsætte", board.getAvailablePawns(player[turn.getCurrent()])));
+						board.pawnProperty(player[turn.getCurrent()], updater.getUserSelection("Hvilken grund vil De pantsætte?", board.getAvailablePawns(player[turn.getCurrent()], true)), updater, true);
+						break;
+					case 2:
+						board.pawnProperty(player[turn.getCurrent()], updater.getUserSelection("Hvilken grund vil De gerne tilbagekøbe?", board.getAvailablePawns(player[turn.getCurrent()], false)), updater, false);
 						break;
 					default:
 						break;
 					}
 					
-					
+					secondTurn = true;
 					break;
 				default:
 					// Do a new roll with dice

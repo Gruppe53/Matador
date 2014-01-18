@@ -163,7 +163,7 @@ public class Board {
 		return availableGrounds;
 	}
 	
-	public String[] getAvailablePawns(Player player) {
+	public String[] getAvailablePawns(Player player, boolean pawning) {
 		int count = 0;
 		
 		for(int i = 0; i < boardArray.length; i++) {
@@ -181,8 +181,14 @@ public class Board {
 		for(int i = 0; i < boardArray.length; i++) {
 			if(boardArray[i] instanceof Ownable) {
 				if(((Ownable) boardArray[i]).isOwner(player)) {
-					available[count] = ((Ownable) boardArray[i]).getName();
-					count++;
+					if(pawning && !(((Ownable) boardArray[i]).isPawned)) {
+						available[count] = ((Ownable) boardArray[i]).getName();
+						count++;
+					}
+					else if(!pawning && ((Ownable) boardArray[i]).isPawned) {
+						available[count] = ((Ownable) boardArray[i]).getName();
+						count++;
+					}
 				}
 			}
 		}
@@ -190,8 +196,46 @@ public class Board {
 		return available;
 	}
 	
-	public void pawnProperty(Player player, String choice) {
+	public void pawnProperty(Player player, String choice, Updater updater, boolean pawning) {
+		Ownable field = null;
 		
+		for(int i = 0; i < boardArray.length; i++) {
+			if(boardArray[i] instanceof Ownable) {
+				if(((Ownable) boardArray[i]).getName().hashCode() == choice.hashCode()) {
+					field = (Ownable) boardArray[i];
+				}
+			}
+		}
+		
+		int a = (int) Math.round((field.price * 0.5));
+		
+		if(pawning) {
+			if(updater.getUserLeftButtonPressed("Er De sikker på at De vil pantsætte " + field.getName() + ", og modtage " + a + "?", "Ja", "Nej")) {
+				if((field instanceof Street) && (((Street) field).getHouses() > 0)) {
+					updater.showMessage("De skal sælge Deres huse på " + field.getName() + ", før De kan pantsætte grunden.");
+				}
+				else {
+					field.isPawned = true;
+					
+					player.alterAccount(a);
+					player.setAssets(-a);
+					
+					updater.balance(player.getName(), player.getAccount());
+					updater.showMessage("De har nu pantsat " + field.getName() + " og modtager ikke længere leje fra andre spillere, for denne grund.");
+				}
+			}
+		}
+		else {
+			if(updater.getUserLeftButtonPressed("Vil De gerne tilbagekøbe " + field.getName() + " for " + (int) (Math.round(a * 1.1)) + "?", "Ja", "Nej")) {
+				field.isPawned = false;
+				
+				player.alterAccount((int) -(Math.round(a * 1.1)));
+				player.setAssets(a);
+				
+				updater.balance(player.getName(), player.getAccount());
+				updater.showMessage("De tilbagekøbt " + field.getName() + " for " + (int) (Math.round(a * 1.1)) + ", og modtager nu igen leje for grunden fra andre spillere.");
+			}
+		}
 	}
 
 	public void buyProperty(Player player, String choice) {

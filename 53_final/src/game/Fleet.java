@@ -13,6 +13,9 @@ public class Fleet extends Ownable {
 	}
 	
 	public int getRent() {
-		return rent[owner.getFleet() - 1];
+		if(this.isPawned)
+			return -1;
+		else
+			return rent[owner.getFleet() - 1];
 	}
 }

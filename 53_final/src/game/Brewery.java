@@ -14,6 +14,9 @@ public class Brewery extends Ownable {
 	}
 	
 	public int getRent() {
-		return (this.rent * owner.getBreweries() * multiplier);
+		if(this.isPawned)
+			return -1;
+		else
+			return (this.rent * owner.getBreweries() * multiplier);
 	}
 }
