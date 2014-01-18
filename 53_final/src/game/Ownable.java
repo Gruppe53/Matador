@@ -41,7 +41,7 @@ abstract public class Ownable extends Field {
 				}
 			}
 			else {
-				Auction auction = new Auction(this.updater, player, players, this.field);
+				Auction auction = new Auction(this.updater, player, players, this);
 				auction.runAction();
 				auction = null;
 			}
