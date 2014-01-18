@@ -54,6 +54,9 @@ public class Board {
 		boardArray[i].landOnField(player, updater);
 	}
 	
+	public Ownable getField(int i) {
+		return (Ownable) boardArray[i];
+	}
 
 	public void resetField(Player player, Updater updater) {
 		for (int i = 0; i < boardArray.length; i++) {
