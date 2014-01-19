@@ -60,7 +60,7 @@ public class Auction {
 			while( i < players.length){
 
 				// Situation with more than 2 players - ask to bid on the already bidded field
-				if(currentBiders[i] == 1 && anyBids && totalbiders > 1 && players[i].getAccount() >= (currentMax + minExtra)) {
+				if(currentBiders[i] == 1 && anyBids && totalbiders >= 1 && players[i].getAccount() >= (currentMax + minExtra)) {
 					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ". Minimum bud: " + (currentMax + minExtra), "Ja" , "Nej")){
 						currentMax = updater.getUserInteger("Hvor meget kunne de tænke dem at byde? (minimum: " + (currentMax + minExtra) + "):", (currentMax + minExtra), players[i].getAccount());
 						changeHighestBider(i);
@@ -70,7 +70,7 @@ public class Auction {
 				}
 
 				//Situation with more than 2 players - ask to bid on the not already bidded field
-				else if(currentBiders[i] == 1 && !anyBids && totalbiders > 1 && players[i].getAccount() >= (currentMax + minExtra)) {
+				else if(currentBiders[i] == 1 && !anyBids && totalbiders >= 1 && players[i].getAccount() >= (currentMax + minExtra)) {
 					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
 						anyBids = true;
 						changeHighestBider(i);
@@ -105,9 +105,11 @@ public class Auction {
 			for(int i = 0 ; i < players.length ; i++){
 				if(currentBiders[i] == 2){
 					actionWinner = i;
+					return true;
 				}
 			}
-			return true;
+			return false;
+			
 		}
 //		else if (totalbiders == 0){
 //			for(int i = 0 ; i < players.length ; i++){
