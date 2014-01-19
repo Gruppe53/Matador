@@ -59,9 +59,9 @@ public class Board {
 	}
 
 	public void resetField(Player player, Updater updater) {
-		for (int i = 0; i < boardArray.length; i++) {
-			if (boardArray[i] instanceof Ownable) {
-				if (((Ownable) boardArray[i]).isOwner(player)) {
+		for(int i = 0; i < boardArray.length; i++) {
+			if(boardArray[i] instanceof Ownable) {
+				if(((Ownable) boardArray[i]).isOwner(player)) {
 					((Ownable) boardArray[i]).resetOwner();
 
 					updater.removeOwner((i + 1));
@@ -71,7 +71,11 @@ public class Board {
 			}
 		}
 	}
-	
+	/**
+	 * getAvailableGrounds
+	 * @param player - which player's grounds should be returned
+	 * @return - The grounds which the player owns
+	 */
 	public String[] getAvailableGrounds(Player player) {
 		int count = 0;
 		
