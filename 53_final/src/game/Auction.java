@@ -202,6 +202,12 @@ public class Auction {
 			players[actionWinner].alterAccount(-currentMax);
 			players[actionWinner].setAssets((int)(field.getPrice() * 0.5));
 			updater.balance(players[actionWinner].getName(), players[actionWinner].getAccount());
+			if (field instanceof Brewery){
+				players[actionWinner].setBrewery();
+			}
+			if (field instanceof Fleet){
+				players[actionWinner].setFleet();
+			}
 
 
 		}
