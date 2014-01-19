@@ -99,11 +99,6 @@ public class GameController {
 					default:
 						break;
 					}
-					updater.getUserInteger("Hvilken grund vil De sælge fra?\n"
-							+ "Udskriv liste med grunde, som brugeren ejer, og som har huse/hoteller...",
-							0,
-							2
-					);
 					
 					secondTurn = true;
 					break;
