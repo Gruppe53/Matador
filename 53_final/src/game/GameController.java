@@ -262,6 +262,7 @@ public class GameController {
 		// if these make it possible for him to stay in the game
 		if (player.getStatus() < 0) {
 			board.resetField(player, updater);
+			turn.setIndex(-1, turn.getCurrent());
 		}
 	}
 }

@@ -7,6 +7,9 @@ public class TurnController {
 	public TurnController(int index) {
 		this.index = new int[index];
 		this.current = 0;
+		
+		for(int i = 0; i < this.index.length; i++)
+			this.index[i] = 1;
 	}
 	
 	public void setIndex(int i, int index) {
@@ -23,7 +26,20 @@ public class TurnController {
 		if (current >= index.length)
 			current = 0;
 		
-		// TODO - Check if "next" player is active, if not, go to next player!
+		if(index[current] == -1) {
+			boolean notActive = true;
+			
+			do {
+				if(this.current == -1)
+					current++;
+				else
+					notActive = false;
+				
+				if (current >= index.length)
+					current = 0;
+					
+			} while(notActive);
+		}
 	}
 	
 	public int getIndex(int i) {
