@@ -135,7 +135,7 @@ public class GameController {
 			else if(player[turn.getCurrent()].getJailed() == true) {
 				if(player[turn.getCurrent()].getBailoutcards() > 0) {
 					if(updater.getUserLeftButtonPressed("Hvordan vil De komme ud af fængslet", "Slå med terningen", "Bruge et løsladelseskort")) {
-						//slå med terninger for at komme ud
+						//Roll dice to bail out
 						roll.throwDice();
 						
 						updater.setDice(roll.getValue(0), roll.getValue(1));
@@ -161,7 +161,7 @@ public class GameController {
 						
 					}
 					else {
-						//brug bailoutcard
+						//Use bail out card
 						player[turn.getCurrent()].setBailoutcards(-1);
 						player[turn.getCurrent()].setJailed(false);
 						secondTurn = true;
@@ -170,7 +170,7 @@ public class GameController {
 				}
 				else {
 					if(updater.getUserLeftButtonPressed("Hvordan vil De komme ud af fængslet", "Slå med terningen", "Betal 1000,-")) {
-						//slå med terninger for at komme ud
+						//Roll dice to bail out
 						roll.throwDice();
 						updater.setDice(roll.getValue(0), roll.getValue(1));
 						
@@ -194,9 +194,10 @@ public class GameController {
 						}
 					}
 					else{
-						//Betal 1000
+						//Pay 1000 to bail out
 						updater.showMessage("De har betalt dem ud af fængslet");
 						player[turn.getCurrent()].setJailed(false);
+						player[turn.getCurrent()].alterAccount(-1000);
 						secondTurn = true;
 					}
 				}
