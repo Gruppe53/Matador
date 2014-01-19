@@ -10,6 +10,7 @@ public class Auction {
 	private Player[] players;
 	private Updater updater;
 	private Ownable field;
+	private int minExtra = 100; //Minimum for the difference in the next bid
 
 	/**
 	 * Auction Constructor </p>
@@ -59,9 +60,9 @@ public class Auction {
 			while( i < players.length){
 
 				// Situation with more than 2 players - ask to bid on the already bidded field
-				if(currentBiders[i] == 1 && anyBids && totalbiders > 1 && players[i].getAccount() >= (currentMax + 50)) {
-					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ". Minimum bud: " + (currentMax + 50), "Ja" , "Nej")){
-						currentMax = updater.getUserInteger("Hvor meget kunne de tænke dem at byde? (minimum: " + (currentMax + 50) + "):", (currentMax + 50), players[i].getAccount());
+				if(currentBiders[i] == 1 && anyBids && totalbiders > 1 && players[i].getAccount() >= (currentMax + minExtra)) {
+					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ". Minimum bud: " + (currentMax + minExtra), "Ja" , "Nej")){
+						currentMax = updater.getUserInteger("Hvor meget kunne de tænke dem at byde? (minimum: " + (currentMax + minExtra) + "):", (currentMax + minExtra), players[i].getAccount());
 						changeHighestBider(i);
 						//TODO set new currentMax and Find out how to identify person which has highest current bid ( evt. currentBiders[i] = 2)
 					}
@@ -69,7 +70,7 @@ public class Auction {
 				}
 
 				//Situation with more than 2 players - ask to bid on the not already bidded field
-				else if(currentBiders[i] == 1 && !anyBids && totalbiders > 1 && players[i].getAccount() >= (currentMax + 50)) {
+				else if(currentBiders[i] == 1 && !anyBids && totalbiders > 1 && players[i].getAccount() >= (currentMax + minExtra)) {
 					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
 						anyBids = true;
 						changeHighestBider(i);
@@ -79,7 +80,7 @@ public class Auction {
 					} 
 
 				}
-				else if(currentBiders[i] == 1 && players[i].getAccount() < (currentMax + 50)){
+				else if(currentBiders[i] == 1 && players[i].getAccount() < (currentMax + minExtra)){
 					currentBiders[i] = 0;
 					updater.showMessage(players[i].getName() + ", de har desværre ikke nok penge i deres pengebeholdning til at kunne byde");
 				}

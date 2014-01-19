@@ -72,15 +72,6 @@ public class GameController {
 					catch(Exception VisitJail){
 						// TODO Exception for Auction, ved ikke hvorfor.... men det virker ! :D
 					}
-//					if ((board.getField(player[turn.getCurrent()].getPosition()-1)) instanceof Ownable){
-//						if(board.getField(player[turn.getCurrent()].getPosition()-1).getCreateAuction()){
-//							int auctionField = (player[turn.getCurrent()].getPosition()-1);
-//							Ownable f = board.getField(auctionField);
-//							Auction auction = new Auction(updater, player[turn.getCurrent()], player, f);
-//							auction.runAction();
-//							auction = null;
-//						}
-//					}
 					break;
 				case 2:
 					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Byg huse/hoteller", "2. Vend tilbage til spilmenu");
@@ -205,6 +196,7 @@ public class GameController {
 					else{
 						//Betal 1000
 						updater.showMessage("De har betalt dem ud af fængslet");
+						player[turn.getCurrent()].setJailed(false);
 						secondTurn = true;
 					}
 				}
