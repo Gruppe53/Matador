@@ -65,6 +65,8 @@ public class Board {
 					((Ownable) boardArray[i]).resetOwner();
 
 					updater.removeOwner((i + 1));
+					updater.setHotel((i + 1), false);
+					updater.setHouses((i + 1), 0);
 				}
 			}
 		}
