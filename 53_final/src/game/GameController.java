@@ -72,8 +72,8 @@ public class GameController {
 							auction = null;
 						}
 					} 
-					catch(Exception VisitJail){
-						// TODO Exception for Auction, ved ikke hvorfor.... men det virker ! :D
+					catch(Exception VisitJail) {
+						System.err.println(VisitJail);
 					}
 					break;
 				case 2:
