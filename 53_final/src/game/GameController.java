@@ -12,7 +12,7 @@ public class GameController {
 	private boolean secondTurn = false;
 	private int multiplePair = 0;
 	// TODO fix "vend tilbage til hovedmenuen"
-	// FINALSs
+	// FINALS
 	private final int startCash = 30000;
 
 	public GameController() {
@@ -32,6 +32,19 @@ public class GameController {
 				case 1:
 					// Do a new roll with dice
 					roll.throwDice();
+				
+					// Assign position-values
+					int currentPosition = player[turn.getCurrent()].getPosition();
+					int newPosition = currentPosition + roll.getSum();
+					
+					// Draw the roll
+					updater.setDice(roll.getValue(0), roll.getValue(1));
+
+					// Move the piece smoothly
+					updater.movePiece(player[turn.getCurrent()], newPosition, currentPosition);
+					
+					player[turn.getCurrent()].setRollSum(roll.getSum());
+
 					// Get an extra turn if dices are pair
 					if(roll.isPair()){
 						secondTurn = true;
@@ -45,21 +58,8 @@ public class GameController {
 						}
 					}
 					
-
-					// Assign position-values
-					int currentPosition = player[turn.getCurrent()].getPosition();
-					int newPosition = currentPosition + roll.getSum();
-					
-					// Draw the roll
-					updater.setDice(roll.getValue(0), roll.getValue(1));
-
-					// Move the piece smoothly
-					updater.movePiece(player[turn.getCurrent()], newPosition, currentPosition);
-					
-					player[turn.getCurrent()].setRollSum(roll.getSum());
-
 					// Make the mechanics of the field start
-					fieldTricker(player[turn.getCurrent()]);
+					if(multiplePair != 3) fieldTricker(player[turn.getCurrent()]);
 					// If Ownable and didn't buy it, run an Auction 
 					try{
 						if(board.getField(player[turn.getCurrent()].getPosition()-1).getCreateAuction()){
