@@ -2,10 +2,21 @@ package game;
 
 public class PropertyControl {
 	private boolean notDone = true;
+	private Player player;
+	private Street[] fields;
+	private int[] fieldNumbers;
+	private Updater updater;
+	private boolean buying;
 	
 	public PropertyControl(Player player, Street[] fields, int[] fieldNumbers, Updater updater, boolean buying) {
-		for(int i = 0; i < fields.length; i++)
-		// Secure evenly built houses
+		this.player = player;
+		this.fields = fields;
+		this.fieldNumbers = fieldNumbers;
+		this.updater = updater;
+		this.buying = buying;
+	}
+	
+	public void runBuilder() {
 		do {
 			if(buying)
 				this.buildEvenly(player, fields, fieldNumbers, updater);

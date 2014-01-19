@@ -390,8 +390,8 @@ public class Board {
 			}
 		}
 		
-		@SuppressWarnings("unused")
 		PropertyControl pControl = new PropertyControl(player, fields, fieldNumbers, updater, false);
+		pControl.runBuilder();
 		pControl = null;
 	}
 }
