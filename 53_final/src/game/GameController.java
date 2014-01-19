@@ -170,7 +170,6 @@ public class GameController {
 									updater.showMessage("De slog stadig ingen par og skal forsat sidde i fængsel til det er Deres tur igen");
 							}
 						}
-						
 					}
 					else {
 						//Use bail out card
