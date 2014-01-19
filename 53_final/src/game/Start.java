@@ -11,6 +11,8 @@ public class Start extends Field {
 	}
 	
 	public void landOnField(Player player, Updater updater){
-		updater.showMessage("De passerer START, og modtager 4.000.");
+		updater.showMessage("De lander på START, og modtager 4.000.");
+		player.alterAccount(4000);
+		updater.balance(player.getName(), player.getAccount());
 	}
 }
