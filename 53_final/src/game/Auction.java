@@ -43,7 +43,7 @@ public class Auction {
 		//If there is only one possible buyer from the start (normally 2 player game)
 		if (totalbiders == 1){
 			while(i < players.length){
-				if(currentBiders[i] == 1){
+				if(currentBiders[i] == 1 && players[i].getAccount() == currentMax){
 					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at købe " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
 						anyBids = true;
 						changeHighestBider(i);
@@ -70,7 +70,7 @@ public class Auction {
 				}
 
 				//Situation with more than 2 players - ask to bid on the not already bidded field
-				else if(currentBiders[i] == 1 && !anyBids && totalbiders >= 1 && players[i].getAccount() >= (currentMax + minExtra)) {
+				else if(currentBiders[i] == 1 && !anyBids && totalbiders >= 1 && players[i].getAccount() >= (currentMax)) {
 					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at byde på " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
 						anyBids = true;
 						changeHighestBider(i);
