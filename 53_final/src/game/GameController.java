@@ -11,7 +11,7 @@ public class GameController {
 	private Dice roll = new Dice(1, 6, 2);
 	private boolean secondTurn = false;
 	private int multiplePair = 0;
-	// TODO fix "vend tilbage til hovedmenuen"
+	
 	// FINALS
 	private final int startCash = 30000;
 
@@ -59,7 +59,8 @@ public class GameController {
 					}
 					
 					// Make the mechanics of the field start
-					if(multiplePair != 3) fieldTricker(player[turn.getCurrent()]);
+					if(multiplePair != 3)
+						fieldTricker(player[turn.getCurrent()]);
 					// If Ownable and didn't buy it, run an Auction 
 					try{
 						if(board.getField(player[turn.getCurrent()].getPosition()-1).getCreateAuction()){
