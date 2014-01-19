@@ -66,8 +66,8 @@ public class Street extends Ownable {
 	 * @param field - The field number for which we want to remove hotel from
 	 * @param houses - The new amount of houses for the field
 	 */
-	public void removeHotel(int field, int houses) {
-		this.houses = houses;
+	public void removeHotel(int field) {
+		this.houses = 4;
 		
 		updater.setHotel(field, false);
 		updater.setHouses(field, houses);

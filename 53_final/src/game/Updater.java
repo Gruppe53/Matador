@@ -115,8 +115,8 @@ public class Updater {
 	// Everything after this point is direct GUI commands
 	//*************************************************************************************************************************
 	
-	public void create(){
-		GUI.create("materials/fields.txt");
+	public void create(String path){
+		GUI.create(path);
 	}
 	
 	public void addPlayer(String name, int balance, Color color){

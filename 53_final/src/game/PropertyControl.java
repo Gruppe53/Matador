@@ -3,14 +3,104 @@ package game;
 public class PropertyControl {
 	private boolean notDone = true;
 	
-	public PropertyControl(Player player, Street[] fields, int[] fieldNumbers, Updater updater) {
+	public PropertyControl(Player player, Street[] fields, int[] fieldNumbers, Updater updater, boolean buying) {
 		for(int i = 0; i < fields.length; i++)
 		// Secure evenly built houses
 		do {
-			this.buildEvenly(player, fields, fieldNumbers, updater);
+			if(buying)
+				this.buildEvenly(player, fields, fieldNumbers, updater);
+			else
+				this.sellEvenly(player, fields, fieldNumbers, updater);
 		} while(notDone);
 	}
 	
+	private void sellEvenly(Player player, Street[] fields, int[] fieldNumbers, Updater updater) {
+		String[] options = null;
+		
+		if(fields.length == 3) {
+			options = new String[4];
+			
+			for(int i = 0; i < fields.length; i++)
+				options[i] = (i + 1) + ". " + fields[i].getName();
+			
+			options[3] = "4. Færdig med salg af huse.";
+		}
+		
+		else if(fields.length == 2) {
+			options = new String[3];
+			
+			for(int i = 0; i < fields.length; i++)
+				options[i] = (i + 1) + ". " + fields[i].getName();
+			
+			options[2] = "4. Færdig med salg af huse.";
+		}
+		
+		String choice = updater.getUserButtonPressed("Salgspris pr. hus: " + (fields[0].getHousePrice() / 2) + ". Vælg en grund De vil sælge fra.", options);
+		
+		switch(getChoice(choice)) {
+		case 1:
+			if(fields[0].getHouses() > 0) {
+				if(canSellHouse(0, fields)) {
+					if(fields[0].getHouses() == 5) {
+						fields[0].removeHotel(fieldNumbers[0]);
+					}
+					else {
+						fields[0].setHouses(fieldNumbers[0], (fields[0].getHouses() - 1));
+					}
+					
+					player.alterAccount((fields[0].getHousePrice() / 2));
+					player.setAssets(-((int) Math.floor((0.5 * fields[0].getHousePrice()))));
+				}
+				else
+					updater.showMessage("De skal sælge jævnt fra grundene.");
+			}
+			else
+				updater.showMessage("De kan ikke sælge flere huse fra "+ fields[0].getName() + ", da der ikke er flere huse på grunden.");
+			break;
+		case 2:
+			if(fields[1].getHouses() > 0) {
+				if(canSellHouse(1, fields)) {
+					if(fields[1].getHouses() == 5) {
+						fields[1].removeHotel(fieldNumbers[1]);
+					}
+					else {
+						fields[1].setHouses(fieldNumbers[1], (fields[1].getHouses() - 1));
+					}
+					
+					player.alterAccount((fields[1].getHousePrice() / 2));
+					player.setAssets(-((int) Math.floor((0.5 * fields[1].getHousePrice()))));
+				}
+				else
+					updater.showMessage("De skal sælge jævnt fra grundene.");
+			}
+			else
+				updater.showMessage("De kan ikke sælge flere huse fra "+ fields[1].getName() + ", da der ikke er flere huse på grunden.");
+			break;
+		case 3:
+			if(fields[2].getHouses() > 0) {
+				if(canSellHouse(2, fields)) {
+					if(fields[2].getHouses() == 5) {
+						fields[2].removeHotel(fieldNumbers[2]);
+					}
+					else {
+						fields[2].setHouses(fieldNumbers[2], (fields[2].getHouses() - 1));
+					}
+					
+					player.alterAccount((fields[2].getHousePrice() / 2));
+					player.setAssets(-((int) Math.floor((0.5 * fields[2].getHousePrice()))));
+				}
+				else
+					updater.showMessage("De skal sælge jævnt fra grundene.");
+			}
+			else
+				updater.showMessage("De kan ikke sælge flere huse fra "+ fields[2].getName() + ", da der ikke er flere huse på grunden.");
+			break;
+		case 4:
+			notDone = false;
+			break;
+		}
+	}
+
 	private void buildEvenly(Player player, Street[] fields, int[] fieldNumbers, Updater updater) {
 		String[] options = null;
 		
@@ -32,7 +122,7 @@ public class PropertyControl {
 			options[2] = "4. Færdig med køb af huse.";
 		}
 		
-		String choice = updater.getUserButtonPressed("Pris pr. hus: " + fields[0].getHousePrice(), options);
+		String choice = updater.getUserButtonPressed("Pris pr. hus: " + fields[0].getHousePrice() + ". Vælg en grund De vil købe hus på.", options);
 		
 		switch(getChoice(choice)) {
 		case 1:
@@ -107,7 +197,7 @@ public class PropertyControl {
 		}
 	}
 	
-	private int highestCount(Street[] fields) {
+	private int highestCount(Street[] fields, boolean buying) {
 		int highestCount = 0;
 		boolean same = true;
 		
@@ -119,22 +209,29 @@ public class PropertyControl {
 			if(a.getHouses() != highestCount)
 				same = false;
 		
-		if(same)
+		if(same && buying)
 			highestCount = 0;
 		
 		return highestCount;
 	}
 	
 	private boolean canBuyHouse(int i, Street[] fields) {
-		if(highestCount(fields) == 0)
+		if(highestCount(fields, true) == 0)
 			return true;
-		else if(fields[i].getHouses() < highestCount(fields))
+		else if(fields[i].getHouses() < highestCount(fields, true))
 			return true;
-		else
-			return false;
+		
+		return false;
 	}
 	
 	private int getChoice(String str) {
-		return Integer.parseInt(str.split("\\. ")[0]);
+		return Integer.parseInt(str.split("\\.")[0]);
+	}
+	
+	private boolean canSellHouse(int i, Street[] fields) {
+		if(fields[i].getHouses() == highestCount(fields, false))
+			return true;
+		
+		return false;
 	}
 }

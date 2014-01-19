@@ -14,10 +14,11 @@ public class GameController {
 	
 	// FINALS
 	private final int startCash = 30000;
+	private final String path = "materials/fields.txt"; 
 
 	public GameController() {
 		// Create board with proper names and descriptions
-		updater.create();
+		updater.create(path);
 
 		// First receive amount of players by input, then create an array with the amount of players and their names
 		createPlayers(countPlayers());
@@ -89,6 +90,15 @@ public class GameController {
 					secondTurn = true;
 					break;
 				case 3:
+					str = updater.getUserButtonPressed("Hvad vil De foretage dem?", "1. Byg huse/hoteller", "2. Vend tilbage til spilmenu");
+					
+					switch(getChoice(str)) {
+					case 1:
+						board.sellProperty(player[turn.getCurrent()], updater.getUserSelection("Hvilken grund vil De sælge fra?", board.getPropertyGrounds(player[turn.getCurrent()])), updater);
+						break;
+					default:
+						break;
+					}
 					updater.getUserInteger("Hvilken grund vil De sælge fra?\n"
 							+ "Udskriv liste med grunde, som brugeren ejer, og som har huse/hoteller...",
 							0,

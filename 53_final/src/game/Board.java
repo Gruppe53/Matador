@@ -140,7 +140,7 @@ public class Board {
 			for(Field b : boardArray) {
 				if(b instanceof Street) {
 					if(a == ((Street) b).getcType()) {
-						if(((Street) b).getName() == "Rødovrevej" || ((Street) b).getName() == "Rådhuspladsen") {
+						if(((Street) b).getName() == "Rødovrevej" || ((Street) b).getName() == "Hvidovrevej" || ((Street) b).getName() == "Rådhuspladsen" || ((Street) b).getName() == "Frederiksberggade") {
 							if(counter == 1) {
 								availableGrounds[count] += ((Street) b).getName();
 							}
@@ -265,7 +265,7 @@ public class Board {
 		}
 		
 		@SuppressWarnings("unused")
-		PropertyControl pControl = new PropertyControl(player, fields, fieldNumbers, updater);
+		PropertyControl pControl = new PropertyControl(player, fields, fieldNumbers, updater, true);
 		pControl = null;
 	}
 	
@@ -275,5 +275,123 @@ public class Board {
 	            return true;
 
 	    return false;
+	}
+
+	public String[] getPropertyGrounds(Player player) {
+		int count = 0;
+		
+		for(int i = 0; i < boardArray.length; i++) {
+			if(boardArray[i] instanceof Street) {
+				if(((Street) boardArray[i]).isOwner(player) && ((Street) boardArray[i]).getHouses() > 0) {
+					count++;
+				}
+			}
+		}
+		
+		Street[] available = new Street[count];
+		int[] availableTypes = new int[9];
+		
+		count = 0;
+		
+		for(int i = 0; i < boardArray.length; i++) {
+			if(boardArray[i] instanceof Street) {
+				if(((Street) boardArray[i]).isOwner(player) && ((Street) boardArray[i]).getHouses() > 0) {
+					available[count] = (Street) boardArray[i];
+					count++;
+				}
+			}
+		}
+		
+		count = 0; 
+		
+		for(int i = 0; i < available.length; i++) {
+			for(int j = 0; j < available.length; j++) {
+				if(i != j) {
+					if(available[i].getName() == "Rødovrevej" || available[i].getName() == "Rådhuspladsen") {
+						if(available[i].getcType() == available[j].getcType()) {
+							availableTypes[count] = available[i].getcType();
+							count++;
+						}
+					}
+					else {
+						for(int k = 0; k < available.length; k++) {
+							if(i != k && j != k) {
+								if((available[i].getcType() == available[j].getcType()) && (available[i].getcType() == available[k].getcType())) {
+									if(!(containsSameType(availableTypes, available[i].getcType()))) {
+										availableTypes[count] = available[i].getcType();
+										count++;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		String[] availableGrounds = new String[count];
+		
+		for(int i = 0; i < availableGrounds.length; i++)
+			availableGrounds[i] = "";
+		
+		count = 0;
+		int counter = 0;
+		
+		for(int a : availableTypes) {
+			for(Field b : boardArray) {
+				if(b instanceof Street) {
+					if(a == ((Street) b).getcType()) {
+						if(((Street) b).getName() == "Rødovrevej" || ((Street) b).getName() == "Hvidovrevej" || ((Street) b).getName() == "Rådhuspladsen" || ((Street) b).getName() == "Frederiksberggade") {
+							if(counter == 1) {
+								availableGrounds[count] += ((Street) b).getName();
+							}
+							else {
+								availableGrounds[count] += ((Street) b).getName() + ", ";
+								counter++;
+							}
+						}
+						else {
+							if(counter == 2) {
+								availableGrounds[count] += ((Street) b).getName();
+							}
+							else {
+								availableGrounds[count] += ((Street) b).getName() + ", ";
+								counter++;
+							}
+						}
+					}
+				}
+			}
+			
+			counter = 0;
+			count++;
+		}
+		
+		return availableGrounds;
+	}
+
+	public void sellProperty(Player player, String choice, Updater updater) {
+		Street[] fields = null;
+		fields = new Street[choice.split(", ").length];
+		
+		int count = 0;
+		int[] fieldNumbers = new int[3];
+		
+		for(String a : choice.split(", ")) {
+			for(int i = 0; i < boardArray.length; i++) {
+				if(boardArray[i] instanceof Street) {
+					if(((Street) boardArray[i]).getName().hashCode() == a.hashCode()) {
+						fields[count] = (Street) boardArray[i];
+						fieldNumbers[count] = i + 1;
+						
+						count++;
+					}
+				}
+			}
+		}
+		
+		@SuppressWarnings("unused")
+		PropertyControl pControl = new PropertyControl(player, fields, fieldNumbers, updater, false);
+		pControl = null;
 	}
 }

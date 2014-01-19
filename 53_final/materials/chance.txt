@@ -33,7 +33,7 @@ type::1;;
 action::1000;;
 count::1;;
 ||
-description::De har solgt nogle gamle m�bler på auktion modtag kr. 1.000 af banken.;;
+description::De har solgt nogle gamle møbler på auktion modtag kr. 1.000 af banken.;;
 type::1;;
 action::1000;;
 count::1;;
