@@ -43,12 +43,21 @@ public class Auction {
 		//If there is only one possible buyer from the start (normally 2 player game)
 		if (totalbiders == 1){
 			while(i < players.length){
-				if(currentBiders[i] == 1 && players[i].getAccount() == currentMax){
+				if(currentBiders[i] == 1 && players[i].getAccount() >= currentMax){
 					if(updater.getUserLeftButtonPressed(players[i].getName() + " kunne de tænke dem at købe " + field.getName() + ", for: " + field.getPrice(), "Ja" , "Nej")){
 						anyBids = true;
 						changeHighestBider(i);
+						checkTotalBiders();
+						checkForWinner();
 					}
-					else currentBiders[i] = 0;
+					else {
+						currentBiders[i] = 0;
+						checkTotalBiders();
+						checkForWinner();
+					}
+				}
+				else {
+					currentBiders[i] = 0;
 					checkTotalBiders();
 					checkForWinner();
 				}
@@ -56,7 +65,7 @@ public class Auction {
 			}
 		}
 		//If there is more then one possible buyter from the start (3 or more active players left in game)
-		else{
+		if(totalbiders > 1){
 			while( i < players.length){
 
 				// Situation with more than 2 players - ask to bid on the already bidded field
@@ -109,14 +118,14 @@ public class Auction {
 				}
 			}
 			return false;
-			
+
 		}
-//		else if (totalbiders == 0){
-//			for(int i = 0 ; i < players.length ; i++){
-//				currentBiders[i] = 0;
-//			}
-//			return true;
-//		}
+		//		else if (totalbiders == 0){
+		//			for(int i = 0 ; i < players.length ; i++){
+		//				currentBiders[i] = 0;
+		//			}
+		//			return true;
+		//		}
 
 		else return false;
 	}
@@ -178,7 +187,7 @@ public class Auction {
 		}
 		currentBiders[j] = 2;
 	}
-	
+
 	/**
 	 * call Winner
 	 * announce who's the winner, set owner and removes money
