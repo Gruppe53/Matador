@@ -41,6 +41,7 @@ public class GameController {
 							player[turn.getCurrent()].setPosition(11);
 							updater.position(player[turn.getCurrent()].getPosition(), player[turn.getCurrent()].getName());
 							updater.showMessage("De slog to ens tre gange i streg, og ryger direkte i fængsel.");
+							break;
 						}
 					}
 					
