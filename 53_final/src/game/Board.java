@@ -189,8 +189,6 @@ public class Board {
 			count++;
 		}
 		
-		System.out.println(availableGrounds[0]);
-		
 		return availableGrounds;
 	}
 	/**
