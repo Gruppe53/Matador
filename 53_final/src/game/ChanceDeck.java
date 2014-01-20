@@ -76,9 +76,15 @@ public class ChanceDeck extends Field {
 			
 			
 			if(Integer.parseInt(deck[pickCount].getAction()) == 11) {
-				// Ryk i faengsel - kan i det mindste laves... ^_^
 				player.setJailed(true);
 				player.setPosition(11);
+			}
+			
+			if(Integer.parseInt(deck[pickCount].getAction()) == 1) {
+				player.alterAccount(4000);
+				player.setPosition(1);
+				
+				updater.showMessage("De lander på start og modtager 4.000.");
 			}
 			
 			updater.position(Integer.parseInt(deck[pickCount].getAction()), player.getName());
