@@ -19,6 +19,13 @@ abstract public class Ownable extends Field {
 		this.price = price;
 	}
 
+	/**
+	 * land On Field
+	 * @param player - The choice of player
+	 * @param updater - The Updater
+	 * </p>
+	 * Runs functions for buying if no owners, else makes transfer to owner from player
+	 */
 	public void landOnField(Player player, Updater updater) {
 		this.updater = updater;
 		
@@ -58,28 +65,60 @@ abstract public class Ownable extends Field {
 		}
 	}
 	
+	/**
+	 * is Owner?
+	 * @param player - The choice of player
+	 * @return true if the chosen player is owner, else false.
+	 */
 	public boolean isOwner(Player player) {
 		return player == owner;
 	}
 	
+	/**
+	 * get Pawn
+	 * @return int value for pawned or not
+	 */
 	public int getPawn() {
 		return this.pawn;
 	}
 	
+	/**
+	 * reset Owner
+	 * </p>
+	 * sets owner of Ownable to null
+	 */
 	public void resetOwner() {
 		owner = null;
 	}
 	
+	/**
+	 * get Price
+	 * @return buy price on Ownable
+	 */
 	public int getPrice(){
 		return this.price;
 	}
 	
+	/**
+	 * get Rent
+	 * @return rent on Ownable
+	 */
 	abstract int getRent();
 	
+	/**
+	 * set Owner
+	 * @param player - The choice of player
+	 * </p>
+	 * sets owner to the chosen player
+	 */
 	public void setOwner(Player player){
 		owner = player;
 	}
 	
+	/**
+	 * get CreateAuction
+	 * @return true if a Auction needs to be made, else false
+	 */
 	public boolean getCreateAuction(){
 		if(createAuction){
 			createAuction = false;

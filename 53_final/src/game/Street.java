@@ -92,6 +92,10 @@ public class Street extends Ownable {
 		return this.cType;
 	}
 	
+	/**
+	 * get House Price
+	 * @return the price per house on Street
+	 */
 	public int getHousePrice() {
 		return this.housePrice;
 	}

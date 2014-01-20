@@ -15,6 +15,10 @@ public class ChanceDeck extends Field {
 	// FINALS
 	private final File file = new File("materials/chance.txt");
 	
+	/**
+	 * Chance Deck Constructor
+	 * @param name - The name of The ChanceDeck (unused)
+	 */
 	public ChanceDeck(String name) {
 		super(name);
 		
@@ -22,6 +26,11 @@ public class ChanceDeck extends Field {
 		shuffleDeck(deck);
 		}
 	
+	/**
+	 * land On Field
+	 * @param player - The choice of player
+	 * @param updater - The Updater
+	 */
 	public void landOnField(Player player, Updater updater) {
 		updater.showMessage("Træk et \"prøv lykken\"-kort");
 		updater.showMessage(deck[pickCount].getDescription());
@@ -102,6 +111,11 @@ public class ChanceDeck extends Field {
 		setPickCount();
 	}
 	
+	/**
+	 * create Cards
+	 * </p>
+	 * creates every single card (ChanceCard)
+	 */
 	private void createCards() {
 		String str = readLines();
 		
@@ -128,6 +142,12 @@ public class ChanceDeck extends Field {
 		}
 	}
 	
+	/**
+	 * shuffle Deck
+	 * @param deck - The coice of ChanceCard array
+	 * </p>
+	 * suffle the ChanceCard array 
+	 */
 	public void shuffleDeck(ChanceCard[] deck) {
 		Random rnd = new Random();
 	    
@@ -141,18 +161,39 @@ public class ChanceDeck extends Field {
 	    }
 	}
 	
+	/**
+	 * get Desc
+	 * @param i - The choice of ChanceCard (from array)
+	 * @return Description of the chosen ChanceCard
+	 */
 	public String getDesc(int i) {
 		return deck[i].getDescription();
 	}
 	
+	/**
+	 * get Type
+	 * @param i - The choice of ChanceCard (from array)
+	 * @return Type of the chosen ChanceCard
+	 */
 	public String getType(int i) {
 		return deck[i].getType();
 	}
 	
+	/**
+	 * get Action
+	 * @param i - The choice of ChanceCard (from array)
+	 * @return Action of the chosen ChanceCard
+	 */
 	public String getAction(int i) {
 		return deck[i].getAction();
 	}
 	
+	/**
+	 * set Pick Count
+	 * adds 1 to pickCount.
+	 * </p>
+	 * Shuffles deck and reset pickCount if there is no more cards left
+	 */
 	public void setPickCount() {
 		this.pickCount++;
 		
@@ -162,6 +203,12 @@ public class ChanceDeck extends Field {
 		}
 	}
 
+	/**
+	 * read Lines
+	 * @return String with content of all ChanceCards from .txt file
+	 * </p>
+	 * Used to create cards
+	 */
 	private String readLines() {
 		String content = "";
 		
@@ -184,6 +231,10 @@ public class ChanceDeck extends Field {
 		return content;
 	}
 	
+	/**
+	 * get Name
+	 * @return Name of ChanceDeck (unused)
+	 */
 	public String getName() {
 		return this.name;
 	}

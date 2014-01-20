@@ -12,6 +12,12 @@ public class Fleet extends Ownable {
 		super(name, price);
 	}
 	
+	/**
+	 * get Rent
+	 * @return returns rent based on the amount of owners fleets
+	 * </p>
+	 * except if fleets is pawned, than returns -1
+	 */
 	public int getRent() {
 		if(this.isPawned)
 			return -1;
