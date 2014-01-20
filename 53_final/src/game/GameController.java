@@ -16,6 +16,11 @@ public class GameController {
 	private final int startCash = 30000;
 	private final String path = "materials/fields.txt"; 
 
+	/**
+	 * GameController Constructor
+	 * </p>
+	 * When created runs the game process
+	 */
 	public GameController() {
 		// Create board with proper names and descriptions
 		updater.create(path);
@@ -222,12 +227,20 @@ public class GameController {
 		updater.close();
 	}
 
+	/**
+	 * get Choice
+	 * @param str - String with "x. msg" x being a number for choice
+	 * @return int value for choice ( x )
+	 */
 	private int getChoice(String str) {
 		return Integer.parseInt(str.split("\\. ")[0]);
 	}
 
-	
-	// Create an array with length of the user input n, and add players to GUI with the names provided via user input
+	/**
+	 * create Players 
+	 * @param n - The number of players chosen for the game
+	 * Create an array with n length, and add players to GUI with the names provided via user input
+	 */
 	private void createPlayers(int n) {
 		String name;
 		Color[] colorSet = { Color.RED, Color.BLUE, Color.BLACK, Color.GREEN, Color.YELLOW, Color.CYAN };
@@ -245,7 +258,12 @@ public class GameController {
 		}
 	}
 
-	// Count amount of players by user input
+	/**
+	 * count Players
+	 * @return amount of players chosen to play the game
+	 * </p>
+	 * Count amount of players by user input
+	 */
 	private int countPlayers() {
 		int i = updater.getUserInteger("Vælg antal spillere (mindst 2, maks 6).", 2, 6);
 
@@ -254,8 +272,12 @@ public class GameController {
 		return i;
 	}
 
-	
-	// For trickering the field mechanics for a specific field
+	/**
+	 * field Tricker
+	 * @param player - The choice of player
+	 * </p>
+	 * For trickering the field mechanics for a specific field for the chosen player
+	 */
 	public void fieldTricker(Player player) {
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
 		board.landOnField((player.getPosition() - 1), player, updater);
