@@ -189,6 +189,8 @@ public class Board {
 			count++;
 		}
 		
+		System.out.println(availableGrounds[0]);
+		
 		return availableGrounds;
 	}
 	/**
@@ -450,7 +452,6 @@ public class Board {
 		}
 		
 		PropertyControl pControl = new PropertyControl(player, fields, fieldNumbers, updater, false);
-		pControl.runBuilder();
 		pControl = null;
 	}
 }

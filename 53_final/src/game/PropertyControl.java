@@ -9,11 +9,12 @@ public class PropertyControl {
 	private boolean buying;
 	
 	public PropertyControl(Player player, Street[] fields, int[] fieldNumbers, Updater updater, boolean buying) {
-		this.player = player;
-		this.fields = fields;
-		this.fieldNumbers = fieldNumbers;
-		this.updater = updater;
-		this.buying = buying;
+		do {
+			if(buying)
+				this.buildEvenly(player, fields, fieldNumbers, updater);
+			else
+				this.sellEvenly(player, fields, fieldNumbers, updater);
+		} while(notDone);
 	}
 	
 	public void runBuilder() {
