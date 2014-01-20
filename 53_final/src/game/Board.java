@@ -451,6 +451,7 @@ public class Board {
 			}
 		}
 		
+		// Stik mod alle designprincipper - viderudvikling nødvendig.
 		PropertyControl pControl = new PropertyControl(player, fields, fieldNumbers, updater, false);
 		pControl = null;
 	}
