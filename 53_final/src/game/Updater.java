@@ -75,7 +75,7 @@ public class Updater {
 			for (int f = 1; f <= (40 - currentPosition); f++) {
 				GUI.removeAllCars(player.getName());
 				GUI.setCar((currentPosition + f), player.getName());
-				sleep(100); // When testing, set to 1, or get bored
+				sleep(300); // When testing, set to 1, or get bored
 			}
 
 			// Now move the piece the fields after START
@@ -86,14 +86,14 @@ public class Updater {
 				}
 				GUI.removeAllCars(player.getName());
 				GUI.setCar(f, player.getName());
-				sleep(100); // When testing, set to 1, or get bored
+				sleep(300); // When testing, set to 1, or get bored
 			}
 		} else {
 			// Move the piece the require fields
 			for (int f = (currentPosition + 1); f <= newPosition; f++) {
 				GUI.removeAllCars(player.getName());
 				GUI.setCar(f, player.getName());
-				sleep(100); // When testing, set to 1, or get bored
+				sleep(300); // When testing, set to 1, or get bored
 			}
 		}
 
