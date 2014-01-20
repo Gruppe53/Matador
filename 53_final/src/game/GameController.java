@@ -219,6 +219,8 @@ public class GameController {
 				turn.nextTurn();
 				multiplePair = 0;
 			}
+			else if(player[turn.getCurrent()].getJailed())
+				secondTurn = false;
 			else
 				secondTurn = false;
 		} while(turn.noWinner());

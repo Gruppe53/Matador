@@ -37,7 +37,7 @@ public class ChanceDeck extends Field {
         
 		switch(Integer.parseInt(deck[pickCount].getType())) {
 		case 0:
-			// Matadorlegat
+			// Matadorlegat, ikke implementeret.
 			break;
 		case 1:
 			// Modtag penge
@@ -45,7 +45,7 @@ public class ChanceDeck extends Field {
 			break;
 		case 2:
 			// Modtag penge, af hver spiller
-			// Skal lige........... umiddelbart ret svaer at lave, uden at bryde alle designprincipper
+			// Ikke implementeret.
 			break;
 		case 3:
 			// Betal penge
@@ -54,14 +54,14 @@ public class ChanceDeck extends Field {
 		case 4:
 			// Ryk brik
 			int newPosition = player.getPosition() + Integer.parseInt(deck[pickCount].getAction());
-			player.setPosition(newPosition);
 			
-			// TODO - Virker IKKE!
 			// Hvis "ryk tre felter tilbage" traekkes, og man staar paa felt 2, fikser vi lige manuelt position
 			if(newPosition == -1) {
 				newPosition = 40;
 				player.setPosition(newPosition - 1);
 			}
+			else
+				player.setPosition(newPosition);
 			
 			updater.position(newPosition, player.getName());
 			
@@ -80,6 +80,7 @@ public class ChanceDeck extends Field {
 				player.setJailed(true);
 				player.setPosition(11);
 			}
+			
 			updater.position(Integer.parseInt(deck[pickCount].getAction()), player.getName());
 			
 			break;
