@@ -46,18 +46,41 @@ public class Board {
 		boardArray[39] = new Street("Rådhuspladsen", 8000, 8, 1000, 40000, 12000, 28000, 34000, 40000, 4000);
 	}
 	
+	/**
+	 * get Name
+	 * @param i - The field number (from array)
+	 * @return The name of the chosen field
+	 */
 	public String getName(int i) {
 		return boardArray[i].getName();
 	}
 	
+	/**
+	 * landOnField
+	 * @param i - The field number (from array)
+	 * @param player - The player which has landed on the chosen field
+	 * @param updater - The Updater
+	 */
 	public void landOnField(int i, Player player, Updater updater) {
 		boardArray[i].landOnField(player, updater);
 	}
 	
+	/**
+	 * get Field
+	 * @param i - The field number (from array)
+	 * @return Ownable field which was chosen
+	 */
 	public Ownable getField(int i) {
 		return (Ownable) boardArray[i];
 	}
 
+	/**
+	 * reset Field
+	 * @param player - The player you would like to reset
+	 * @param updater - The Updater
+	 * </p>
+	 * resets all ownership for the given player.
+	 */
 	public void resetField(Player player, Updater updater) {
 		for(int i = 0; i < boardArray.length; i++) {
 			if(boardArray[i] instanceof Ownable) {
@@ -72,9 +95,9 @@ public class Board {
 		}
 	}
 	/**
-	 * getAvailableGrounds
-	 * @param player - which player's grounds should be returned
-	 * @return - The grounds which the player owns
+	 * get Available Grounds
+	 * @param player - The choice of player 
+	 * @return - The fields the chosen player owns
 	 */
 	public String[] getAvailableGrounds(Player player) {
 		int count = 0;
@@ -168,7 +191,12 @@ public class Board {
 		
 		return availableGrounds;
 	}
-	
+	/**
+	 * get Available Pawns
+	 * @param player - The choice of player
+	 * @param pawning - choice between pawn or unpawn (true = pawn , false = unpawn)
+	 * @return list of available pawns (or unpawns depens on choice of @param pawning)
+	 */
 	public String[] getAvailablePawns(Player player, boolean pawning) {
 		int count = 0;
 		
@@ -202,6 +230,13 @@ public class Board {
 		return available;
 	}
 	
+	/**
+	 * pawn Property
+	 * @param player - The choice of player
+	 * @param choice - The name of the choice of field
+	 * @param updater - The Updater
+	 * @param pawning - choice between pawn or unpawn (true = pawn , false = unpawn)
+	 */
 	public void pawnProperty(Player player, String choice, Updater updater, boolean pawning) {
 		Ownable field = null;
 		
@@ -244,6 +279,12 @@ public class Board {
 		}
 	}
 
+	/**
+	 * buy Property
+	 * @param player - The choice of player
+	 * @param choice - The names of the choice of group of streets
+	 * @param updater - The Updater
+	 */
 	public void buyProperty(Player player, String choice, Updater updater) {
 		Street[] fields = null;
 		fields = new Street[choice.split(", ").length];
@@ -269,6 +310,14 @@ public class Board {
 		pControl = null;
 	}
 	
+	/**
+	 * contains Same Type
+	 * @param array - The array of the field types
+	 * @param v - the field type you would like to test
+	 * @return true if param:v exist in param:array, else false
+	 * </p>
+	 * tests if the chosen field type is in the chosen array.
+	 */
 	private boolean containsSameType(int[] array, int v ) {
 	    for (int e : array)
 	        if(e == v)
@@ -277,6 +326,11 @@ public class Board {
 	    return false;
 	}
 
+	/**
+	 * get PropertyGrounds
+	 * @param player - The choice of player
+	 * @return The Streets which HAS houses on them for the chosen player
+	 */
 	public String[] getPropertyGrounds(Player player) {
 		int count = 0;
 		
@@ -369,7 +423,12 @@ public class Board {
 		
 		return availableGrounds;
 	}
-
+	/**
+	 * sell Property
+	 * @param player - The choice of player
+	 * @param choice - The coice of Ownables which the chosen player would like to sell
+	 * @param updater - The Updater
+	 */
 	public void sellProperty(Player player, String choice, Updater updater) {
 		Street[] fields = null;
 		fields = new Street[choice.split(", ").length];
