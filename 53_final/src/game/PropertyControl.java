@@ -8,6 +8,14 @@ public class PropertyControl {
 	private Updater updater;
 	private boolean buying;
 	
+	/**
+	 * Property Control
+	 * @param player - The choice of player
+	 * @param fields - Street array of the group of streets
+	 * @param fieldNumbers - int array for Streets array (from original array)
+	 * @param updater - The Updater
+	 * @param buying - The choice of buying (true) or selling (false)
+	 */
 	public PropertyControl(Player player, Street[] fields, int[] fieldNumbers, Updater updater, boolean buying) {
 		do {
 			if(buying)
@@ -17,6 +25,11 @@ public class PropertyControl {
 		} while(notDone);
 	}
 	
+	/**
+	 * run Builder
+	 * </p>
+	 * runs sellEvenly or buildEvenly until done
+	 */
 	public void runBuilder() {
 		do {
 			if(buying)
@@ -26,6 +39,15 @@ public class PropertyControl {
 		} while(notDone);
 	}
 	
+	/**
+	 * sell Evenly
+	 * @param player - The choice of player
+	 * @param fields - Street array of the group of streets
+	 * @param fieldNumbers - int array for Streets array (from original array)
+	 * @param updater - The Updater
+	 * </p>
+	 * runs sell progress for houses and hotels and does it evenly
+	 */
 	private void sellEvenly(Player player, Street[] fields, int[] fieldNumbers, Updater updater) {
 		String[] options = null;
 		
@@ -113,6 +135,15 @@ public class PropertyControl {
 		}
 	}
 
+	/**
+	 * build Evenly
+	 * @param player - The choice of player
+	 * @param fields - Street array of the group of streets
+	 * @param fieldNumbers - int array for Streets array (from original array)
+	 * @param updater - The Updater
+	 * </p>
+	 * runs buy progress for houses and hotels and does it evenly
+	 */
 	private void buildEvenly(Player player, Street[] fields, int[] fieldNumbers, Updater updater) {
 		String[] options = null;
 		
@@ -209,6 +240,12 @@ public class PropertyControl {
 		}
 	}
 	
+	/**
+	 * highest Count
+	 * @param fields - Street array of the group of streets
+	 * @param buying - The choice of buying (true) or selling (false) 
+	 * @return the higest amount of houses on one street from street array
+	 */
 	private int highestCount(Street[] fields, boolean buying) {
 		int highestCount = 0;
 		boolean same = true;
@@ -227,6 +264,12 @@ public class PropertyControl {
 		return highestCount;
 	}
 	
+	/**
+	 * can Buy House
+	 * @param i - the field number for the choice of street
+	 * @param fields - Street array of the group of streets
+	 * @return true if able to buy house on chosen street, else false
+	 */
 	private boolean canBuyHouse(int i, Street[] fields) {
 		if(highestCount(fields, true) == 0)
 			return true;
@@ -236,10 +279,21 @@ public class PropertyControl {
 		return false;
 	}
 	
+	/**
+	 * get Choice
+	 * @param str - the choice string
+	 * @return the number indicator for the string
+	 */
 	private int getChoice(String str) {
 		return Integer.parseInt(str.split("\\.")[0]);
 	}
 	
+	/**
+	 * can Sell House
+	 * @param i - the field number for the choice of street
+	 * @param fields - Street array of the group of streets
+	 * @return true if able to sell house on chosen street, else false
+	 */
 	private boolean canSellHouse(int i, Street[] fields) {
 		if(fields[i].getHouses() == highestCount(fields, false))
 			return true;

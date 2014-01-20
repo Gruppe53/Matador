@@ -6,12 +6,15 @@ import boundaryToMatador.GUI;
 
 public class Updater {
 	
+	/**
+	 * Updater Constructor
+	 * </p>
+	 * Constructs updater
+	 */
 	public Updater(){
 		
 	}
 	
-
-		
 	/**
 	 * balance All
 	 * @param players - The player array
@@ -115,30 +118,77 @@ public class Updater {
 	// Everything after this point is direct GUI commands
 	//*************************************************************************************************************************
 	
+	/**
+	 * create
+	 * @param path - the choice of string
+	 * </p>
+	 * calls GUI.create(path)
+	 */
 	public void create(String path){
 		GUI.create(path);
 	}
 	
+	/**
+	 * add Player
+	 * @param name - Name of player
+	 * @param balance - account of player
+	 * @param color - color on the players car
+	 * </p>
+	 * adds player to GUI
+	 */
 	public void addPlayer(String name, int balance, Color color){
 		GUI.addPlayer(name, balance, color);
 	}
 	
+	/**
+	 * set Owner
+	 * @param fieldNumber - The choice of field (number on board)
+	 * @param name - The choice of player (string name)
+	 * </p>
+	 * sets Owner on GUI for chosen field to chosen player
+	 */
 	public void setOwner(int fieldNumber, String name){
 		GUI.setOwner(fieldNumber, name);
 	}
 	
+	/**
+	 * remove Owner
+	 * @param fieldNumber - The choice of field (number on board)
+	 * </p>
+	 * removes owner on GUI for chosen field
+	 */
 	public void removeOwner(int fieldNumber){
 		GUI.removeOwner(fieldNumber);
 	}
 	
+	/**
+	 * remove Car
+	 * @param name - The choice of player (string name)
+	 *</p>
+	 *removes all cars from GUI for the chosen player
+	 */
 	public void removeCar(String name){
 		GUI.removeAllCars(name);
 	}
 	
+	/**
+	 * set Houses
+	 * @param fieldNumber - The choice of field (number on board)
+	 * @param houseCount - amount of houses
+	 * </p>
+	 * sets the amount of houses on the chosen field
+	 */
 	public void setHouses(int fieldNumber, int houseCount){
 		GUI.setHouses(fieldNumber, houseCount);
 	}
 	
+	/**
+	 * set Hotel
+	 * @param fieldNumber - The choice of field (number on board)
+	 * @param hasHotel - has hotel (true) or not (false)
+	 * </p>
+	 * sets or remove hotel on the chosen field
+	 */
 	public void setHotel(int fieldNumber, Boolean hasHotel){
 		GUI.setHotel(fieldNumber, hasHotel);
 	}
@@ -202,6 +252,11 @@ public class Updater {
 		return GUI.getUserString(msg);
 	}
 	
+	/**
+	 * close
+	 * </p>
+	 * closes GUI
+	 */
 	public void close(){
 		GUI.close();
 	}
