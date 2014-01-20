@@ -3,8 +3,8 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" language="java" name="game.GameController" project="53_final" 
     file="/53_final/src/game/GameController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="396" y="401"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="374" y="358"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -12,8 +12,8 @@
   </class>  
   <class id="2" language="java" name="game.Board" project="53_final" file="/53_final/src/game/Board.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="719" y="824"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="485" y="699"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -21,8 +21,8 @@
   </class>  
   <class id="3" language="java" name="game.Field" project="53_final" file="/53_final/src/game/Field.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="518" y="1318"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="364" y="1012"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -30,8 +30,8 @@
   </class>  
   <class id="4" language="java" name="game.Ownable" project="53_final" file="/53_final/src/game/Ownable.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="7" y="1401"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="122" y="950"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -39,8 +39,8 @@
   </class>  
   <class id="5" language="java" name="game.Street" project="53_final" file="/53_final/src/game/Street.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-269" y="1329"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="-255" y="944"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -48,8 +48,8 @@
   </class>  
   <class id="6" language="java" name="game.Brewery" project="53_final" file="/53_final/src/game/Brewery.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-243" y="1600"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="-152" y="1191"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -57,8 +57,8 @@
   </class>  
   <class id="7" language="java" name="game.Fleet" project="53_final" file="/53_final/src/game/Fleet.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="60" y="1668"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="77" y="1240"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -66,8 +66,8 @@
   </class>  
   <class id="8" language="java" name="game.Dice" project="53_final" file="/53_final/src/game/Dice.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="583" y="166"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="566" y="160"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -75,8 +75,8 @@
   </class>  
   <class id="9" language="java" name="game.Turn" project="53_final" file="/53_final/src/game/Turn.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="353" y="83"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="306" y="93"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -84,8 +84,8 @@
   </class>  
   <class id="10" language="java" name="game.Start" project="53_final" file="/53_final/src/game/Start.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="269" y="1505"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="297" y="1213"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -93,8 +93,8 @@
   </class>  
   <class id="11" language="java" name="game.Tax" project="53_final" file="/53_final/src/game/Tax.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="802" y="1102"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="678" y="937"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -102,8 +102,8 @@
   </class>  
   <class id="12" language="java" name="game.Player" project="53_final" file="/53_final/src/game/Player.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="148" y="351"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="109" y="206"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -111,8 +111,8 @@
   </class>  
   <class id="13" language="java" name="game.ChanceDeck" project="53_final" file="/53_final/src/game/ChanceDeck.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="593" y="1680"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="497" y="1503"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -120,8 +120,8 @@
   </class>  
   <class id="14" language="java" name="game.ChanceCard" project="53_final" file="/53_final/src/game/ChanceCard.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="907" y="1654"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="759" y="1441"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -129,8 +129,8 @@
   </class>  
   <class id="15" language="java" name="game.Chance" project="53_final" file="/53_final/src/game/Chance.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="342" y="1702"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="241" y="1400"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -138,8 +138,8 @@
   </class>  
   <class id="16" language="java" name="game.GoToJail" project="53_final" file="/53_final/src/game/GoToJail.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="834" y="1258"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="672" y="1087"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -147,8 +147,8 @@
   </class>  
   <class id="17" language="java" name="game.Parking" project="53_final" file="/53_final/src/game/Parking.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="800" y="1413"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="576" y="1240"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -156,8 +156,8 @@
   </class>  
   <class id="18" language="java" name="game.PropertyControl" project="53_final" 
     file="/53_final/src/game/PropertyControl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-236" y="586"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="-242" y="193"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -165,8 +165,8 @@
   </class>  
   <class id="19" language="java" name="game.Auction" project="53_final" file="/53_final/src/game/Auction.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-112" y="966"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="-1" width="-1" x="-103" y="587"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -174,189 +174,189 @@
   </class>  
   <class id="20" language="java" name="game.Updater" project="53_final" file="/53_final/src/game/Updater.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="390" y="913"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="119" width="207" x="111" y="534"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="false" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <association id="21">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="22" name="updater"/>      
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="22" name="player"/>      
       <multiplicity id="23" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="24">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="25" name="updater"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="3"/>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="13"/>  
   </generalization>  
-  <association id="28">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="29" name="deck"/>      
-      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="32">    
+  <association id="25">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="33" name="boardArray"/>      
-      <multiplicity id="34" minimum="0" maximum="2147483647"/>    
+      <attribute id="26" name="boardArray"/>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="35">    
+  <generalization id="28">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="30">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="31" name="updater"/>      
+      <multiplicity id="32" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="34">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="36" name="board"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
+      <attribute id="35" name="board"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="39" name="turn"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="41">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="42">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="43">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="44" name="updater"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
+  <association id="37">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="38" name="updater"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="46">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <association id="47">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="48" name="player"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="50">    
-    <end type="SOURCE" refId="10"/>    
+  <generalization id="40">    
+    <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
-  <association id="51">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="52" name="fields"/>      
-      <multiplicity id="53" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="54">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <association id="55">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="56" name="owner"/>      
-      <multiplicity id="57" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="59">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="60" name="updater"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="62">    
+  <association id="41">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="63" name="roll"/>      
-      <multiplicity id="64" minimum="0" maximum="1"/>    
+      <attribute id="42" name="roll"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="65">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="66" name="player"/>      
-      <multiplicity id="67" minimum="0" maximum="1"/>    
+  <association id="44">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="45" name="owner"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="68">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="69" name="updater"/>      
-      <multiplicity id="70" minimum="0" maximum="1"/>    
+  <generalization id="47">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="49">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="50" name="updater"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="71">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="72">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <association id="73">    
+  <association id="52">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="53" name="deck"/>      
+      <multiplicity id="54" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="74" name="player"/>      
-      <multiplicity id="75" minimum="0" maximum="2147483647"/>    
+      <attribute id="56" name="player"/>      
+      <multiplicity id="57" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="76">    
+  <association id="58">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="59" name="updater"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="77" name="field"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
+      <attribute id="62" name="updater"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="64">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="65">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="66">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="67" name="turn"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="70" name="fields"/>      
+      <multiplicity id="71" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="73" name="field"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="79">    
+  <association id="75">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="80" name="players"/>      
-      <multiplicity id="81" minimum="0" maximum="2147483647"/>    
+      <attribute id="76" name="player"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="79" name="players"/>      
+      <multiplicity id="80" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="81">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

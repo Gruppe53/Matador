@@ -1,8 +1,8 @@
-description::De modtager Matador-legatet for værdigt trængende på kr. 40.000. Ved værdigt trængende forstås, at deres formue, dvs. Deres kontante penge + sk&oslash;der + bygninger, ikke overstiger 15.000.;;
-type::0;;
-action::40000;;
-count::1;;
-||
+##description::De modtager Matador-legatet for værdigt trængende på kr. 40.000. Ved værdigt trængende forstås, at deres formue, dvs. Deres kontante penge + sk&oslash;der + bygninger, ikke overstiger 15.000.;;
+##type::0;;
+##action::40000;;
+##count::1;;
+##||
 description::Modtag udbytte af deres aktier - 1.000. kr.;;
 type::1;;
 action::1000;;
