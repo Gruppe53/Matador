@@ -11,6 +11,10 @@ public class Chance extends ChanceDeck {
 		super(name);
 	}
 	
+	/**
+	 * get Name
+	 * @return The name of chance field
+	 */
 	public String getName() {
 		return this.name;
 	}

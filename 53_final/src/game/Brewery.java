@@ -13,6 +13,12 @@ public class Brewery extends Ownable {
 		this.rent = rent;
 	}
 	
+	/**
+	 * get Rent
+	 * @return returns rent based on the amount of owners breweries and players roll
+	 * </p>
+	 * except if brewery is pawned, than returns -1
+	 */
 	public int getRent() {
 		if(this.isPawned)
 			return -1;
