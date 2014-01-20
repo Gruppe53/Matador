@@ -47,6 +47,7 @@ abstract public class Ownable extends Field {
 					updater.setOwner(player.getPosition(), player.getName());
 				} else {
 					updater.showMessage("De har ikke nok penge til at købe denne grund.");
+					this.createAuction = true;
 				}
 			}
 			else {
