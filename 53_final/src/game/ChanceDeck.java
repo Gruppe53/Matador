@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Random;
 
 public class ChanceDeck extends Field {
-	private ChanceCard[] deck = new ChanceCard[34];
+	private ChanceCard[] deck = new ChanceCard[33];
 	private int cardCount = 0;
 	private int pickCount = 0;
 	private String name;
