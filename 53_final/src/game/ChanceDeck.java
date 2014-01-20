@@ -105,7 +105,9 @@ public class ChanceDeck extends Field {
 			int hotels = Integer.parseInt(str[1]);
 			
 			player.alterAccount(-(player.getHouses() * houses));
+			updater.showMessage("De betaler " + (player.getHouses() * houses) + " for " + player.getHouses() + " hus(e).");
 			player.alterAccount(-(player.getHotels() * hotels));
+			updater.showMessage("De betaler " + (player.getHotels() * houses) + " for " + player.getHotels() + " hotel(ler)");
 			break;
 		case 9:
 			// Bail

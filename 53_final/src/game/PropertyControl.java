@@ -77,6 +77,7 @@ public class PropertyControl {
 				if(canSellHouse(0, fields)) {
 					if(fields[0].getHouses() == 5) {
 						fields[0].removeHotel(fieldNumbers[0]);
+						player.setHotels((player.getHotels() - 1));
 					}
 					else {
 						fields[0].setHouses(fieldNumbers[0], (fields[0].getHouses() - 1));
@@ -84,6 +85,7 @@ public class PropertyControl {
 					
 					player.alterAccount((fields[0].getHousePrice() / 2));
 					player.setAssets(-((int) Math.floor((0.5 * fields[0].getHousePrice()))));
+					player.setHouses((fields[0].getHouses() - 1));
 				}
 				else
 					updater.showMessage("De skal sælge jævnt fra grundene.");
@@ -96,6 +98,7 @@ public class PropertyControl {
 				if(canSellHouse(1, fields)) {
 					if(fields[1].getHouses() == 5) {
 						fields[1].removeHotel(fieldNumbers[1]);
+						player.setHotels((player.getHotels() - 1));
 					}
 					else {
 						fields[1].setHouses(fieldNumbers[1], (fields[1].getHouses() - 1));
@@ -103,6 +106,7 @@ public class PropertyControl {
 					
 					player.alterAccount((fields[1].getHousePrice() / 2));
 					player.setAssets(-((int) Math.floor((0.5 * fields[1].getHousePrice()))));
+					player.setHouses((fields[1].getHouses() - 1));
 				}
 				else
 					updater.showMessage("De skal sælge jævnt fra grundene.");
@@ -115,6 +119,7 @@ public class PropertyControl {
 				if(canSellHouse(2, fields)) {
 					if(fields[2].getHouses() == 5) {
 						fields[2].removeHotel(fieldNumbers[2]);
+						player.setHotels((player.getHotels() - 1));
 					}
 					else {
 						fields[2].setHouses(fieldNumbers[2], (fields[2].getHouses() - 1));
@@ -122,6 +127,7 @@ public class PropertyControl {
 					
 					player.alterAccount((fields[2].getHousePrice() / 2));
 					player.setAssets(-((int) Math.floor((0.5 * fields[2].getHousePrice()))));
+					player.setHouses((fields[2].getHouses() - 1));
 				}
 				else
 					updater.showMessage("De skal sælge jævnt fra grundene.");
@@ -174,6 +180,7 @@ public class PropertyControl {
 					if(canBuyHouse(0, fields)) {
 						if(fields[0].getHouses() == 4) {
 							fields[0].setHotel(fieldNumbers[0]);
+							player.setHotels((player.getHotels() + 1));
 						}
 						else {
 							fields[0].setHouses(fieldNumbers[0], (fields[0].getHouses() + 1));
@@ -181,6 +188,7 @@ public class PropertyControl {
 						
 						player.alterAccount(-fields[0].getHousePrice());
 						player.setAssets((int) Math.floor((0.5 * fields[0].getHousePrice())));
+						player.setHouses((fields[0].getHouses() - 1));
 					}
 					else
 						updater.showMessage("De skal bygge jævnt på grundene.");
@@ -196,6 +204,7 @@ public class PropertyControl {
 					if(canBuyHouse(1, fields)) {
 						if(fields[1].getHouses() == 4) {
 							fields[1].setHotel(fieldNumbers[1]);
+							player.setHotels((player.getHotels() + 1));
 						}
 						else {
 							fields[1].setHouses(fieldNumbers[1], (fields[1].getHouses() + 1));
@@ -203,6 +212,7 @@ public class PropertyControl {
 						
 						player.alterAccount(-fields[1].getHousePrice());
 						player.setAssets((int) Math.floor((0.5 * fields[1].getHousePrice())));
+						player.setHouses((fields[1].getHouses() - 1));
 					}
 					else
 						updater.showMessage("De skal bygge jævnt på grundene.");
@@ -218,6 +228,7 @@ public class PropertyControl {
 					if(canBuyHouse(2, fields)) {
 						if(fields[2].getHouses() == 4) {
 							fields[2].setHotel(fieldNumbers[2]);
+							player.setHotels((player.getHotels() + 1));
 						}
 						else {
 							fields[2].setHouses(fieldNumbers[2], (fields[2].getHouses() + 1));
@@ -225,6 +236,7 @@ public class PropertyControl {
 						
 						player.alterAccount(-fields[2].getHousePrice());
 						player.setAssets((int) Math.round((0.5 * fields[2].getHousePrice())));
+						player.setHouses((fields[2].getHouses() - 1));
 					}
 					else
 						updater.showMessage("De skal bygge jævnt på grundene.");
