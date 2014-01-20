@@ -6,7 +6,7 @@ import java.lang.Exception;
 public class GameController {
 	private Player[] player;
 	private Updater updater = new Updater();
-	private TurnController turn;
+	private Turn turn;
 	private Board board = new Board();
 	private Dice roll = new Dice(1, 6, 2);
 	private boolean secondTurn = false;
@@ -249,7 +249,7 @@ public class GameController {
 	private int countPlayers() {
 		int i = updater.getUserInteger("Vælg antal spillere (mindst 2, maks 6).", 2, 6);
 
-		this.turn = new TurnController(i);
+		this.turn = new Turn(i);
 
 		return i;
 	}

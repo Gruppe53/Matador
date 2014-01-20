@@ -1,10 +1,10 @@
 package game;
 
-public class TurnController {
+public class Turn {
 	private int[] index;
 	private int current;
 	
-	public TurnController(int index) {
+	public Turn(int index) {
 		this.index = new int[index];
 		this.current = 0;
 		
