@@ -53,7 +53,7 @@ abstract public class Ownable extends Field {
 			else {
 				this.createAuction = true;
 			}
-		} else if (!isOwner(player)) {
+		} else if (!isOwner(player) && owner.getJailed()) {
 			this.multiplier = player.getRollSum();
 			
 			if(this.getRent() == -1) {
@@ -63,7 +63,8 @@ abstract public class Ownable extends Field {
 				updater.showMessage(player.getName() + " betaler " + this.getRent() + " til " + owner.getName() + ".");
 				player.payRent(getRent(), owner);
 			}
-		}
+		} else
+			updater.showMessage(owner.getName() + " sidder i fængsel, og modtager derfor ikke leje fra " + player.getName() + ".");
 	}
 	
 	/**
