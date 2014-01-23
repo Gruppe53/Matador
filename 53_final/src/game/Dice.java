@@ -32,10 +32,16 @@ public class Dice {
 			faceValue[i] = (int) (Math.random() * max + min);
 	}
 	
+	/**
+	 * Instead of a random roll, will return next value from a fixed array of face values
+	 */
 	public void cheatDice() {
 		faceValue[0] = cheatDice[count];
 		
 		count++;
+		
+		if(count >= cheatDice.length)
+			count = 0;
 	}
 	
 	/**
