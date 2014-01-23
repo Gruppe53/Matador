@@ -13,7 +13,7 @@ public class Turn {
 		this.current = 0;
 		
 		for(int i = 0; i < this.index.length; i++)
-			this.index[i] = 1;
+			this.index[i] = 0;
 	}
 	
 	/**

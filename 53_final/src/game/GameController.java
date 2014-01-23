@@ -14,7 +14,11 @@ public class GameController {
 	
 	// FINALS
 	private final int startCash = 30000;
-	private final String path = "materials/fields.txt"; 
+	private final String path = "materials/fields.txt";
+	
+	// TEST ON/OFF
+	private final boolean test = true;
+	private final int[] cheatSequence = { 9, 1, 5, 2, 3, 3 };
 
 	/**
 	 * GameController Constructor
@@ -24,9 +28,39 @@ public class GameController {
 	public GameController() {
 		// Create board with proper names and descriptions
 		updater.create(path);
+		
+		if(test) {
+			String[] name = { "Spiller 1", "Spiller 2" };
+			Color[] colorSet = { Color.RED, Color.BLUE, Color.BLACK, Color.GREEN, Color.YELLOW, Color.CYAN };
 
-		// First receive amount of players by input, then create an array with the amount of players and their names
-		createPlayers(countPlayers());
+			player = new Player[2];
+			turn = new Turn(2);
+
+			for (int i = 0; i < 2; i++) {
+				updater.addPlayer(name[i], 100000, colorSet[i]);
+
+				player[i] = new Player(name[i], 100000);
+				turn.setIndex(i, 0);
+			}
+			
+			roll = new Dice(1,1,1);
+			
+			roll.setCheatDice(cheatSequence);
+			
+			int[] a = { 1, 3, 6, 8, 11, 13 };
+			
+			for(int b : a) {
+				player[0].setPosition((b + 1));
+				board.landOnField(b, player[0], updater);
+			}
+			
+			player[0].setPosition(1);
+		}
+		
+		else {
+			// First receive amount of players by input, then create an array with the amount of players and their names
+			createPlayers(countPlayers());
+		}
 
 		// Keep playing the game 'till someone is victorious
 		do {
@@ -36,15 +70,21 @@ public class GameController {
 
 				switch(getChoice(str)) {
 				case 1:
-					// Do a new roll with dice
-					roll.throwDice();
-				
+					if(test) {
+						roll.cheatDice();
+					}
+					
+					else {
+						// Do a new roll with dice
+						roll.throwDice();
+						
+						// Draw the roll
+						updater.setDice(roll.getValue(0), roll.getValue(1));
+					}
+					
 					// Assign position-values
 					int currentPosition = player[turn.getCurrent()].getPosition();
 					int newPosition = currentPosition + roll.getSum();
-					
-					// Draw the roll
-					updater.setDice(roll.getValue(0), roll.getValue(1));
 
 					// Move the piece smoothly
 					updater.movePiece(player[turn.getCurrent()], newPosition, currentPosition);
@@ -280,7 +320,7 @@ public class GameController {
 	 * </p>
 	 * For trickering the field mechanics for a specific field for the chosen player
 	 */
-	public void fieldTricker(Player player) {
+	private void fieldTricker(Player player) {
 		// Which field has the player landed on (minus 1, since we're dealing with an array from 0-39)
 		board.landOnField((player.getPosition() - 1), player, updater);
 

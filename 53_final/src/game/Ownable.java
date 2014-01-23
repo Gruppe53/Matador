@@ -53,7 +53,7 @@ abstract public class Ownable extends Field {
 			else {
 				this.createAuction = true;
 			}
-		} else if (!isOwner(player) && owner.getJailed()) {
+		} else if (!isOwner(player) && !(owner.getJailed())) {
 			this.multiplier = player.getRollSum();
 			
 			if(this.getRent() == -1) {

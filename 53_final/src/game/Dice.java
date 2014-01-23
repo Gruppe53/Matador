@@ -4,6 +4,10 @@ public class Dice {
 	private int[] faceValue;
 	private int quantity, faceSum, min, max;
 	private boolean isPair;
+	
+	// FOR TESTING
+	private int[] cheatDice;
+	private int count = 0;
 
 	/**
 	 * Dice Constructor
@@ -15,17 +19,25 @@ public class Dice {
 		this.quantity = quantity;
 		this.min = min;
 		this.max = max;
+		
+		faceValue = new int[quantity];
 	}
+	
 	/**
 	 * "Roll" the dices. <p>
 	 * Giving each dice a randomized facevalue
 	 */
 	public void throwDice() {
-		faceValue = new int[quantity];
-
 		for(int i = 0; i < quantity; i++)
 			faceValue[i] = (int) (Math.random() * max + min);
 	}
+	
+	public void cheatDice() {
+		faceValue[0] = cheatDice[count];
+		
+		count++;
+	}
+	
 	/**
 	 * setMin
 	 * @param min - minimum facevalue for dices
@@ -33,6 +45,7 @@ public class Dice {
 	public void setMin(int min) {
 		this.min = min;
 	}
+	
 	/**
 	 * setMax
 	 * @param max - maximum facevalue for dices
@@ -40,6 +53,7 @@ public class Dice {
 	public void setMax(int max) {
 		this.max = max;
 	}
+	
 	/**
 	 * setQuan
 	 * @param quantity - the amount of dices
@@ -47,6 +61,7 @@ public class Dice {
 	public void setQuan(int quantity) {
 		this.quantity = quantity;
 	}
+	
 	/**
 	 * getQuan
 	 * @return the amount of dices
@@ -54,6 +69,15 @@ public class Dice {
 	public int getQuan() {
 		return quantity;
 	}
+	
+	/**
+	 * setCheatDice
+	 * @param i sets the roll sequence.
+	 */
+	public void setCheatDice(int[] i) {
+		this.cheatDice = i;
+	}
+	
 	/**
 	 * getValue
 	 * @param i - The number of a dice (Dice (i+1))
@@ -65,6 +89,7 @@ public class Dice {
 		else
 			return faceValue[i];
 	}
+	
 	/**
 	 * getSum
 	 * @return The sum of the facevalue on all dices
@@ -77,6 +102,7 @@ public class Dice {
 
 		return faceSum;
 	}
+	
 	/**
 	 * isPair <p>
 	 * Checks for equality of all the dices
@@ -84,6 +110,9 @@ public class Dice {
 	 */
 	public boolean isPair() {
 		isPair = true;
+		
+		if(this.quantity == 1)
+			return false;
 
 		for(int i = 0; i < (quantity - 1) && isPair; i++)
 			if(faceValue[i] != faceValue[i + 1])
