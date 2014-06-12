@@ -118,7 +118,6 @@ public class GameController {
 						}
 					} 
 					catch(Exception VisitJail) {
-						// TODO System.err.println(VisitJail);
 					}
 					break;
 				case 2:
